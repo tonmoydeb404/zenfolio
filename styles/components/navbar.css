@@ -1,0 +1,46 @@
+.navbar {
+  @apply max-w-2xl mx-auto px-0;
+}
+
+/* mobile menu */
+.navbar .navbar_links {
+  @apply -translate-x-full absolute  top-0 min-h-screen  bg-base-100  w-full  left-0 z-[99999] pt-16  opacity-0  duration-300 
+  sm:static sm:-translate-x-0 sm:min-h-fit sm:bg-transparent sm:w-auto sm:p-0 sm:opacity-100;
+}
+
+body.nav-open {
+  @apply overflow-hidden;
+}
+
+body.nav-open .navbar .navbar_links {
+  @apply opacity-100 -translate-x-0;
+}
+
+body.nav-open .navbar .navbar_links > .menu a {
+  @apply py-4 sm:py-0;
+}
+
+.navbar .navbar_links > .menu {
+  @apply sm:menu-horizontal px-5 sm:menu-compact sm:p-0;
+}
+
+.navbar .navbar_links > .menu a {
+  @apply border-b border-slate-600 font-semibold sm:font-normal sm:border-b-0;
+}
+
+.navbar .navbar_links > .menu a.navbar_active {
+  @apply text-primary border-b-2 border-b-primary font-medium;
+}
+
+.navbar .menu a:focus {
+  background-color: unset;
+  @apply text-base-content;
+}
+
+.navbar_brand {
+  @apply text-xl px-2.5 py-1.5 bg-primary font-bold inline-block rounded text-white cursor-pointer;
+}
+
+.navbar_actions {
+  @apply flex flex-row gap-2 items-stretch;
+}

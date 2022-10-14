@@ -1,0 +1,47 @@
+.index_skills {
+  @apply pb-16 mt-5;
+}
+
+.index_skills_content {
+  @apply grid  sm:grid-cols-2 gap-4;
+}
+
+.index_projects {
+  @apply pb-16 mt-5;
+}
+
+.index_projects_content {
+  @apply grid sm:grid-cols-2 gap-5;
+}
+
+.index_projects_content > .card {
+  @apply border-b-4 border-transparent hover:border-b-primary hover:-translate-y-2;
+}
+
+.index_projects_content > .card > figure {
+  @apply h-64;
+}
+
+.index_projects_footer {
+  @apply mt-5 text-end;
+}
+
+.index_hobbies {
+  @apply pb-16 mt-5;
+}
+
+.index_hobbies_content {
+  @apply grid sm:grid-cols-3 gap-5;
+}
+
+.index_contact {
+  @apply pb-16 mt-5;
+}
+
+.index_contact_content {
+  @apply flex flex-col gap-5;
+}
+
+.index_contact_footer {
+  @apply text-end pt-5;
+}

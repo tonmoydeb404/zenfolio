@@ -1,0 +1,35 @@
+.card.featured_card {
+  @apply bg-gradient-to-r p-[4px] card-compact;
+}
+
+.card.featured_card:nth-child(1) {
+  @apply from-[#833ab4] via-[#fd1d1d] to-[#fcb045];
+}
+
+.card.featured_card:nth-child(2) {
+  @apply from-[#9333EA] via-[#3B82F6] to-[#6EE7B7];
+}
+
+.card.featured_card:nth-child(3) {
+  @apply from-[#fde68a] via-[#fca5a5] to-[#fecaca];
+}
+
+.card.featured_card .card-body {
+  @apply bg-base-100  rounded-xl;
+}
+
+.card.featured_card > .card-body .card-title {
+  @apply text-xl hover:underline;
+}
+
+.card.featured_card > .card-body > .featured_card_btn {
+  @apply mt-2 text-sm inline-flex items-center gap-0.5;
+}
+
+.card.featured_card > .card-body > .featured_card_btn > .icon {
+  @apply text-primary duration-200 text-base;
+}
+
+.card.featured_card > .card-body > .featured_card_btn:hover > .icon {
+  @apply pl-2;
+}

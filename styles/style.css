@@ -1,0 +1,5 @@
+@import url("tailwindcss/base.css");
+@import url("./custom-base.css");
+@import url("tailwindcss/components.css");
+@import url("./custom-component.css");
+@import url("tailwindcss/utilities.css");

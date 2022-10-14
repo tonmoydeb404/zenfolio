@@ -1,0 +1,27 @@
+.header {
+  @apply flex gap-5 sm:gap-10 flex-col-reverse sm:flex-row items-start py-16;
+}
+
+.header_body {
+  @apply flex-1;
+}
+
+.header_title {
+  @apply text-3xl md:text-5xl font-bold mb-1;
+}
+
+.header_subtitle {
+  @apply text-lg font-normal;
+}
+
+.header_text {
+  @apply leading-normal mt-5;
+}
+
+.header_actions {
+  @apply mt-10 flex gap-3;
+}
+
+.header_actions .icon {
+  @apply text-lg;
+}

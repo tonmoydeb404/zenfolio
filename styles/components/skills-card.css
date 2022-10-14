@@ -1,0 +1,62 @@
+.skills_card {
+  @apply flex items-center pt-3 pb-6 px-3 justify-between bg-secondary  rounded overflow-hidden relative shadow dark:shadow-xl border border-gray-200 dark:border-0;
+}
+
+.skills_card::after {
+  content: "";
+  width: var(--progress);
+  animation: loadProgress 1s;
+  @apply bg-primary absolute bottom-0 left-0 h-2 rounded-r;
+}
+
+@keyframes loadProgress {
+  from {
+    width: 0%;
+  }
+}
+
+.skills_title {
+  @apply font-medium text-lg;
+}
+
+.skills_progress {
+  @apply inline-block text-sm p-2 bg-primary rounded font-semibold text-white;
+}
+
+/* .skills_card {
+  @apply inline-flex items-center text-lg gap-1 cursor-progress py-2 px-4 rounded text-white;
+} */
+
+/* 
+<div class="skills_content flex flex-wrap gap-3">
+            <div class="skills_card bg-[#e54d26]">
+              <i class="devicon-html5-plain"></i>
+              <h3>HTML</h3>
+            </div>
+            <div class="skills_card bg-[#3d8fc6]">
+              <i class="devicon-css3-plain"></i>
+              <h3>CSS</h3>
+            </div>
+            <div class="skills_card bg-[#f0db4f] text-black">
+              <i class="devicon-javascript-plain"></i>
+              <h3>JavaScript</h3>
+            </div>
+            <div class="skills_card bg-[#59407f]">
+              <i class="devicon-bootstrap-plain"></i>
+              <h3>Bootstrap</h3>
+            </div>
+            <div class="skills_card bg-[#2298bd]">
+              <i class="devicon-tailwindcss-plain"></i>
+
+              <h3>TailwindCSS</h3>
+            </div>
+            <div class="skills_card bg-[#61dafb] text-black">
+              <i class="devicon-react-original"></i>
+              <h3>React JS</h3>
+            </div>
+            <div class="skills_card bg-[#fff] text-black">
+              <i class="devicon-nextjs-original colored"></i>
+              <h3>Next Js</h3>
+            </div>
+          </div>
+*/

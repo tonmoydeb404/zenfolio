@@ -1,0 +1,28 @@
+/* project cards */
+.card.project_card {
+  @apply card-compact bg-secondary rounded duration-200 overflow-hidden shadow dark:shadow-xl border border-gray-200 dark:border-0;
+}
+
+.card.project_card > figure > img {
+  @apply w-full h-full object-cover object-center;
+}
+
+.card.project_card .card-body > p {
+  @apply leading-relaxed;
+}
+
+.card.project_card .card-actions {
+  @apply mt-5;
+}
+
+.card.project_card .card-actions > a {
+  @apply text-2xl hover:text-primary;
+}
+
+.card.project_card .project_card_tags {
+  @apply flex gap-2 flex-wrap mt-2;
+}
+
+.card.project_card .project_card_tags > span {
+  @apply text-sm font-light opacity-70;
+}

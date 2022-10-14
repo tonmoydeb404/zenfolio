@@ -1,0 +1,15 @@
+.btn > .icon {
+  @apply text-lg;
+}
+
+.error_msg {
+  @apply px-2 py-5  font-medium rounded-sm  text-center flex items-center justify-center gap-1;
+}
+
+.error_msg-1 {
+  @apply bg-red-600/30 dark:bg-red-600/20 text-red-600;
+}
+
+.error_msg-2 {
+  @apply bg-blue-600/30 dark:bg-blue-600/20 text-blue-600;
+}

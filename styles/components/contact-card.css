@@ -1,0 +1,14 @@
+.card.contact_card {
+  @apply card-compact card-side rounded  bg-secondary shadow dark:shadow-xl border border-gray-200 dark:border-y-0 dark:border-r-0 hover:-translate-y-1 duration-200 border-l-4 border-transparent hover:border-l-primary;
+}
+.card.contact_card > figure {
+  @apply self-start pt-4 text-4xl pl-4 text-primary;
+}
+
+.card.contact_card .card-body {
+  @apply gap-0.5;
+}
+
+.card.contact_card .contact_card_link {
+  @apply text-base hover:text-primary inline-block self-start;
+}

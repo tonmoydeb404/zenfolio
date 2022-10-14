@@ -1,0 +1,3 @@
+.snippets_content {
+  @apply grid  gap-5 pb-16;
+}

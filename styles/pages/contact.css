@@ -1,0 +1,19 @@
+.contact_social .divider {
+  @apply before:content-none;
+}
+
+.contact_form {
+  @apply grid sm:grid-cols-2 gap-3 pb-16;
+}
+
+.contact_form .input {
+  @apply input-bordered w-full;
+}
+
+.contact_form .textarea {
+  @apply textarea-bordered w-full h-64;
+}
+
+.contact_cards {
+  @apply grid grid-cols-1 gap-2;
+}

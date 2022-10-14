@@ -1,0 +1,15 @@
+.portfolio_projects {
+  @apply pb-16 mt-5;
+}
+
+.portfolio_projects_filter {
+  @apply gap-1 sm:gap-0.5;
+}
+
+.portfolio_projects_filter > input {
+  --rounded-btn: 0;
+}
+
+.portfolio_projects_content {
+  @apply grid grid-cols-1 sm:grid-cols-2 gap-5;
+}

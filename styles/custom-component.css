@@ -1,0 +1,21 @@
+@import url("./components/skills-card.css");
+@import url("./components/project-card.css");
+@import url("./components/hobby-card.css");
+@import url("./components/contact-card.css");
+@import url("./components/featured-card.css");
+@import url("./components/blog-card.css");
+@import url("./components/snippet-card.css");
+@import url("./components/navbar.css");
+@import url("./components/footer.css");
+@import url("./components/header.css");
+@import url("./components/social.css");
+@import url("./components/box.css");
+@import url("./components/common.css");
+
+/* pages style */
+@import url("./pages/index.css");
+@import url("./pages/portfolio.css");
+@import url("./pages/blog.css");
+@import url("./pages/snippets.css");
+@import url("./pages/post.css");
+@import url("./pages/contact.css");

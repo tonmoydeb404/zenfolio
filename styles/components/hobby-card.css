@@ -1,0 +1,11 @@
+.card.hobby_card {
+  @apply bg-secondary rounded hover:-translate-y-2 duration-200 shadow dark:shadow-xl border border-gray-200 dark:border-0;
+}
+
+.card.hobby_card .card-body {
+  @apply items-center text-center;
+}
+
+.card.hobby_card .card-body > .icon {
+  @apply text-7xl text-primary mb-2;
+}

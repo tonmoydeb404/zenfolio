@@ -1,0 +1,121 @@
+{
+  "title": "Tonmoy Deb - Frontend Developer",
+  "description": "a self-taught programmer from Bangladesh, who loves to explore the binary world.",
+  "logoText": "TD",
+  "thumbnail": "https://media.graphassets.com/output=format:jpg/YzDgwu8xRVKVWS06u7E6",
+  "author": "Tonmoy Deb",
+  "domain": "tonmoydeb.com",
+  "keywords": [
+    "tonmoydeb",
+    "tonmoy",
+    "tonmoydeb404",
+    "tdtonmoydeb",
+    "devtom",
+    "devtonmoy",
+    "frontend developer",
+    "webdesigner",
+    "react js",
+    "next js",
+    "tonmoydeb.com",
+    "www.tonmoydeb.com",
+    "https://www.tonmoydeb.com"
+  ],
+  "socialLinks": [
+    {
+      "title": "Facebook",
+      "id": "cl8y8bp4s0m7o0apoplmwkq4x",
+      "path": "#"
+    },
+    {
+      "title": "Instagram",
+      "id": "cl8y8bp4s0m7m0apolr5vvhxi",
+      "path": "#"
+    },
+    {
+      "title": "Twitter",
+      "id": "cl8y8bp4r0m7k0apoz5d68skc",
+      "path": "#"
+    },
+    {
+      "title": "Linkedin",
+      "id": "cl8y8bp4r0m7i0apos61icpa2",
+      "path": "#"
+    },
+    {
+      "title": "Whatsapp",
+      "id": "cl8y8bp4q0m7g0apo0hvxun46",
+      "path": "#"
+    },
+    {
+      "title": "Behance",
+      "id": "cl8y8bp4q0m7e0apommlxfw2y",
+      "path": "#"
+    }
+  ],
+  "legalLinks": [
+    {
+      "id": "cl8y8bp4t0m7s0apoozacuzlr",
+      "path": "/terms-condition",
+      "title": "Terms & condition"
+    },
+    {
+      "id": "cl8y8bp4t0m7q0aposqxkggbl",
+      "path": "/privacy-policy",
+      "title": "Privacy & Policy"
+    }
+  ],
+  "navbarLinks": [
+    {
+      "path": "/about-me",
+      "title": "About",
+      "id": "cl8y86viy0m3a0apohmb6zfx7"
+    },
+    {
+      "path": "/portfolio",
+      "title": "Portfolio",
+      "id": "cl8y86viy0m380apod4s5xv5y"
+    },
+    {
+      "path": "/blog",
+      "title": "Blog",
+      "id": "cl8y86vix0m360apob8jhu39b"
+    },
+    {
+      "path": "/snippets",
+      "title": "Snippet",
+      "id": "cl8y86vix0m340apowvw7f7sk"
+    },
+    {
+      "path": "/contact",
+      "title": "Contact",
+      "id": "cl8y86viw0m320apomnta8vkl"
+    }
+  ],
+  "pageLinks": [
+    {
+      "id": "cl8y86viz0m3e0apod0uysjt2",
+      "path": "/",
+      "title": "Home"
+    },
+    {
+      "id": "cl8y86viz0m3c0apota54tnox",
+      "path": "/about-me",
+      "title": "About"
+    },
+    {
+      "id": "cl8y8bp4p0m7c0apoi3pkgc7v",
+      "path": "/contact",
+      "title": "Contact"
+    },
+    {
+      "id": "cl8y8bp4p0m7a0apo23uvpd4f",
+      "path": "/portfolio",
+      "title": "Portfolio"
+    },
+    {
+      "id": "cl8y8bp4o0m780apo3ltn0kdq",
+      "path": "/blog",
+      "title": "Blog"
+    }
+  ]
+}

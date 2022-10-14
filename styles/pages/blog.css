@@ -1,0 +1,26 @@
+/* blog search */
+.blog_search {
+  @apply mt-5 shadow-sm rounded-sm overflow-hidden;
+}
+
+.blog_search .input {
+  @apply bg-secondary flex-1;
+}
+
+/* blog featured style */
+.blog_featured {
+  @apply pb-16;
+}
+
+.blog_featured_content {
+  @apply grid sm:grid-cols-2 md:grid-cols-3 gap-5;
+}
+
+/* blog feed style */
+.blog_feed {
+  @apply mt-5 pb-16;
+}
+
+.blog_feed_content {
+  @apply flex flex-col gap-5;
+}

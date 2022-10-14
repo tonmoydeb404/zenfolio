@@ -1,0 +1,18 @@
+.card.snippet_card {
+  @apply card-compact sm:card-side rounded  bg-secondary shadow dark:shadow-xl border border-gray-200 dark:border-y-0 dark:border-r-0 duration-200 border-l-4 border-transparent hover:border-l-primary;
+}
+.card.snippet_card > figure {
+  @apply self-start pt-4 text-4xl pl-3 sm:pl-4 text-primary;
+}
+
+.card.snippet_card .card-body {
+  @apply gap-0.5;
+}
+
+.card.snippet_card .card-title {
+  @apply hover:text-primary;
+}
+
+.card.snippet_card .card-text {
+  @apply text-base opacity-80;
+}

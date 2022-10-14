@@ -1,0 +1,6 @@
+.box_header_title {
+  @apply text-2xl md:text-3xl font-bold;
+}
+.box_header_text {
+  @apply mt-2 text-base leading-relaxed;
+}

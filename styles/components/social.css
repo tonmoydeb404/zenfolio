@@ -1,0 +1,19 @@
+.social {
+  @apply pb-16;
+}
+
+.social .divider {
+  @apply h-auto;
+}
+
+.social .divider::before {
+  @apply hidden sm:block;
+}
+
+.social .menu {
+  @apply menu-horizontal flex-nowrap text-3xl;
+}
+
+.social .menu a {
+  @apply hover:text-primary active:bg-primary/20 px-3 py-2 sm:px-4 sm:py-3;
+}

@@ -1,0 +1,3 @@
+.footer {
+  @apply pb-10 pt-10 mt-10 border-t border-slate-700 px-5 text-base-content;
+}
