@@ -68,6 +68,8 @@ export const authorQuery = gql`
       bio
       cvLink
       email
+      ctaTitle
+      ctaLink
       externalLinks {
         id
         icon
