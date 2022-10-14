@@ -37,10 +37,12 @@ export default function Home({ data, error }) {
             <Button href={data.cvLink} color="primary">
               <i className="bx bx-cloud-download icon"></i> &nbsp; Download Cv
             </Button>
-            {data.cta && (
-              <Button href={data.cta?.link} color="warning">
-                {data.cta?.title}
+            {data.ctaLink ? (
+              <Button href={data.ctaLink} color="warning">
+                {data.ctaTitle}
               </Button>
+            ) : (
+              ""
             )}
           </div>
         </Header>
