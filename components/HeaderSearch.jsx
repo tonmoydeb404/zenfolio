@@ -36,7 +36,7 @@ const HeaderSearch = ({ className = "", basePath = "" }) => {
       <input
         type="text"
         placeholder="Search here…"
-        className="input bg-slate-800 flex-1 pl-10 focus:outline-none"
+        className="input bg-secondary flex-1 pl-10 focus:outline-none"
         name="query"
         onChange={(e) => handleChange(e.target.value)}
         value={query}

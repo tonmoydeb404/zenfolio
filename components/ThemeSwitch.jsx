@@ -6,12 +6,19 @@ const ThemeSwitch = () => {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
   const toggleTheme = () => {
-    setTheme(theme == "dark" ? "light" : "dark");
+    const ctheme = theme == "dark" ? "light" : "dark";
+    setTheme(ctheme);
   };
 
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  useEffect(() => {
+    if (mounted) {
+      document.documentElement.classList.toggle("dark", theme == "dark");
+    }
+  }, [theme, mounted]);
 
   if (!mounted) {
     return null;
