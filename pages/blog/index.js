@@ -132,9 +132,13 @@ const Blog = ({ data, error }) => {
                 className="blog_feed_content"
                 scrollThreshold={0.9}
                 endMessage={
-                  <p className="error_msg error_msg-3 mt-5">
-                    thats all for today
-                  </p>
+                  allData.length > dataPerPage ? (
+                    <p className="error_msg error_msg-3 mt-5">
+                      thats all for today
+                    </p>
+                  ) : (
+                    ""
+                  )
                 }
               >
                 {currentData.map((item) => (

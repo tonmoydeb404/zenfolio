@@ -104,9 +104,13 @@ const Portfolio = ({ data, projectTypes, error }) => {
               className="portfolio_projects_content"
               scrollThreshold={1}
               endMessage={
-                <p className="error_msg error_msg-3 mt-5 col-span-2">
-                  thats all for today
-                </p>
+                allData.length > dataPerPage ? (
+                  <p className="error_msg error_msg-3 mt-5">
+                    thats all for today
+                  </p>
+                ) : (
+                  ""
+                )
               }
             >
               {currentData.map((project) => (
