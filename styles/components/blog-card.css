@@ -8,8 +8,8 @@
   }
 }
 
-.card.blog_card > .card-body > .card-title {
-  @apply hover:text-primary line-clamp-2;
+.card.blog_card > .card-body .card-title {
+  @apply hover:text-primary line-clamp-2 hover:underline;
 }
 
 .card.blog_card > .card-body > .card-text {

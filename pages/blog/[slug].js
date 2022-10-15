@@ -41,15 +41,15 @@ export const getStaticProps = async ({ params }) => {
 const BlogPost = ({ data, error }) => {
   return (
     <>
-      <SEOHead
-        title={data.title ? `${data.title} - Tonmoy Deb` : null}
-        path={data.slug ? `/blog/${data.slug}` : null}
-        description={data.description}
-        image={data.thumbnail?.url}
-        tags={data.tags}
-      />
-
       <FetchErrorHandler error={error} className="error_msg-1">
+        <SEOHead
+          title={data.title ? `${data.title} - Tonmoy Deb` : null}
+          path={data.slug ? `/blog/${data.slug}` : null}
+          description={data.description}
+          image={data.thumbnail?.url}
+          tags={data.tags}
+        />
+
         {/* bread crumb area */}
         <div className="text-sm breadcrumbs pt-5">
           <ul>
@@ -74,23 +74,30 @@ const BlogPost = ({ data, error }) => {
               sizes="100vw"
               width={0}
               height={0}
-              className="post_header_img"
+              className="post_header_img min-h-[200px]"
               src={data.thumbnail?.url}
               alt={data.title}
+              priority
             />
           )}
 
           <div className="post_header_info">
             {/* author info */}
             <div className="post_author">
-              <Image
-                width={0}
-                height={0}
-                sizes="100vw"
-                src={data.author?.avatar?.url}
-                alt={data.author?.name}
-              />
-              <h2 className="font-semibold">{data.author?.name}</h2>
+              {data.author?.avatar?.url && data.author?.name ? (
+                <>
+                  <Image
+                    width={0}
+                    height={0}
+                    sizes="100vw"
+                    src={data.author?.avatar?.url}
+                    alt={data.author?.name}
+                  />
+                  <h2 className="font-semibold">{data.author?.name}</h2>
+                </>
+              ) : (
+                ""
+              )}
             </div>
 
             {/* meta info */}

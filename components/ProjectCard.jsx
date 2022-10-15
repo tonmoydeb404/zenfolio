@@ -41,7 +41,8 @@ const ProjectCard = ({
             width={0}
             height={0}
             alt={title}
-            className="w-full h-auto"
+            className="w-full h-auto min-h-[200px]"
+            loading="lazy"
           />
         </figure>
       ) : (

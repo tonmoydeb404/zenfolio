@@ -77,6 +77,7 @@ const SnippetPost = ({ data, error }) => {
               className="post_header_img"
               src={data.thumbnail?.url}
               alt={data.title}
+              priority
             />
           )}
 
