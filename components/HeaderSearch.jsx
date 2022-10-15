@@ -19,7 +19,7 @@ const HeaderSearch = ({ className = "", basePath = "" }) => {
 
     // define the path
     if (value && typeof value == "string" && value.length) {
-      path = `/${basePath}?q=${value}`;
+      path = `${basePath}?q=${value}`;
     } else {
       path = basePath;
     }
