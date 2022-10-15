@@ -1,12 +1,11 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { Menu, Navbar, Swap } from "react-daisyui";
+import { Menu, Navbar } from "react-daisyui";
 import DB from "../constants/siteDetails.json";
-import useTheme from "../hooks/useTheme";
 import NavLink from "./NavLink";
+import ThemeSwitch from "./ThemeSwitch";
 
 const NavbarSection = () => {
-  const { theme, toggleTheme } = useTheme();
   const [mobileMenu, setMobileMenu] = useState(false);
 
   useEffect(() => {
@@ -43,14 +42,7 @@ const NavbarSection = () => {
 
       <Navbar.End>
         <div className="navbar_actions">
-          <Swap
-            className="btn btn-square text-xl btn-sm px-5 py-5"
-            rotate
-            onElement={<i className="bx bx-moon"></i>}
-            offElement={<i className="bx bx-sun"></i>}
-            checked={theme == "dark"}
-            onChange={toggleTheme}
-          ></Swap>
+          <ThemeSwitch />
           <label className="swap swap-rotate btn btn-warning text-xl btn-sm px-3 py-5 sm:hidden z-[100000]">
             <input
               type="checkbox"

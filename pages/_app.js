@@ -1,4 +1,5 @@
 import "boxicons/css/boxicons.min.css";
+import { ThemeProvider } from "next-themes";
 import Head from "next/head";
 import { Router } from "next/router";
 import NProgress from "nprogress";
@@ -22,7 +23,7 @@ function MyApp({ Component, pageProps }) {
   }, []);
 
   return (
-    <>
+    <ThemeProvider defaultTheme="dark" storageKey="ZENFOLIO_THEME">
       <Head>
         <link
           rel="apple-touch-icon"
@@ -110,7 +111,7 @@ function MyApp({ Component, pageProps }) {
           <FooterSection />
         </div>
       </div>
-    </>
+    </ThemeProvider>
   );
 }
 
