@@ -202,6 +202,12 @@ export const projectsQuery = gql`
       description
       projectType
     }
+
+    __type(name: "ProjectType") {
+      enumValues {
+        name
+      }
+    }
   }
 `;
 

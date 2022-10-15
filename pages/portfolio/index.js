@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
+import InfiniteScroll from "react-infinite-scroll-component";
 import FetchErrorHandler from "../../components/FetchErrorHandler";
 import FilterComponent from "../../components/FilterComponent";
 import Header from "../../components/Header";
-import ProjectCard from "../../components/ProjectCard";
+import ProjectCard, { ProjectCardSkeleton } from "../../components/ProjectCard";
 import SEOHead from "../../components/SEOHead";
 import { getProjectsData } from "../../services";
 
@@ -11,48 +12,62 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      data: projects.data || [],
+      data: projects.data.projects || [],
+      projectTypes: projects.data.projectTypes || [],
       error: projects.error,
     },
   };
 };
 
-const Portfolio = ({ data, error }) => {
-  // filter options
+const Portfolio = ({ data, projectTypes, error }) => {
+  // filter states
   const [filterOptions, setFilterOptions] = useState([]);
-
-  // portfolio filter
   const [filter, setFilter] = useState("ALL");
 
-  // filtered projects
-  const [filteredProjects, setFilteredProjects] = useState([]);
+  const [allData, setAllData] = useState([]);
+
+  // pagination states
+  const [currentData, setCurrentData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [dataPerPage] = useState(4);
+  const hasMore = allData.length != currentData.length;
 
   // filter options
   useEffect(() => {
-    const fOptions = [];
-    data.forEach((project) => {
-      if (!fOptions.includes(project.projectType)) {
-        fOptions.push(project.projectType);
-      }
-    });
-    setFilterOptions(fOptions);
-  }, [data]);
+    if (projectTypes && projectTypes.length) {
+      setFilterOptions([...projectTypes]);
+    }
+  }, [projectTypes]);
 
-  // filter projects
+  // update and filter all projects from data
   useEffect(() => {
-    setFilteredProjects(() => {
-      const filtered =
-        data && data.length
-          ? data.filter((item) => {
-              if (filter == "ALL") return true;
+    if (data && data?.length) {
+      // clone projects
+      let projects = [...data];
 
-              return filter == item.projectType;
-            })
-          : [];
+      // filter projects
+      if (filter && filter != "ALL") {
+        projects = projects.filter((item) => {
+          return filter == item.projectType;
+        });
+      }
 
-      return filtered;
-    });
-  }, [filter, data]);
+      // update projects
+      setAllData([...projects]);
+    }
+  }, [data, filter]);
+
+  // update current posts for pagination
+  useEffect(() => {
+    if (allData && allData.length) {
+      setCurrentData([...allData.slice(0, dataPerPage * currentPage)]);
+    }
+  }, [allData, dataPerPage, currentPage]);
+
+  // handle load more fuction for pagination
+  const handleLoadMore = () => {
+    setCurrentPage((prevValue) => prevValue + 1);
+  };
 
   return (
     <>
@@ -75,21 +90,43 @@ const Portfolio = ({ data, error }) => {
             value={filter}
           />
 
-          <div className="portfolio_projects_content">
-            {filteredProjects && filteredProjects.length
-              ? filteredProjects.map((project) => (
-                  <ProjectCard
-                    key={project.id}
-                    title={project.title}
-                    text={project.description}
-                    tags={project.stacks}
-                    imgSrc={project.thumbnail?.url}
-                    srcCode={project.sourceLink}
-                    demo={project.demoLink}
-                  />
-                ))
-              : "no more projects"}
-          </div>
+          {allData && allData.length ? (
+            <InfiniteScroll
+              dataLength={currentData.length}
+              next={handleLoadMore}
+              hasMore={hasMore}
+              loader={
+                <>
+                  <ProjectCardSkeleton />
+                  <ProjectCardSkeleton />
+                </>
+              }
+              className="portfolio_projects_content"
+              scrollThreshold={1}
+              endMessage={
+                <p className="error_msg error_msg-3 mt-5 col-span-2">
+                  thats all for today
+                </p>
+              }
+            >
+              {currentData.map((project) => (
+                <ProjectCard
+                  key={project.id}
+                  title={project.title}
+                  text={project.description}
+                  tags={project.stacks}
+                  imgSrc={project.thumbnail?.url}
+                  srcCode={project.sourceLink}
+                  demo={project.demoLink}
+                />
+              ))}
+            </InfiniteScroll>
+          ) : (
+            <div className="portfolio_projects_content">
+              <ProjectCardSkeleton />
+              <ProjectCardSkeleton />
+            </div>
+          )}
         </div>
       </FetchErrorHandler>
     </>

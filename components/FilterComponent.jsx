@@ -19,20 +19,20 @@ const FilterComponent = ({
         onChange={onChange}
       />
 
-      {list &&
-        list.length &&
-        list.map((item) => (
-          <input
-            key={item}
-            type="radio"
-            name={name}
-            data-title={item}
-            value={item}
-            className="btn"
-            onChange={onChange}
-            checked={value === item}
-          />
-        ))}
+      {list && list.length
+        ? list.map((item) => (
+            <input
+              key={item.name}
+              type="radio"
+              name={name.name}
+              data-title={item.name}
+              value={item.name}
+              className="btn"
+              onChange={onChange}
+              checked={value === item.name}
+            />
+          ))
+        : ""}
     </div>
   );
 };

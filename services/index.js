@@ -209,7 +209,9 @@ export const getProjectsData = async (query = projectsQuery) => {
         message: data?.errors[0]?.message,
       };
 
-    return returnType({ data: data.projects });
+    return returnType({
+      data: { projects: data.projects, projectTypes: data.__type?.enumValues },
+    });
   } catch (error) {
     return returnType({
       error: { isError: true, error: JSON.stringify(error) },
