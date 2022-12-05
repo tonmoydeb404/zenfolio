@@ -6,7 +6,7 @@ const FetchErrorHandler = ({
   className = "",
   text = "something wents to wrong",
 }) => {
-  return error.isError ? (
+  return error ? (
     <>
       {/* {console.warn(data.error)} */}
       <div className={`error_msg ${className}`}>

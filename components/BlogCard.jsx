@@ -51,7 +51,7 @@ const BlogCard = ({ title = null, link = null, text = null, tags = [] }) => {
           <div className="blog_card_tags">
             {tags && tags.length
               ? tags.map((tag) => (
-                  <Link key={tag} href={`/blog?q=${tag.split(" ").join("-")}`}>
+                  <Link key={tag} href={`/blog?q=${tag.toLowerCase()}`}>
                     {tag}
                   </Link>
                 ))

@@ -1,6 +1,6 @@
 /* blog search */
 .blog_search {
-  @apply mt-5 shadow-sm rounded-sm overflow-hidden;
+  @apply mt-5 shadow-sm rounded overflow-hidden;
 }
 
 .blog_search .input {

@@ -13,7 +13,7 @@
 }
 
 .card.blog_card > .card-body > .card-text {
-  @apply line-clamp-3;
+  @apply line-clamp-3 text-sm leading-6;
 }
 
 .card.blog_card .blog_card_footer {

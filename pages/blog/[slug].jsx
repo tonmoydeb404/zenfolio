@@ -1,16 +1,16 @@
-import Image from "next/future/image";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import FetchErrorHandler from "../../components/FetchErrorHandler";
 import SEOHead from "../../components/SEOHead";
-import { getBlogData, getBlogPostData } from "../../services";
+import { getArticle, getArticleList } from "../../services/cms";
 
 export const getStaticPaths = async () => {
-  const blogs = await getBlogData();
+  const response = await getArticleList();
 
   const paths =
-    !blogs.error?.isError && blogs.data && blogs.data?.length
-      ? blogs.data.map((data) => {
+    !response.error && response.articles && response.articles?.length
+      ? response.articles.map((data) => {
           return {
             params: {
               slug: data.slug,
@@ -26,16 +26,18 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params }) => {
-  const blog = await getBlogPostData(params.slug);
+  const response = await getArticle({ slug: params.slug });
 
-  return blog.data == null
-    ? { notFound: true }
-    : {
-        props: {
-          data: blog.data || {},
-          error: blog.error,
-        },
-      };
+  if (response.error?.code == 404) {
+    return { notFound: true };
+  }
+
+  return {
+    props: {
+      data: response.article || {},
+      error: response.error ? true : false,
+    },
+  };
 };
 
 const BlogPost = ({ data, error }) => {
@@ -54,21 +56,17 @@ const BlogPost = ({ data, error }) => {
         <div className="text-sm breadcrumbs pt-5">
           <ul>
             <li>
-              <Link href={"/"}>
-                <a>Home</a>
-              </Link>
+              <Link href={"/"}>Home</Link>
             </li>
             <li>
-              <Link href={"/blog"}>
-                <a>blog</a>
-              </Link>
+              <Link href={"/blog"}>blog</Link>
             </li>
             <li></li>
           </ul>
         </div>
 
         {/* post header section */}
-        <div className="post_header pt-5 pb-10 sm:pb-14">
+        <div className="post_header pt-5 pb-2 sm:pb-5">
           {data?.thumbnail && (
             <Image
               sizes="100vw"
@@ -84,13 +82,13 @@ const BlogPost = ({ data, error }) => {
           <div className="post_header_info">
             {/* author info */}
             <div className="post_author">
-              {data.author?.avatar?.url && data.author?.name ? (
+              {data.author?.image?.url && data.author?.name ? (
                 <>
                   <Image
                     width={0}
                     height={0}
                     sizes="100vw"
-                    src={data.author?.avatar?.url}
+                    src={data.author?.image?.url}
                     alt={data.author?.name}
                   />
                   <h2 className="font-semibold">{data.author?.name}</h2>
@@ -103,7 +101,7 @@ const BlogPost = ({ data, error }) => {
             {/* meta info */}
             <div className="post_meta_info">
               <div className="dot"></div>
-              <span>{new Date(data.postDate).toDateString()}</span>
+              <span>{new Date(data.date).toDateString()}</span>
             </div>
           </div>
 
@@ -119,12 +117,12 @@ const BlogPost = ({ data, error }) => {
 
         {/* post tags */}
         {data.tags && data.tags?.length ? (
-          <div className="post_tags pb-16">
+          <div className="post_tags pb-10">
             <h2 className="post_tags_title"># Post Tags:</h2>
             <div className="post_tags_content">
               {data.tags.map((tag) => (
-                <Link href={`/blog?q=${tag.split(" ").join("-")}`} key={tag}>
-                  <a>{tag}</a>
+                <Link href={`/blog?q=${tag.toLowerCase()}`} key={tag}>
+                  {tag}
                 </Link>
               ))}
             </div>

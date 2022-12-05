@@ -2,7 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { Card } from "react-daisyui";
-import { BiGitBranch, BiLinkExternal } from "react-icons/bi";
+import {
+  BiBookOpen,
+  BiGitBranch,
+  BiLinkExternal,
+  BiRightArrowAlt,
+} from "react-icons/bi";
 
 export const ProjectCardSkeleton = () => {
   return (
@@ -30,6 +35,7 @@ const ProjectCard = ({
   demo = null,
   srcCode = null,
   tags = [],
+  slug = null,
 }) => {
   return (
     <Card className=" project_card">
@@ -49,12 +55,32 @@ const ProjectCard = ({
         ""
       )}
       <Card.Body>
-        {title ? <Card.Title>{title}</Card.Title> : ""}
+        {title ? (
+          <Link
+            href={`/portfolio/${slug}`}
+            className="flex items-center justify-between gap-1"
+          >
+            <Card.Title className="line-clamp-1">{title}</Card.Title>
+
+            <span className="text-2xl text-primary hover:text-primary-focus hover:translate-x-2 duration-300">
+              <BiRightArrowAlt />
+            </span>
+          </Link>
+        ) : (
+          ""
+        )}
         {text ? <p>{text}</p> : ""}
 
         <div className="card-actions">
+          <Link
+            href={`/portfolio/${slug}`}
+            className="card-actions-icon mr-auto"
+          >
+            <BiBookOpen />
+          </Link>
+
           {demo ? (
-            <Link href={demo}>
+            <Link href={demo} className="card-actions-icon">
               <BiLinkExternal />
             </Link>
           ) : (
@@ -62,7 +88,7 @@ const ProjectCard = ({
           )}
 
           {srcCode ? (
-            <Link href={srcCode}>
+            <Link href={srcCode} className="card-actions-icon">
               <BiGitBranch />
             </Link>
           ) : (

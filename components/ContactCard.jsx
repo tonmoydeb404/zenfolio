@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { Card } from "react-daisyui";
+import icons from "../constants/icons";
 
 const ContactCard = ({
   icon = null,
@@ -12,7 +13,7 @@ const ContactCard = ({
     <Card className="contact_card">
       {icon ? (
         <figure>
-          <i className={`bx ${icon}`}></i>
+          <span className="icon">{icons[icon]}</span>
         </figure>
       ) : (
         ""

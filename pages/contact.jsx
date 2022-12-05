@@ -6,15 +6,15 @@ import FetchErrorHandler from "../components/FetchErrorHandler";
 import Header from "../components/Header";
 import LinkIconList from "../components/LinkIconList";
 import SEOHead from "../components/SEOHead";
-import { getAuthorData } from "../services";
+import { getAuthor } from "../services/cms";
 
 export const getStaticProps = async () => {
-  const author = await getAuthorData();
+  const response = await getAuthor({ authorID: "tonmoy-deb" });
 
   return {
     props: {
-      data: author.data || {},
-      error: author.error,
+      data: response.author || {},
+      error: response.error || false,
     },
   };
 };
@@ -35,7 +35,7 @@ const Contact = ({ data, error }) => {
           {/* social section */}
           <div className="social contact_social pb-0">
             <Divider>
-              <LinkIconList list={data.externalLinks} />
+              <LinkIconList list={data.socialLinks} />
             </Divider>
           </div>
         </Header>
@@ -45,18 +45,16 @@ const Contact = ({ data, error }) => {
 
         {/* contact cards */}
         <div className="contact_cards pb-16">
-          <ContactCard
-            title={"Email"}
-            link={`mailto:${data.email}`}
-            text={data.email}
-            icon={"bx-envelope"}
-          />
-          <ContactCard
-            title={"Adress"}
-            link={data.addressLink}
-            icon={"bx-map"}
-            text={data.addressText}
-          />
+          {data.contacts &&
+            data.contacts.map((item) => (
+              <ContactCard
+                title={item.title}
+                link={item.path}
+                text={item.text}
+                icon={item.iconName}
+                key={item.id}
+              />
+            ))}
         </div>
       </FetchErrorHandler>
     </>
