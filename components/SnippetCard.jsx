@@ -35,8 +35,8 @@ const SnippetCard = ({
       <Card.Body>
         {title && (
           <h2>
-            <Link href={link}>
-              <a className="card-title">{title}</a>
+            <Link href={link} className="card-title">
+              {title}
             </Link>
           </h2>
         )}

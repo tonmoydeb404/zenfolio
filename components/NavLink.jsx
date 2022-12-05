@@ -12,15 +12,14 @@ const NavLink = ({
   const router = useRouter();
 
   return (
-    <Link href={path}>
-      <a
-        className={`${className} ${
-          router.asPath.includes(path) ? activeClassName : ""
-        }`}
-        {...props}
-      >
-        {children}
-      </a>
+    <Link
+      href={path}
+      className={`${className} ${
+        router.asPath.includes(path) ? activeClassName : ""
+      }`}
+      {...props}
+    >
+      {children}
     </Link>
   );
 };

@@ -12,8 +12,8 @@ const FooterSection = () => {
           {DB.pageLinks &&
             DB.pageLinks.length &&
             DB.pageLinks.map((item) => (
-              <Link href={item.path} key={item.id}>
-                <a className="link link-hover">{item.title}</a>
+              <Link href={item.path} key={item.id} className="link link-hover">
+                {item.title}
               </Link>
             ))}
         </div>
@@ -22,8 +22,8 @@ const FooterSection = () => {
           {DB.socialLinks &&
             DB.socialLinks.length &&
             DB.socialLinks.map((item) => (
-              <Link href={item.path} key={item.id}>
-                <a className="link link-hover">{item.title}</a>
+              <Link href={item.path} key={item.id} className="link link-hover">
+                {item.title}
               </Link>
             ))}
         </div>
@@ -32,18 +32,16 @@ const FooterSection = () => {
           {DB.legalLinks &&
             DB.legalLinks.length &&
             DB.legalLinks.map((item) => (
-              <Link href={item.path} key={item.id}>
-                <a className="link link-hover">{item.title}</a>
+              <Link href={item.path} key={item.id} className="link link-hover">
+                {item.title}
               </Link>
             ))}
         </div>
       </Footer>
       <div className="copyright py-3 px-2 text-sm text-center border-t border-t-gray-300">
         &copy; all rights are reserved by{" "}
-        <Link href={"/"}>
-          <a className="text-primary font-semibold">
-            {DB.author.toLowerCase()}
-          </a>
+        <Link href={"/"} className="text-primary font-semibold">
+          {DB.author.toLowerCase()}
         </Link>
       </div>
     </>

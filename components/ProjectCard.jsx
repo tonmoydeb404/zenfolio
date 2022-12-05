@@ -1,4 +1,4 @@
-import Image from "next/future/image";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { Card } from "react-daisyui";
@@ -55,9 +55,7 @@ const ProjectCard = ({
         <div className="card-actions">
           {demo ? (
             <Link href={demo}>
-              <a>
-                <BiLinkExternal />
-              </a>
+              <BiLinkExternal />
             </Link>
           ) : (
             ""
@@ -65,9 +63,7 @@ const ProjectCard = ({
 
           {srcCode ? (
             <Link href={srcCode}>
-              <a>
-                <BiGitBranch />
-              </a>
+              <BiGitBranch />
             </Link>
           ) : (
             ""

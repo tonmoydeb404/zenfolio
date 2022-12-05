@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { Menu } from "react-daisyui";
 
@@ -6,9 +7,9 @@ const LinkIconList = ({ list = [] }) => {
     <Menu>
       {list.map((item) => (
         <li key={item.id}>
-          <a href={item.link} target="_blank" rel="noreferrer">
+          <Link href={item.link} target="_blank" rel="noreferrer">
             <i className={`bx ${item.icon}`}></i>
-          </a>
+          </Link>
         </li>
       ))}
     </Menu>

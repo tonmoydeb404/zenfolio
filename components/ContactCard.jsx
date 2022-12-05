@@ -20,8 +20,8 @@ const ContactCard = ({
       <Card.Body>
         {title ? <Card.Title>{title}</Card.Title> : ""}
         {text || link ? (
-          <Link href={link || "#"}>
-            <a className="contact_card_link">{text || link}</a>
+          <Link href={link || "#"} className="contact_card_link">
+            {text || link}
           </Link>
         ) : (
           ""

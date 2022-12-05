@@ -22,7 +22,7 @@ const Header = ({
         <div className="header_media">
           <div className="avatar w-40 rounded overflow-hidden">
             <div className="w-full relative">
-              <Image layout="fill" src={imgSrc} alt={title} priority />
+              <Image fill={true} src={imgSrc} alt={title} priority />
             </div>
           </div>
         </div>
