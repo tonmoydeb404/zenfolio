@@ -95,12 +95,10 @@ function MyApp({ Component, pageProps }) {
           href="/favicon/favicon-16x16.png"
         />
         <link rel="manifest" href="/favicon/manifest.json" />
-        <meta name="msapplication-TileColor" content="#16A34A" />
         <meta
           name="msapplication-TileImage"
           content="/favicon/ms-icon-144x144.png"
         />
-        <meta name="theme-color" content="#16A34A" />
       </Head>
       <Toaster position="bottom-right" />
       <div className="container">

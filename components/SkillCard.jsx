@@ -14,7 +14,7 @@ const SkillCard = ({ level = null, title = null }) => {
       style={{ "--progress": `${progressLevel[level.toLowerCase()] || 0}%` }}
     >
       <h3 className="skills_title">{title}</h3>
-      <span className="skills_level">{level}</span>
+      <span className="skills_level">{level.toLowerCase()}</span>
     </div>
   );
 };

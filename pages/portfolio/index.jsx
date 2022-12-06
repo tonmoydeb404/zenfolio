@@ -71,7 +71,7 @@ const Portfolio = ({ data, projectTypes, error }) => {
 
   return (
     <>
-      <SEOHead title={"Portfolio - Tonmoy Deb"} path="/portfolio" />
+      <SEOHead title={"Portfolio - Tonmoy Deb"} />
 
       {/* header area */}
       <Header

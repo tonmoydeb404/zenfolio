@@ -44,16 +44,17 @@ export const getStaticProps = async ({ params }) => {
 const ProjectPage = ({ data, error }) => {
   return (
     <>
-      <SEOHead
-        title={`${data.seo?.title || data.title} - Project`}
-        path={data.seo?.url || `/projects/${data.slug}`}
-        description={data.seo?.description || data.description}
-        image={data.seo?.thumbnail?.url || data.thumbnail?.url}
-        tags={data.seo?.keywords || data.tags}
-        index={data.seo?.indexPage}
-        follow={data.seo?.followPage}
-      />
       <FetchErrorHandler error={error} className="error_msg-1">
+        <SEOHead
+          title={data.seo?.title}
+          description={data.seo?.description}
+          image={data.seo?.thumbnail?.url}
+          tags={data.seo?.keywords}
+          index={data.seo?.indexPage}
+          follow={data.seo?.followPage}
+          keywords={data.seo?.keywords}
+          url={data.seo?.url}
+        />
         {/* bread crumb area */}
         <div className="text-sm breadcrumbs pt-5">
           <ul>

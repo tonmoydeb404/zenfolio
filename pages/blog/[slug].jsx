@@ -45,11 +45,14 @@ const BlogPost = ({ data, error }) => {
     <>
       <FetchErrorHandler error={error} className="error_msg-1">
         <SEOHead
-          title={data.title ? `${data.title} - Tonmoy Deb` : null}
-          path={data.slug ? `/blog/${data.slug}` : null}
-          description={data.description}
-          image={data.thumbnail?.url}
-          tags={data.tags}
+          title={data.seo?.title}
+          description={data.seo?.description}
+          image={data.seo?.thumbnail?.url}
+          tags={data.seo?.keywords}
+          index={data.seo?.indexPage}
+          follow={data.seo?.followPage}
+          keywords={data.seo?.keywords}
+          url={data.seo?.url}
         />
 
         {/* bread crumb area */}
