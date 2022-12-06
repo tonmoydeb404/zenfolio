@@ -5,18 +5,25 @@ const path = "data/data.json";
 
 export default async function handler(req, res) {
   try {
-    const response = await getWebsite({ websiteID: "tonmoydeb" });
-
+    // Check for secret to confirm this is a valid request
+    if (req.query.secret !== process.env.REVALIDATE_TOKEN) {
+      throw { message: "invalid key" };
+    }
+    // fetch data from server
+    const response = await getWebsite();
+    // check data availble or not
     if (response.error) throw response.error;
-
+    // stringify data
     const jsonRes = JSON.stringify(response.website, null);
-
+    // write a file
     fs.writeFileSync(path, jsonRes);
 
-    await res.revalidate("/");
-
-    return res.status(200).json(response.website);
+    console.log("website data generated");
   } catch (error) {
-    res.status(400).json(error);
+    // log the error
+    console.error(error);
+  } finally {
+    // return user to index page
+    return res.redirect(307, "/");
   }
 }

@@ -11,9 +11,11 @@ import {
 } from "../lib/graphQL";
 
 const CMS_ENDPOINT = process.env.CMS_ENDPOINT;
+const WEBSITE_ID = process.env.WEBSITE_ID;
+const AUTHOR_ID = process.env.AUTHOR_ID;
 
 // get website details
-export const getWebsite = async ({ websiteID = null }) => {
+export const getWebsite = async ({ websiteID = WEBSITE_ID }) => {
   try {
     // parameter validations
     if (!websiteID) {
@@ -38,7 +40,7 @@ export const getWebsite = async ({ websiteID = null }) => {
 };
 
 // get author details
-export const getAuthor = async ({ authorID = null }) => {
+export const getAuthor = async ({ authorID = AUTHOR_ID }) => {
   try {
     // parameter validations
     if (!authorID) {
