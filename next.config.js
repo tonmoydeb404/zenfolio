@@ -1,4 +1,7 @@
 const withTM = require("next-transpile-modules")(["react-daisyui"]);
+const createNextPluginPreval = require("next-plugin-preval/config");
+const withNextPluginPreval = createNextPluginPreval();
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   swcMinify: true,
@@ -14,4 +17,4 @@ const nextConfig = {
   },
 };
 
-module.exports = withTM(nextConfig);
+module.exports = withNextPluginPreval(withTM(nextConfig));

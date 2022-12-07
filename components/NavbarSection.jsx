@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { Menu, Navbar } from "react-daisyui";
-import DB from "../constants/siteDetails.json";
+import DB from "../data/siteData.preval";
 import NavLink from "./NavLink";
 import ThemeSwitch from "./ThemeSwitch";
 
@@ -21,15 +21,16 @@ const NavbarSection = () => {
       </Navbar.Start>
 
       <Navbar.Center>
-        {DB.navbarLinks && DB.navbarLinks.length && (
+        {DB.navLinks && DB.navLinks.length ? (
           <div className="navbar_links">
             <Menu>
-              {DB.navbarLinks.map((item) => (
+              {DB.navLinks.map((item) => (
                 <li key={item.id}>
                   <NavLink
                     activeClassName="navbar_active"
                     path={item.path}
                     onClick={() => setMobileMenu(false)}
+                    target={item.newTab ? "_blank" : "_self"}
                   >
                     {item.title}
                   </NavLink>
@@ -37,7 +38,7 @@ const NavbarSection = () => {
               ))}
             </Menu>
           </div>
-        )}
+        ) : null}
       </Navbar.Center>
 
       <Navbar.End>
