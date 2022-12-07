@@ -4,18 +4,22 @@ import Header from "../components/Header";
 import SEOHead from "../components/SEOHead";
 import { getPage, getPageList } from "../services/cms";
 
+const EXCLUDE_PATHS = ["portfolio", "blog", "contact"];
+
 export const getStaticPaths = async () => {
   const response = await getPageList();
 
   const paths =
     !response.error && response.pages && response.pages?.length
-      ? response.pages.map((item) => {
-          return {
-            params: {
-              slug: item.slug,
-            },
-          };
-        })
+      ? response.pages
+          .filter((item) => !EXCLUDE_PATHS.includes(item.slug))
+          .map((item) => {
+            return {
+              params: {
+                slug: item.slug,
+              },
+            };
+          })
       : [];
 
   return {
