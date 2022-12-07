@@ -3,19 +3,23 @@
   @apply card-compact bg-secondary rounded duration-200 overflow-hidden shadow dark:shadow-xl border border-gray-200 dark:border-0;
 }
 
+.card.project_card .card-title {
+  @apply duration-300 hover:text-primary;
+}
+
 .card.project_card > figure > img {
   @apply w-full h-full object-cover object-center;
 }
 
 .card.project_card .card-body > p {
-  @apply leading-relaxed;
+  @apply leading-relaxed line-clamp-3;
 }
 
 .card.project_card .card-actions {
-  @apply mt-5;
+  @apply mt-5 items-center;
 }
 
-.card.project_card .card-actions > a {
+.card.project_card .card-actions > .card-actions-icon {
   @apply text-2xl hover:text-primary;
 }
 
@@ -24,5 +28,9 @@
 }
 
 .card.project_card .project_card_tags > span {
-  @apply text-sm font-light opacity-70;
+  @apply text-xs font-light opacity-70;
+}
+
+.card.project_card .card-actions-btn {
+  @apply text-xs uppercase inline-flex text-primary font-semibold ml-auto px-2 py-1 hover:bg-primary/20 dark:hover:bg-white/10 duration-300 rounded-sm;
 }

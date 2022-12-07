@@ -32,7 +32,10 @@ const HeaderSearch = ({ className = "", basePath = "" }) => {
   };
 
   return (
-    <form className={`input-group relative ${className}`}>
+    <form
+      className={`input-group relative ${className}`}
+      onSubmit={(e) => e.preventDefault()}
+    >
       <input
         type="text"
         placeholder="Search here…"
@@ -42,7 +45,7 @@ const HeaderSearch = ({ className = "", basePath = "" }) => {
         value={query}
       />
       {query && query.length && (
-        <Button shape="square" onClick={() => handleChange("")}>
+        <Button type="button" shape="square" onClick={() => handleChange("")}>
           <i className="bx bx-x icon"></i>
         </Button>
       )}

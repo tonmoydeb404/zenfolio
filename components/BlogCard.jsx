@@ -41,8 +41,8 @@ const BlogCard = ({ title = null, link = null, text = null, tags = [] }) => {
     <Card bordered={false} className="blog_card">
       <Card.Body>
         <h2>
-          <Link href={link}>
-            <a className="card-title">{title}</a>
+          <Link href={link} className="card-title">
+            {title}
           </Link>
         </h2>
         {text && <p className="card-text">{text}</p>}
@@ -51,8 +51,8 @@ const BlogCard = ({ title = null, link = null, text = null, tags = [] }) => {
           <div className="blog_card_tags">
             {tags && tags.length
               ? tags.map((tag) => (
-                  <Link key={tag} href={`/blog?q=${tag.split(" ").join("-")}`}>
-                    <a>{tag}</a>
+                  <Link key={tag} href={`/blog?q=${tag.toLowerCase()}`}>
+                    {tag}
                   </Link>
                 ))
               : ""}

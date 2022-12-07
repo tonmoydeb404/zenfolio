@@ -15,7 +15,7 @@
 }
 
 .index_projects_content > .card {
-  @apply border-b-4 border-transparent hover:border-b-primary hover:-translate-y-2;
+  @apply border-b-4  border-transparent hover:border-b-primary;
 }
 
 .index_projects_content > .card > figure {

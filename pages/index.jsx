@@ -8,15 +8,15 @@ import LinkIconList from "../components/LinkIconList";
 import ProjectCard from "../components/ProjectCard";
 import SEOHead from "../components/SEOHead";
 import SkillCard from "../components/SkillCard";
-import { getAuthorData } from "../services";
+import { getAuthor } from "../services/cms";
 
 export const getStaticProps = async () => {
-  const author = await getAuthorData();
+  const response = await getAuthor({ authorID: "tonmoy-deb" });
 
   return {
     props: {
-      data: author.data || {},
-      error: author.error,
+      data: response.author || {},
+      error: response.error ? true : false,
     },
   };
 };
@@ -29,18 +29,29 @@ export default function Home({ data, error }) {
         {/* header section */}
         <Header
           title={data.name}
-          subtitle={data.profession}
-          text={data.bio}
-          imgSrc={data.avatar?.url}
+          subtitle={data.tagLine}
+          text={data.description}
+          imgSrc={data.image?.url}
         >
           <div className="header_actions">
-            <Button href={data.cvLink} color="primary">
-              <i className="bx bx-cloud-download icon"></i> &nbsp; Download Cv
-            </Button>
-            {data.ctaLink ? (
-              <Button href={data.ctaLink} color="warning">
-                {data.ctaTitle}
-              </Button>
+            {data.cvLink ? (
+              <Link href={data.cvLink} passHref target={"_blank"}>
+                <Button color="primary">
+                  <i className="bx bx-cloud-download icon"></i> &nbsp; Download
+                  Cv
+                </Button>
+              </Link>
+            ) : (
+              ""
+            )}
+            {data.cta ? (
+              <Link
+                href={data.cta?.path}
+                passHref
+                target={data.cta?.newTab ? "_blank" : "_self"}
+              >
+                <Button color="warning">{data.cta?.title}</Button>
+              </Link>
             ) : (
               ""
             )}
@@ -50,36 +61,49 @@ export default function Home({ data, error }) {
         {/* social section */}
         <div className="social mb-16">
           <Divider>
-            <LinkIconList list={data.externalLinks} />
+            <LinkIconList list={data.socialLinks} />
           </Divider>
         </div>
 
         {/* skills section */}
-        {data.skills && data.skills?.length && (
-          <div className="index_skills">
-            <div className="box_header mb-10">
-              <h2 className="box_header_title">My Skills</h2>
-              <p className="box_header_text">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Repudiandae voluptas quo repellendus earum a ut facere, eveniet
-                dolorum excepturi dolor.
-              </p>
-            </div>
 
-            <div className="index_skills_content">
-              {data.skills.map((skill) => (
-                <SkillCard
-                  title={skill.title}
-                  progress={skill.progress}
-                  key={skill.id}
-                />
-              ))}
-            </div>
+        <div className="index_skills">
+          <div className="box_header mb-10">
+            <h2 className="box_header_title">My Skills</h2>
+            <p className="box_header_text">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              Repudiandae voluptas quo repellendus earum a ut facere, eveniet
+              dolorum excepturi dolor.
+            </p>
           </div>
-        )}
+
+          <div className="index_skills_content mb-10">
+            {data.devSkills.map((skill) => (
+              <SkillCard
+                title={skill.name}
+                level={skill.level}
+                key={skill.id}
+              />
+            ))}
+          </div>
+          <Divider className="">
+            <span className="btn btn-sm btn-primary no-animation cursor-default">
+              Other skills
+            </span>
+          </Divider>
+          <div className="index_skills_content mt-10">
+            {data.otherSkills.map((skill) => (
+              <SkillCard
+                title={skill.name}
+                level={skill.level}
+                key={skill.id}
+              />
+            ))}
+          </div>
+        </div>
 
         {/* projects section */}
-        {data.featuredProjects && data.featuredProjects?.length && (
+        {data.projects && data.projects?.length ? (
           <div className="index_projects pb-16 mt-5">
             <div className="box_header mb-10">
               <h2 className="box_header_title">My Projects</h2>
@@ -91,7 +115,7 @@ export default function Home({ data, error }) {
             </div>
 
             <div className="index_projects_content">
-              {data.featuredProjects.map((project, index) => (
+              {data.projects.map((project, index) => (
                 <ProjectCard
                   key={project.id}
                   imgSrc={index > 1 ? false : project.thumbnail?.url}
@@ -100,10 +124,13 @@ export default function Home({ data, error }) {
                   demo={project.demoLink}
                   srcCode={project.sourceLink}
                   tags={project.stacks}
+                  slug={project.slug}
                 />
               ))}
             </div>
           </div>
+        ) : (
+          ""
         )}
 
         {/* hobbies section */}
@@ -117,7 +144,7 @@ export default function Home({ data, error }) {
               {data.hobbies.map((hobby) => (
                 <HobbyCard
                   title={hobby.title}
-                  icon={hobby.icon}
+                  icon={hobby.iconName}
                   key={hobby.id}
                 />
               ))}
@@ -137,22 +164,16 @@ export default function Home({ data, error }) {
           </div>
 
           <div className="index_contact_content">
-            {data.email && (
-              <ContactCard
-                title={"Email"}
-                link={`mailto:${data.email}`}
-                text={data.email}
-                icon={"bx-envelope"}
-              />
-            )}
-            {data.addressText && (
-              <ContactCard
-                title={"Adress"}
-                link={data.addressLink || "#"}
-                icon={"bx-map"}
-                text={data.addressText}
-              />
-            )}
+            {data.contacts &&
+              data.contacts.map((item) => (
+                <ContactCard
+                  title={item.title}
+                  link={item.path}
+                  text={item.text}
+                  icon={item.iconName}
+                  key={item.id}
+                />
+              ))}
           </div>
 
           <div className="index_contact_footer">

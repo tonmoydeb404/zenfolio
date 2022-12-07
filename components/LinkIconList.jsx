@@ -1,16 +1,25 @@
+import Link from "next/link";
 import React from "react";
 import { Menu } from "react-daisyui";
+import icons from "../constants/icons";
 
 const LinkIconList = ({ list = [] }) => {
   return list && list.length ? (
     <Menu>
-      {list.map((item) => (
-        <li key={item.id}>
-          <a href={item.link} target="_blank" rel="noreferrer">
-            <i className={`bx ${item.icon}`}></i>
-          </a>
-        </li>
-      ))}
+      {list.map((item) =>
+        icons[item.iconName] ? (
+          <li key={item.id}>
+            <Link
+              href={item.path}
+              target="_blank"
+              rel="noreferrer"
+              title={item.title}
+            >
+              {icons[item.iconName]}
+            </Link>
+          </li>
+        ) : null
+      )}
     </Menu>
   ) : (
     ""

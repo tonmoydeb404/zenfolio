@@ -15,8 +15,8 @@ const NavbarSection = () => {
   return (
     <Navbar>
       <Navbar.Start>
-        <Link href="/">
-          <a className="navbar_brand">{DB.logoText}</a>
+        <Link href="/" className="navbar_brand">
+          {DB.logoText}
         </Link>
       </Navbar.Start>
 

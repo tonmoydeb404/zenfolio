@@ -1,9 +1,6 @@
 .post_header_img {
   @apply aspect-video mb-6 rounded w-full;
 }
-.post_header_title {
-  @apply text-3xl sm:text-5xl font-semibold;
-}
 
 .post_header_info {
   @apply flex flex-wrap items-center mb-8 gap-2 text-sm sm:text-base;
@@ -26,11 +23,11 @@
 }
 
 .post_header_title {
-  @apply text-3xl sm:text-5xl font-semibold;
+  @apply text-3xl sm:text-4xl leading-normal font-semibold;
 }
 
 .post_body {
-  @apply w-full prose max-w-none pb-20;
+  @apply w-full prose max-w-none pb-10;
 }
 
 .post_body * {
@@ -50,5 +47,5 @@
 }
 
 .post_tags_content > a {
-  @apply btn btn-sm btn-ghost btn-outline rounded;
+  @apply btn btn-xs btn-ghost btn-outline rounded;
 }

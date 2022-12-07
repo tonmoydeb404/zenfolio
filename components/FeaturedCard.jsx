@@ -6,15 +6,13 @@ const FeaturedCard = ({ className = "", link, title }) => {
     <article className={`card featured_card ${className}`}>
       <div className="card-body">
         <h2>
-          <Link href={link}>
-            <a className="card-title">{title}</a>
+          <Link href={link} className="card-title">
+            {title}
           </Link>
         </h2>
-        <Link href={link}>
-          <a className="featured_card_btn">
-            read more
-            <i className="bx bx-right-arrow-alt icon"></i>
-          </a>
+        <Link href={link} className="featured_card_btn">
+          read more
+          <i className="bx bx-right-arrow-alt icon"></i>
         </Link>
       </div>
     </article>

@@ -2,14 +2,14 @@ import React from "react";
 import FetchErrorHandler from "../components/FetchErrorHandler";
 import Header from "../components/Header";
 import SEOHead from "../components/SEOHead";
-import { getPageData, getPagesData } from "../services";
+import { getPage, getPageList } from "../services/cms";
 
 export const getStaticPaths = async () => {
-  const pages = await getPagesData();
+  const response = await getPageList();
 
   const paths =
-    !pages.error?.isError && pages.data && pages.data?.length
-      ? pages.data.map((item) => {
+    !response.error && response.pages && response.pages?.length
+      ? response.pages.map((item) => {
           return {
             params: {
               slug: item.slug,
@@ -25,16 +25,18 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params }) => {
-  const page = await getPageData(params.slug);
+  const response = await getPage({ slug: params.slug });
 
-  return page.data == null
-    ? { notFound: true }
-    : {
-        props: {
-          data: page.data || {},
-          error: page.error,
-        },
-      };
+  if (response.error?.code == 404) {
+    return { notFound: true };
+  }
+
+  return {
+    props: {
+      data: response.page || {},
+      error: response.error || false,
+    },
+  };
 };
 
 const Page = ({ data, error }) => {
