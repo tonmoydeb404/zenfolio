@@ -1,4 +1,3 @@
-import "boxicons/css/boxicons.min.css";
 import { ThemeProvider } from "next-themes";
 import Head from "next/head";
 import { Router } from "next/router";
