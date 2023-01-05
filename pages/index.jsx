@@ -72,9 +72,9 @@ export default function Home({ data, error }) {
           <div className="box_header mb-10">
             <h2 className="box_header_title">My Skills</h2>
             <p className="box_header_text">
-              {`Here I've listed those technologies that I love to work with.
-              Also, I've mentioned my expertise level based on my work
-              experience`}
+              Here I&apos;ve listed those technologies that I love to work with.
+              Also, I&apos;ve mentioned my expertise level based on my work
+              experience
             </p>
           </div>
 
@@ -110,7 +110,7 @@ export default function Home({ data, error }) {
               <h2 className="box_header_title">Featured Projects</h2>
               <p className="box_header_text">
                 These are some examples of my projects and whenever I get some
-                free-time I’d like to think about my next project
+                free-time I&apos;d like to think about my next project
               </p>
             </div>
 
@@ -157,8 +157,9 @@ export default function Home({ data, error }) {
           <div className="box_header mb-10">
             <h2 className="box_header_title">Contact Me</h2>
             <p className="box_header_text">
-              I’m really interested to work or collaborate with any company that
-              thinks that my skills are helpful to them. So please let me know.
+              I&apos;m really interested to work or collaborate with any company
+              that thinks that my skills are helpful to them. So please let me
+              know.
             </p>
           </div>
 
@@ -178,7 +179,7 @@ export default function Home({ data, error }) {
           <div className="index_contact_footer">
             <Link href={"/contact"} passHref>
               <Button color="primary">
-                <i className="bx bx-paper-plane icon"></i> &nbsp; Contact Form
+                <i className="icon">{icons.paper_plane}</i> &nbsp; Contact Form
               </Button>
             </Link>
           </div>

@@ -1,4 +1,4 @@
-import { BiBookReader, BiCodeAlt } from "react-icons/bi";
+import { BiBookReader, BiCodeAlt, BiPaperPlane } from "react-icons/bi";
 import { BsTwitch } from "react-icons/bs";
 import {
   MdAlternateEmail,
@@ -41,6 +41,7 @@ const icons = {
   dark: <MdDarkMode />,
   light: <MdLightMode />,
   file_download: <MdFileDownload />,
+  paper_plane: <BiPaperPlane />,
 };
 
 export default icons;
