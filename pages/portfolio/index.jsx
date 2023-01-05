@@ -3,6 +3,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import FetchErrorHandler from "../../components/FetchErrorHandler";
 import FilterComponent from "../../components/FilterComponent";
 import Header from "../../components/Header";
+import Layout from "../../components/Layout";
 import ProjectCard, { ProjectCardSkeleton } from "../../components/ProjectCard";
 import SEOHead from "../../components/SEOHead";
 import { getPage, getProjectList } from "../../services/cms";
@@ -72,7 +73,7 @@ const Portfolio = ({ data, page, projectTypes, error }) => {
   };
 
   return (
-    <>
+    <Layout>
       <SEOHead
         title={page.seo.title}
         follow={page.seo.followPage}
@@ -152,7 +153,7 @@ const Portfolio = ({ data, page, projectTypes, error }) => {
           </div>
         )}
       </FetchErrorHandler>
-    </>
+    </Layout>
   );
 };
 

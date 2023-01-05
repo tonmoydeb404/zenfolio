@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import FetchErrorHandler from "../../components/FetchErrorHandler";
+import Layout from "../../components/Layout";
 import SEOHead from "../../components/SEOHead";
 import { getArticle, getArticleList } from "../../services/cms";
 
@@ -42,7 +43,7 @@ export const getStaticProps = async ({ params }) => {
 
 const BlogPost = ({ data, error }) => {
   return (
-    <>
+    <Layout>
       <FetchErrorHandler error={error} className="error_msg-1">
         <SEOHead
           title={data.seo?.title}
@@ -134,7 +135,7 @@ const BlogPost = ({ data, error }) => {
           ""
         )}
       </FetchErrorHandler>
-    </>
+    </Layout>
   );
 };
 

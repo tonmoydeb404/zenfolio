@@ -4,6 +4,7 @@ import ContactCard from "../components/ContactCard";
 import FetchErrorHandler from "../components/FetchErrorHandler";
 import Header from "../components/Header";
 import HobbyCard from "../components/HobbyCard";
+import Layout from "../components/Layout";
 import LinkIconList from "../components/LinkIconList";
 import ProjectCard from "../components/ProjectCard";
 import SEOHead from "../components/SEOHead";
@@ -24,7 +25,7 @@ export const getStaticProps = async () => {
 
 export default function Home({ data, error }) {
   return (
-    <>
+    <Layout>
       <SEOHead />
       <FetchErrorHandler error={error} className="error_msg-1 my-5">
         {/* header section */}
@@ -185,6 +186,6 @@ export default function Home({ data, error }) {
           </div>
         </div>
       </FetchErrorHandler>
-    </>
+    </Layout>
   );
 }

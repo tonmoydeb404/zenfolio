@@ -1,6 +1,7 @@
 import React from "react";
 import FetchErrorHandler from "../components/FetchErrorHandler";
 import Header from "../components/Header";
+import Layout from "../components/Layout";
 import SEOHead from "../components/SEOHead";
 import { getPage, getPageList } from "../services/cms";
 
@@ -45,7 +46,7 @@ export const getStaticProps = async ({ params }) => {
 
 const Page = ({ data, error }) => {
   return (
-    <>
+    <Layout>
       <SEOHead
         title={data.title ? `${data.title} - Tonmoy Deb` : null}
         description={data.description}
@@ -60,7 +61,7 @@ const Page = ({ data, error }) => {
           dangerouslySetInnerHTML={{ __html: data.content?.html }}
         ></div>
       </FetchErrorHandler>
-    </>
+    </Layout>
   );
 };
 

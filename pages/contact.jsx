@@ -4,6 +4,7 @@ import ContactCard from "../components/ContactCard";
 import ContactForm from "../components/ContactForm";
 import FetchErrorHandler from "../components/FetchErrorHandler";
 import Header from "../components/Header";
+import Layout from "../components/Layout";
 import LinkIconList from "../components/LinkIconList";
 import SEOHead from "../components/SEOHead";
 import { getAuthor, getPage } from "../services/cms";
@@ -23,7 +24,7 @@ export const getStaticProps = async () => {
 
 const Contact = ({ data, page, error }) => {
   return (
-    <>
+    <Layout>
       <SEOHead
         title={page.seo.title}
         follow={page.seo.followPage}
@@ -62,7 +63,7 @@ const Contact = ({ data, page, error }) => {
             ))}
         </div>
       </FetchErrorHandler>
-    </>
+    </Layout>
   );
 };
 

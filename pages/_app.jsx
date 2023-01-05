@@ -4,8 +4,6 @@ import { Router } from "next/router";
 import NProgress from "nprogress";
 import { useEffect } from "react";
 import { Toaster } from "react-hot-toast";
-import FooterSection from "../components/FooterSection";
-import NavbarSection from "../components/NavbarSection";
 import "../styles/nprogress.css";
 import "../styles/style.css";
 NProgress.configure({ showSpinner: false });
@@ -100,14 +98,7 @@ function MyApp({ Component, pageProps }) {
         />
       </Head>
       <Toaster position="bottom-right" />
-      <div className="container">
-        <NavbarSection />
-
-        <div className="main">
-          <Component {...pageProps} />
-          <FooterSection />
-        </div>
-      </div>
+      <Component {...pageProps} />
     </ThemeProvider>
   );
 }

@@ -8,6 +8,7 @@ import FeaturedCard from "../../components/FeaturedCard";
 import FetchErrorHandler from "../../components/FetchErrorHandler";
 import Header from "../../components/Header";
 import HeaderSearch from "../../components/HeaderSearch";
+import Layout from "../../components/Layout";
 import SEOHead from "../../components/SEOHead";
 import { getArticleList, getPage } from "../../services/cms";
 
@@ -82,7 +83,7 @@ const Blog = ({ data, error, page }) => {
   };
 
   return (
-    <>
+    <Layout>
       <SEOHead
         title={page.seo.title}
         follow={page.seo.followPage}
@@ -178,7 +179,7 @@ const Blog = ({ data, error, page }) => {
           </div>
         )}
       </FetchErrorHandler>
-    </>
+    </Layout>
   );
 };
 

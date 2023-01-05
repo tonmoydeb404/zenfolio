@@ -1,10 +1,11 @@
 import React from "react";
 import ErrorPage from "../components/ErrorPage";
+import Layout from "../components/Layout";
 import SEOHead from "../components/SEOHead";
 
 const ErrorPages = ({ statusCode }) => {
   return (
-    <>
+    <Layout>
       <SEOHead
         title={
           statusCode == 404
@@ -22,7 +23,7 @@ const ErrorPages = ({ statusCode }) => {
             : "something wents to wrong"
         }
       />
-    </>
+    </Layout>
   );
 };
 
