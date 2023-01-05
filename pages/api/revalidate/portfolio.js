@@ -1,3 +1,5 @@
+import path from "path";
+
 export default async function handler(req, res) {
   // check query secrets
   if (!req.query.secret) {
@@ -21,6 +23,6 @@ export default async function handler(req, res) {
     return res.status(200).json({ revalidated: true });
   } catch (err) {
     // return error
-    return res.status(401).json({ message: err.message });
+    return res.status(401).json({ error: err.message });
   }
 }
