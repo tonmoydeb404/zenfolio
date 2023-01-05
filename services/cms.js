@@ -15,15 +15,17 @@ const WEBSITE_ID = process.env.WEBSITE_ID;
 const AUTHOR_ID = process.env.AUTHOR_ID;
 
 // get website details
-export const getWebsite = async ({ websiteID = WEBSITE_ID }) => {
+export const getWebsite = async () => {
   try {
     // parameter validations
-    if (!websiteID) {
+    if (!WEBSITE_ID) {
       throw { message: "invalid website id" };
     }
 
     // execute query
-    const data = await request(CMS_ENDPOINT, websiteSchema, { websiteID });
+    const data = await request(CMS_ENDPOINT, websiteSchema, {
+      websiteID: WEBSITE_ID,
+    });
 
     // handle author available or not
     if (!data.website) throw { message: "data not found", code: 404 };
@@ -40,15 +42,17 @@ export const getWebsite = async ({ websiteID = WEBSITE_ID }) => {
 };
 
 // get author details
-export const getAuthor = async ({ authorID = AUTHOR_ID }) => {
+export const getAuthor = async () => {
   try {
     // parameter validations
-    if (!authorID) {
+    if (!AUTHOR_ID) {
       throw { message: "invalid author id" };
     }
 
     // execute query
-    const data = await request(CMS_ENDPOINT, authorSchema, { authorID });
+    const data = await request(CMS_ENDPOINT, authorSchema, {
+      authorID: AUTHOR_ID,
+    });
 
     // handle author available or not
     if (!data.author) throw { message: "data not found", code: 404 };
