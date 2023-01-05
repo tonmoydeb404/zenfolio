@@ -1,4 +1,5 @@
 import path from "path";
+import { getProject } from "../../../services/cms";
 
 export default async function handler(req, res) {
   // check query secrets
@@ -15,12 +16,15 @@ export default async function handler(req, res) {
     if (!req.body) {
       throw { message: "invalid request body" };
     }
+
+    const resfetch = await getProject({ slug: req.body.data.slug });
+
     // revalidate path
     await res.revalidate("/portfolio");
     await res.revalidate(path.join("/portfolio/", req.body.data.slug));
 
     // return success
-    return res.status(200).json({ revalidated: true });
+    return res.status(200).json({ revalidated: true, resfetch });
   } catch (err) {
     // return error
     return res.status(401).json({ error: err.message });
