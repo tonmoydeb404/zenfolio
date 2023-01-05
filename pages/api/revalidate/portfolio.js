@@ -21,10 +21,9 @@ export default async function handler(req, res) {
       // revalidate path
       await res.revalidate("/portfolio");
       await res.revalidate(path.join("/portfolio/", req.body.data.slug));
-    }, 2000);
-
-    // return success
-    return res.status(200).json({ revalidated: true });
+      // return success
+      return res.status(200).json({ revalidated: true });
+    }, 1000);
   } catch (err) {
     // return error
     return res.status(err?.code || 500).json({ error: err.message });
