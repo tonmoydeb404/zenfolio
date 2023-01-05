@@ -39,18 +39,18 @@ function SiteMapXML() {
 export async function getServerSideProps({ res }) {
   const response = await getSiteMap();
 
-  // We generate the XML sitemap with the posts data
-  const sitemap = generateSiteMap(
-    response.articles,
-    response.projects,
-    response.pages
-  );
+  if (!response.error) {
+    // We generate the XML sitemap with the posts data
+    const sitemap = generateSiteMap(
+      response.articles,
+      response.projects,
+      response.pages
+    );
 
-  console.log(sitemap);
-
-  res.setHeader("Content-Type", "text/xml");
-  // we send the XML to the browser
-  res.write(sitemap);
+    res.setHeader("Content-Type", "text/xml");
+    // we send the XML to the browser
+    res.write(sitemap);
+  }
   res.end();
 
   return {
