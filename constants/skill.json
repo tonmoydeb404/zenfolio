@@ -1,0 +1,7 @@
+{
+  "beginner": 20,
+  "junior": 40,
+  "intermediate": 60,
+  "senior": 80,
+  "expert": 100
+}

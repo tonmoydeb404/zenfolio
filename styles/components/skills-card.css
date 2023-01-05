@@ -9,16 +9,10 @@
   @apply bg-primary absolute bottom-0 left-0 h-2;
 }
 
-@keyframes loadProgress {
-  from {
-    width: 0%;
-  }
-}
-
 .skills_title {
   @apply font-medium text-lg;
 }
 
 .skills_level {
-  @apply inline-block text-xs px-2 py-1 bg-primary rounded-sm font-semibold text-white;
+  @apply inline-block text-xs px-2 py-1 bg-primary rounded-sm font-medium text-white tracking-wide lowercase;
 }
