@@ -11,7 +11,7 @@ import SkillCard from "../components/SkillCard";
 import { getAuthor } from "../services/cms";
 
 export const getStaticProps = async () => {
-  const response = await getAuthor({ authorID: "tonmoy-deb" });
+  const response = await getAuthor();
 
   return {
     props: {
@@ -71,9 +71,7 @@ export default function Home({ data, error }) {
           <div className="box_header mb-10">
             <h2 className="box_header_title">My Skills</h2>
             <p className="box_header_text">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Repudiandae voluptas quo repellendus earum a ut facere, eveniet
-              dolorum excepturi dolor.
+              Here I mentioned those technologies that I love to work with.
             </p>
           </div>
 
@@ -106,11 +104,10 @@ export default function Home({ data, error }) {
         {data.projects && data.projects?.length ? (
           <div className="index_projects pb-16 mt-5">
             <div className="box_header mb-10">
-              <h2 className="box_header_title">My Projects</h2>
+              <h2 className="box_header_title">Featured Projects</h2>
               <p className="box_header_text">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea
-                repudiandae fuga at odio. Reprehenderit, voluptates deserunt
-                ipsum nulla dolorum animi!
+                These are some examples of my projects and whenever I get some
+                free-time I’d like to think about my next project
               </p>
             </div>
 
@@ -157,9 +154,8 @@ export default function Home({ data, error }) {
           <div className="box_header mb-10">
             <h2 className="box_header_title">Contact Me</h2>
             <p className="box_header_text">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Repudiandae voluptas quo repellendus earum a ut facere, eveniet
-              dolorum excepturi dolor.
+              I’m really interested to work or collaborate with any company that
+              thinks that my skills are helpful to them. So please let me know.
             </p>
           </div>
 
