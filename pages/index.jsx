@@ -8,6 +8,7 @@ import LinkIconList from "../components/LinkIconList";
 import ProjectCard from "../components/ProjectCard";
 import SEOHead from "../components/SEOHead";
 import SkillCard from "../components/SkillCard";
+import icons from "../constants/icons";
 import { getAuthor } from "../services/cms";
 
 export const getStaticProps = async () => {
@@ -37,8 +38,8 @@ export default function Home({ data, error }) {
             {data.cvLink ? (
               <Link href={data.cvLink} passHref target={"_blank"}>
                 <Button color="primary">
-                  <i className="bx bx-cloud-download icon"></i> &nbsp; Download
-                  Cv
+                  <span className="icon">{icons.file_download}</span>
+                  Download Cv
                 </Button>
               </Link>
             ) : (

@@ -1,6 +1,7 @@
 import { useTheme } from "next-themes";
 import React, { useEffect, useState } from "react";
 import { Swap } from "react-daisyui";
+import icons from "../constants/icons";
 
 const ThemeSwitch = () => {
   const [mounted, setMounted] = useState(false);
@@ -28,8 +29,8 @@ const ThemeSwitch = () => {
     <Swap
       className="btn btn-square text-xl btn-sm px-5 py-5"
       rotate
-      onElement={<i className="bx bx-moon"></i>}
-      offElement={<i className="bx bx-sun"></i>}
+      onElement={icons.dark}
+      offElement={icons.light}
       checked={theme == "dark"}
       onChange={toggleTheme}
     ></Swap>
