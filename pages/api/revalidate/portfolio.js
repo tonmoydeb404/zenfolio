@@ -16,14 +16,11 @@ export default async function handler(req, res) {
       throw { message: "invalid request body", code: 400 };
     }
 
-    // delay in revalidate
-    setTimeout(async () => {
-      // revalidate path
-      await res.revalidate("/portfolio");
-      await res.revalidate(path.join("/portfolio/", req.body.data.slug));
-      // return success
-      return res.status(200).json({ revalidated: true });
-    }, 1000);
+    // revalidate path
+    await res.revalidate("/portfolio");
+    await res.revalidate(path.join("/portfolio/", req.body.data.slug));
+    // return success
+    return res.status(200).json({ revalidated: true });
   } catch (err) {
     // return error
     return res.status(err?.code || 500).json({ error: err.message });

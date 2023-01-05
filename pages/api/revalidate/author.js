@@ -14,12 +14,9 @@ export default async function handler(req, res) {
       throw { message: "invalid request body", code: 400 };
     }
 
-    // delay in revalidate
-    setTimeout(async () => {
-      // revalidate path
-      await res.revalidate("/");
-      await res.revalidate("/contact");
-    }, 1000);
+    // revalidate path
+    await res.revalidate("/");
+    await res.revalidate("/contact");
 
     // return success
     return res.status(200).json({ revalidated: true });
