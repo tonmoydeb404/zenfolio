@@ -7,6 +7,7 @@ import {
   pageSchema,
   projectListSchema,
   projectSchema,
+  sitemapSchema,
   websiteSchema,
 } from "../lib/graphQL.js";
 
@@ -181,6 +182,23 @@ export const getArticleList = async () => {
   try {
     // execute query
     const data = await request(CMS_ENDPOINT, articleListSchema);
+
+    // handle query errors
+    if (data.errors && data.errors?.length)
+      throw { message: data.errors[0]?.message };
+
+    return data;
+  } catch (error) {
+    // console.error(error);
+    return { error };
+  }
+};
+
+// get sitemap
+export const getSiteMap = async () => {
+  try {
+    // execute query
+    const data = await request(CMS_ENDPOINT, sitemapSchema);
 
     // handle query errors
     if (data.errors && data.errors?.length)
