@@ -72,9 +72,9 @@ export default function Home({ data, error }) {
           <div className="box_header mb-10">
             <h2 className="box_header_title">My Skills</h2>
             <p className="box_header_text">
-              Here I've listed those technologies that I love to work with.
+              {`Here I've listed those technologies that I love to work with.
               Also, I've mentioned my expertise level based on my work
-              experience
+              experience`}
             </p>
           </div>
 
