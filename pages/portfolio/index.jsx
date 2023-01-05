@@ -5,21 +5,23 @@ import FilterComponent from "../../components/FilterComponent";
 import Header from "../../components/Header";
 import ProjectCard, { ProjectCardSkeleton } from "../../components/ProjectCard";
 import SEOHead from "../../components/SEOHead";
-import { getProjectList } from "../../services/cms";
+import { getPage, getProjectList } from "../../services/cms";
 
 export const getStaticProps = async () => {
-  const response = await getProjectList();
+  const dataResponse = await getProjectList();
+  const pageResponse = await getPage({ slug: "portfolio" });
 
   return {
     props: {
-      data: response.projects || [],
-      projectTypes: response.__type?.enumValues || [],
-      error: response.error ? true : false,
+      data: dataResponse.projects || [],
+      page: pageResponse.page || {},
+      projectTypes: dataResponse.__type?.enumValues || [],
+      error: dataResponse.error || pageResponse.error ? true : false,
     },
   };
 };
 
-const Portfolio = ({ data, projectTypes, error }) => {
+const Portfolio = ({ data, page, projectTypes, error }) => {
   // filter states
   const [filterOptions, setFilterOptions] = useState([]);
   const [filter, setFilter] = useState("ALL");
@@ -71,13 +73,18 @@ const Portfolio = ({ data, projectTypes, error }) => {
 
   return (
     <>
-      <SEOHead title={"Portfolio - Tonmoy Deb"} />
+      <SEOHead
+        title={page.seo.title}
+        follow={page.seo.followPage}
+        index={page.seo.indexPage}
+        keywords={page.seo.keywords}
+        url={page.seo.url}
+        description={page.seo.description}
+        image={page.seo.thumbnail}
+      />
 
       {/* header area */}
-      <Header
-        title={"Portfolio Projects"}
-        text="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium tempore architecto qui dolorem laboriosam quo magnam necessitatibus, cumque eius libero."
-      />
+      <Header title={page.title} text={page.description} />
 
       <FetchErrorHandler error={error} className="error_msg-1">
         {/* portfolio feed */}

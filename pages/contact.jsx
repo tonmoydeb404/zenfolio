@@ -6,32 +6,37 @@ import FetchErrorHandler from "../components/FetchErrorHandler";
 import Header from "../components/Header";
 import LinkIconList from "../components/LinkIconList";
 import SEOHead from "../components/SEOHead";
-import { getAuthor } from "../services/cms";
+import { getAuthor, getPage } from "../services/cms";
 
 export const getStaticProps = async () => {
-  const response = await getAuthor({ authorID: "tonmoy-deb" });
+  const authorResponse = await getAuthor();
+  const pageResponse = await getPage({ slug: "contact" });
 
   return {
     props: {
-      data: response.author || {},
-      error: response.error || false,
+      data: authorResponse.author || {},
+      page: pageResponse.page || {},
+      error: authorResponse.error || pageResponse.error || false,
     },
   };
 };
 
-const Contact = ({ data, error }) => {
+const Contact = ({ data, page, error }) => {
   return (
     <>
-      <SEOHead title={"Contact - Tonmoy Deb"} path="/contact" />
+      <SEOHead
+        title={page.seo.title}
+        follow={page.seo.followPage}
+        index={page.seo.indexPage}
+        keywords={page.seo.keywords}
+        url={page.seo.url}
+        description={page.seo.description}
+        image={page.seo.thumbnail}
+      />
 
       <FetchErrorHandler error={error} className="error_msg-1 my-5">
         {/* header area */}
-        <Header
-          title={"Contact Me"}
-          text={
-            "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium tempore architecto qui dolorem laboriosam quo magnam necessitatibus, cumque eius libero."
-          }
-        >
+        <Header title={page.title} text={page.description}>
           {/* social section */}
           <div className="social contact_social pb-0">
             <Divider>

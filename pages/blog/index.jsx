@@ -9,20 +9,22 @@ import FetchErrorHandler from "../../components/FetchErrorHandler";
 import Header from "../../components/Header";
 import HeaderSearch from "../../components/HeaderSearch";
 import SEOHead from "../../components/SEOHead";
-import { getArticleList } from "../../services/cms";
+import { getArticleList, getPage } from "../../services/cms";
 
 export const getStaticProps = async () => {
-  const response = await getArticleList();
+  const dataResponse = await getArticleList();
+  const pageResponse = await getPage({ slug: "blog" });
 
   return {
     props: {
-      data: response.articles || [],
-      error: response.error ? true : false,
+      data: dataResponse.articles || [],
+      page: pageResponse.page || {},
+      error: dataResponse.error || pageResponse.error ? true : false,
     },
   };
 };
 
-const Blog = ({ data, error }) => {
+const Blog = ({ data, error, page }) => {
   // router
   const router = useRouter();
   const query = router.query?.q;
@@ -81,15 +83,18 @@ const Blog = ({ data, error }) => {
 
   return (
     <>
-      <SEOHead title={"Blog - Tonmoy Deb"} path="/blog" />
+      <SEOHead
+        title={page.seo.title}
+        follow={page.seo.followPage}
+        index={page.seo.indexPage}
+        keywords={page.seo.keywords}
+        url={page.seo.url}
+        description={page.seo.description}
+        image={page.seo.thumbnail}
+      />
 
       {/* header area */}
-      <Header
-        title={"Blog"}
-        text={
-          "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium tempore architecto qui dolorem laboriosam quo magnam necessitatibus, cumque eius libero."
-        }
-      >
+      <Header title={page.title} text={page.description}>
         {!error ? (
           <HeaderSearch className="blog_search mt-5" basePath="/blog" />
         ) : null}
