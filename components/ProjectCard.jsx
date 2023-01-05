@@ -80,7 +80,7 @@ const ProjectCard = ({
           </Link>
 
           {demo ? (
-            <Link href={demo} className="card-actions-icon">
+            <Link href={demo} target="_blank" className="card-actions-icon">
               <BiLinkExternal />
             </Link>
           ) : (
@@ -88,7 +88,7 @@ const ProjectCard = ({
           )}
 
           {srcCode ? (
-            <Link href={srcCode} className="card-actions-icon">
+            <Link href={srcCode} target="_blank" className="card-actions-icon">
               <BiGitBranch />
             </Link>
           ) : (
