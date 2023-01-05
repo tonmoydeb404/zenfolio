@@ -17,14 +17,15 @@ export default async function handler(req, res) {
       throw { message: "invalid request body" };
     }
 
-    const resfetch = await getProject({ slug: req.body.data.slug });
+    setTimeout(async () => {
+      const resfetch = await getProject({ slug: req.body.data.slug });
 
-    // revalidate path
-    await res.revalidate("/portfolio");
-    await res.revalidate(path.join("/portfolio/", req.body.data.slug));
-
-    // return success
-    return res.status(200).json({ revalidated: true, resfetch });
+      // revalidate path
+      await res.revalidate("/portfolio");
+      await res.revalidate(path.join("/portfolio/", req.body.data.slug));
+      // return success
+      return res.status(200).json({ revalidated: true, resfetch });
+    }, 2000);
   } catch (err) {
     // return error
     return res.status(401).json({ error: err.message });
