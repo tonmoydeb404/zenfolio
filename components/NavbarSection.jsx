@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { Menu, Navbar } from "react-daisyui";
+import icons from "../constants/icons";
 import DB from "../data/siteData.preval";
 import NavLink from "./NavLink";
 import ThemeSwitch from "./ThemeSwitch";
@@ -51,8 +52,8 @@ const NavbarSection = () => {
               onChange={(e) => setMobileMenu(e.target?.checked)}
             />
 
-            <i className="bx bx-x swap-on"></i>
-            <i className="bx bx-menu swap-off"></i>
+            <span className="swap-on">{icons.navbar_close}</span>
+            <span className="swap-off">{icons.navbar_open}</span>
           </label>
         </div>
       </Navbar.End>
