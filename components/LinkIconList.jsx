@@ -8,7 +8,7 @@ const LinkIconList = ({ list = [] }) => {
     <Menu>
       {list.map((item) =>
         icons[item.iconName] ? (
-          <li key={item.id}>
+          <li key={item.id} role="menuitem">
             <Link
               href={item.path}
               target="_blank"

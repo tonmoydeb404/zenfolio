@@ -1,6 +1,5 @@
 import { useTheme } from "next-themes";
 import React, { useEffect, useState } from "react";
-import { Swap } from "react-daisyui";
 import icons from "../constants/icons";
 
 const ThemeSwitch = () => {
@@ -26,14 +25,21 @@ const ThemeSwitch = () => {
   }
 
   return (
-    <Swap
-      className="btn btn-square text-xl btn-sm px-5 py-5"
-      rotate
-      onElement={icons.dark}
-      offElement={icons.light}
-      checked={theme == "dark"}
-      onChange={toggleTheme}
-    ></Swap>
+    <label
+      htmlFor="themeSwitch"
+      className="swap swap-rotate btn btn-square text-xl btn-sm px-5 py-5"
+    >
+      <input
+        type="checkbox"
+        checked={theme == "dark"}
+        onChange={(e) => toggleTheme()}
+        id="themeSwitch"
+        aria-label="theme switcher"
+      />
+
+      <span className="swap-on">{icons.light}</span>
+      <span className="swap-off">{icons.dark}</span>
+    </label>
   );
 };
 

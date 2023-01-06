@@ -8,6 +8,10 @@ const nextConfig = {
   images: {
     domains: ["media.graphassets.com"],
   },
+  i18n: {
+    locales: ["en", "bn"],
+    defaultLocale: "en",
+  },
   env: {
     CMS_ENDPOINT: process.env.CMS_ENDPOINT,
     REVALIDATE_TOKEN: process.env.REVALIDATE_TOKEN,

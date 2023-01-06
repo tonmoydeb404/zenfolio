@@ -26,7 +26,7 @@ const NavbarSection = () => {
           <div className="navbar_links">
             <Menu>
               {DB.navLinks.map((item) => (
-                <li key={item.id}>
+                <li key={item.id} role="menuitem">
                   <NavLink
                     activeClassName="navbar_active"
                     path={item.path}
@@ -45,11 +45,16 @@ const NavbarSection = () => {
       <Navbar.End>
         <div className="navbar_actions">
           <ThemeSwitch />
-          <label className="swap swap-rotate btn btn-warning text-xl btn-sm px-3 py-5 sm:hidden z-[100000]">
+          <label
+            className="swap swap-rotate btn btn-warning text-xl btn-sm px-3 py-5 sm:hidden z-[100000]"
+            htmlFor="mobileMenuToggler"
+          >
             <input
               type="checkbox"
               checked={mobileMenu}
               onChange={(e) => setMobileMenu(e.target?.checked)}
+              id="mobileMenuToggler"
+              aria-label="toggle mobile menu"
             />
 
             <span className="swap-on">{icons.navbar_close}</span>

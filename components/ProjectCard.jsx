@@ -58,11 +58,11 @@ const ProjectCard = ({
         {title ? (
           <Link
             href={`/portfolio/${slug}`}
-            className="flex items-center justify-between gap-1"
+            className="flex items-center justify-between gap-1 group"
           >
             <Card.Title className="line-clamp-1">{title}</Card.Title>
 
-            <span className="text-2xl text-primary hover:text-primary-focus hover:translate-x-2 duration-300">
+            <span className="text-2xl text-primary group-hover:text-primary-focus group-hover:translate-x-2 duration-300">
               <BiRightArrowAlt />
             </span>
           </Link>
@@ -75,12 +75,20 @@ const ProjectCard = ({
           <Link
             href={`/portfolio/${slug}`}
             className="card-actions-icon mr-auto"
+            aria-label="case study"
+            title="read case study"
           >
             <BiBookOpen />
           </Link>
 
           {demo ? (
-            <Link href={demo} target="_blank" className="card-actions-icon">
+            <Link
+              href={demo}
+              target="_blank"
+              className="card-actions-icon"
+              aria-label="live demo"
+              title="visit live demo"
+            >
               <BiLinkExternal />
             </Link>
           ) : (
@@ -88,7 +96,13 @@ const ProjectCard = ({
           )}
 
           {srcCode ? (
-            <Link href={srcCode} target="_blank" className="card-actions-icon">
+            <Link
+              href={srcCode}
+              target="_blank"
+              className="card-actions-icon"
+              aria-label="source code"
+              title="view source code"
+            >
               <BiGitBranch />
             </Link>
           ) : (
