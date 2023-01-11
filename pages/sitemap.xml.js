@@ -2,13 +2,13 @@ import DB from "../data/siteData.preval";
 import { getSiteMap } from "../services/cms";
 
 function generateSiteMap(blog = [], portfolio = [], pages = []) {
-  const generateUrl = (arr) => {
+  const generateUrl = (arr, path = "") => {
     return arr
       .map((item) => {
         const lastMod = new Date(item.updatedAt).toLocaleDateString("fr-CA");
         return `
              <url>
-                <loc>${`${DB.baseUrl}/${item.slug}`}</loc>
+                <loc>${`${DB.baseUrl}/${path}${item.slug}`}</loc>
                 <lastmod>${lastMod}</lastmod>
             </url>
              `;
@@ -25,9 +25,9 @@ function generateSiteMap(blog = [], portfolio = [], pages = []) {
         <!--pages-->
         ${generateUrl(pages)}
         <!--portfolio-->
-        ${generateUrl(portfolio)}
+        ${generateUrl(portfolio, "portfolio/")}
         <!--blog-->
-        ${generateUrl(blog)}
+        ${generateUrl(blog, "blog/")}
     </urlset>
  `;
 }
