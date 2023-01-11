@@ -1,15 +1,16 @@
+import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 import { Button } from "react-daisyui";
+import { BiHome, BiLeftArrowAlt } from "react-icons/bi";
 import SEOHead from "../common/components/SEOHead";
-import Layout from "../common/layout";
 
 const ErrorPage = ({ statusCode }) => {
   // router
   const router = useRouter();
 
   return (
-    <Layout>
+    <>
       <SEOHead
         title={
           statusCode == 404
@@ -19,7 +20,7 @@ const ErrorPage = ({ statusCode }) => {
         index={false}
         follow={false}
       />
-      <div className="flex items-center justify-center flex-col w-full min-h-screen absolute top-0 left-0 bg-secondary z-[200000] gap-2">
+      <div className="flex items-center justify-center flex-col w-full py-10 min-h-screen bg-secondary gap-2">
         <h2 className="text-5xl font-bold">{statusCode}</h2>
         <p className="text-lg">
           {statusCode == 404
@@ -33,18 +34,18 @@ const ErrorPage = ({ statusCode }) => {
             className="gap-1"
             onClick={() => router.back()}
           >
-            <i className="bx bx-left-arrow-alt icon mb-1"></i>
+            <BiLeftArrowAlt className="icon" />
             Previous Page
           </Button>
           <Link href={"/"} passHref>
             <Button color="warning" className="gap-1">
               Back To Home
-              <i className="bx bx-home icon mb-1"></i>
+              <BiHome className="icon mb-1" />
             </Button>
           </Link>
         </div>
       </div>
-    </Layout>
+    </>
   );
 };
 
