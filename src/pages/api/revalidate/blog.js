@@ -17,7 +17,6 @@ export default async function handler(req, res) {
     }
 
     // revalidate path
-    await res.revalidate("/blog");
     await res.revalidate(path.join("/blog/", req.body.data.slug));
 
     // return success
