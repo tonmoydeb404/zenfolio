@@ -3,6 +3,8 @@ import React from "react";
 const FilterComponent = ({
   className = "",
   list = [],
+  optionKey = null,
+  optionValue = null,
   name = null,
   onChange = () => {},
   value = null,
@@ -22,14 +24,14 @@ const FilterComponent = ({
       {list && list.length
         ? list.map((item) => (
             <input
-              key={item.name}
+              key={item[optionKey]}
               type="radio"
-              name={name.name}
-              data-title={item.name}
-              value={item.name}
+              name={name[optionKey]}
+              data-title={item[optionValue]}
+              value={item[optionValue]}
               className="btn btn-sm sm:btn-md"
               onChange={onChange}
-              checked={value === item.name}
+              checked={value === item[optionKey]}
             />
           ))
         : ""}
