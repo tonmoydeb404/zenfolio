@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { Card } from "react-daisyui";
-import icons from "../constants/icons";
+import icons from "../../../constants/icons";
 
 const ContactCard = ({
   icon = null,

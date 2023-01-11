@@ -1,10 +1,10 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { Menu, Navbar } from "react-daisyui";
-import icons from "../constants/icons";
-import DB from "../data/siteData.preval";
-import NavLink from "./NavLink";
-import ThemeSwitch from "./ThemeSwitch";
+import icons from "../../constants/icons";
+import DB from "../../data/siteData.preval";
+import NavLink from "../components/NavLink";
+import ThemeSwitch from "../components/ThemeSwitch";
 
 const NavbarSection = () => {
   const [mobileMenu, setMobileMenu] = useState(false);

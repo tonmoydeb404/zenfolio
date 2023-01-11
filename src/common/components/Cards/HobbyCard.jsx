@@ -1,6 +1,6 @@
 import React from "react";
 import { Card } from "react-daisyui";
-import icons from "../constants/icons";
+import icons from "../../../constants/icons";
 
 const HobbyCard = ({ icon = null, title = null }) => {
   return (

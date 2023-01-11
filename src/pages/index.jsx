@@ -1,14 +1,14 @@
 import Link from "next/link";
 import { Button, Divider } from "react-daisyui";
-import ContactCard from "../components/ContactCard";
-import FetchErrorHandler from "../components/FetchErrorHandler";
-import Header from "../components/Header";
-import HobbyCard from "../components/HobbyCard";
-import Layout from "../components/Layout";
-import LinkIconList from "../components/LinkIconList";
-import ProjectCard from "../components/ProjectCard";
-import SEOHead from "../components/SEOHead";
-import SkillCard from "../components/SkillCard";
+import ContactCard from "../common/components/Cards/ContactCard";
+import HobbyCard from "../common/components/Cards/HobbyCard";
+import ProjectCard from "../common/components/Cards/ProjectCard";
+import SkillCard from "../common/components/Cards/SkillCard";
+import FetchErrorHandler from "../common/components/FetchErrorHandler";
+import Header from "../common/components/Header";
+import LinkIconList from "../common/components/LinkIconList";
+import SEOHead from "../common/components/SEOHead";
+import Layout from "../common/layout";
 import icons from "../constants/icons";
 import { getAuthor } from "../services/cms";
 

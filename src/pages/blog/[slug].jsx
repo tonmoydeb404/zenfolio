@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import FetchErrorHandler from "../../components/FetchErrorHandler";
-import Layout from "../../components/Layout";
-import SEOHead from "../../components/SEOHead";
+import FetchErrorHandler from "../../common/components/FetchErrorHandler";
+import SEOHead from "../../common/components/SEOHead";
+import Layout from "../../common/layout";
 import { getArticle, getArticleList } from "../../services/cms";
 
 export const getStaticPaths = async () => {

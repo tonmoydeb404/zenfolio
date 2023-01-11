@@ -9,7 +9,7 @@ import {
   projectSchema,
   sitemapSchema,
   websiteSchema,
-} from "../lib/graphQL.js";
+} from "../common/lib/graphQL.js";
 
 const CMS_ENDPOINT = process.env.CMS_ENDPOINT;
 const WEBSITE_ID = process.env.WEBSITE_ID;

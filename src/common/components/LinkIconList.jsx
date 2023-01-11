@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { Menu } from "react-daisyui";
-import icons from "../constants/icons";
+import icons from "../../constants/icons";
 
 const LinkIconList = ({ list = [] }) => {
   return list && list.length ? (

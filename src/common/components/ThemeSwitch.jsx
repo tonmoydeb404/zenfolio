@@ -1,6 +1,6 @@
 import { useTheme } from "next-themes";
 import React, { useEffect, useState } from "react";
-import icons from "../constants/icons";
+import icons from "../../constants/icons";
 
 const ThemeSwitch = () => {
   const [mounted, setMounted] = useState(false);

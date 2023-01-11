@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
-import FetchErrorHandler from "../../components/FetchErrorHandler";
-import FilterComponent from "../../components/FilterComponent";
-import Header from "../../components/Header";
-import Layout from "../../components/Layout";
-import ProjectCard, { ProjectCardSkeleton } from "../../components/ProjectCard";
-import SEOHead from "../../components/SEOHead";
+import ProjectCard, {
+  ProjectCardSkeleton,
+} from "../../common/components/Cards/ProjectCard";
+import FetchErrorHandler from "../../common/components/FetchErrorHandler";
+import FilterComponent from "../../common/components/FilterComponent";
+import Header from "../../common/components/Header";
+import SEOHead from "../../common/components/SEOHead";
+import Layout from "../../common/layout";
 import { getPage, getProjectList } from "../../services/cms";
 
 export const getStaticProps = async () => {

@@ -1,8 +1,8 @@
 import React from "react";
-import FetchErrorHandler from "../components/FetchErrorHandler";
-import Header from "../components/Header";
-import Layout from "../components/Layout";
-import SEOHead from "../components/SEOHead";
+import FetchErrorHandler from "../common/components/FetchErrorHandler";
+import Header from "../common/components/Header";
+import SEOHead from "../common/components/SEOHead";
+import Layout from "../common/layout";
 import { getPage, getPageList } from "../services/cms";
 
 const EXCLUDE_PATHS = ["portfolio", "blog", "contact"];

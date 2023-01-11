@@ -1,4 +1,4 @@
-import DB from "../data/siteData.preval";
+import DB from "../../data/siteData.preval";
 export const GA_MEASUREMENT_ID = DB.siteData?.GOOGLE_MEASUREMENT_ID;
 
 export const pageview = (url) => {

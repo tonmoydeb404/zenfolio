@@ -1,5 +1,5 @@
 import React from "react";
-import skill from "../constants/skill.json";
+import skill from "../../../constants/skill.json";
 
 const SkillCard = ({ level = null, title = null }) => {
   return (

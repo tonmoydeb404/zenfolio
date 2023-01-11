@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { Button } from "react-daisyui";
+import { BiSearch, BiX } from "react-icons/bi";
 
 const HeaderSearch = ({ className = "", basePath = "" }) => {
   const router = useRouter();
@@ -46,10 +47,10 @@ const HeaderSearch = ({ className = "", basePath = "" }) => {
       />
       {query && query.length && (
         <Button type="button" shape="square" onClick={() => handleChange("")}>
-          <i className="bx bx-x icon"></i>
+          <BiX className="icon" />
         </Button>
       )}
-      <i className="bx bx-search absolute top-2/4 left-3 -translate-y-2/4"></i>
+      <BiSearch className="absolute top-2/4 left-3 -translate-y-2/4" />
     </form>
   );
 };

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { Footer } from "react-daisyui";
-import DB from "../data/siteData.preval";
+import DB from "../../data/siteData.preval";
 
 const FooterSection = () => {
   return (

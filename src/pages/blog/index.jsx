@@ -3,13 +3,15 @@ import React, { useEffect, useState } from "react";
 import { BiSad } from "react-icons/bi";
 import InfiniteScroll from "react-infinite-scroll-component";
 
-import BlogCard, { BlogCardSkeleton } from "../../components/BlogCard";
-import FeaturedCard from "../../components/FeaturedCard";
-import FetchErrorHandler from "../../components/FetchErrorHandler";
-import Header from "../../components/Header";
-import HeaderSearch from "../../components/HeaderSearch";
-import Layout from "../../components/Layout";
-import SEOHead from "../../components/SEOHead";
+import BlogCard, {
+  BlogCardSkeleton,
+} from "../../common/components/Cards/BlogCard";
+import FeaturedCard from "../../common/components/Cards/FeaturedCard";
+import FetchErrorHandler from "../../common/components/FetchErrorHandler";
+import Header from "../../common/components/Header";
+import HeaderSearch from "../../common/components/HeaderSearch";
+import SEOHead from "../../common/components/SEOHead";
+import Layout from "../../common/layout";
 import { getArticleList, getPage } from "../../services/cms";
 
 export const getStaticProps = async () => {

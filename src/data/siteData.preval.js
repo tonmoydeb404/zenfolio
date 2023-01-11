@@ -1,7 +1,7 @@
 import { loadEnvConfig } from "@next/env";
 import { request } from "graphql-request";
 import preval from "next-plugin-preval";
-import { websiteSchema } from "../lib/graphQL.js";
+import { websiteSchema } from "../common/lib/graphQL";
 
 // load env
 loadEnvConfig(process.cwd());
