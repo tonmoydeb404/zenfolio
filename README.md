@@ -6,7 +6,7 @@ By fully functional I've meant, that you can:
 
 - customize almost everything
 - manage your own blog
-- showcase your projects
+- showcase your projects & case studies
 - create custom pages
 - fully SEO optimized
 
