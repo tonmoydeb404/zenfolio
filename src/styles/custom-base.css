@@ -1,5 +1,5 @@
 :root {
-  --background: 0 0% 100%;
+  --background: 0 0% 96.21%;
   --foreground: 222.2 84% 4.9%;
 
   --muted: 210 40% 96.1%;
@@ -66,5 +66,5 @@
   @apply border-border;
 }
 body {
-  @apply bg-background text-foreground;
+  @apply bg-background text-foreground font-ubuntu;
 }

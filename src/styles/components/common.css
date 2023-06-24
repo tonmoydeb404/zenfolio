@@ -1,0 +1,8 @@
+/* BLOCK Styles */
+.block_heading {
+  @apply text-2xl md:text-3xl font-bold;
+}
+
+.block_desc {
+  @apply text-base leading-relaxed;
+}

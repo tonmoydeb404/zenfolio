@@ -1,4 +1,5 @@
 import HomeHero from "@/components/pages/home/HomeHero";
+import HomeSkills from "@/components/pages/home/HomeSkills";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
           url: "#",
         }}
       />
+      <HomeSkills />
     </section>
   );
 }

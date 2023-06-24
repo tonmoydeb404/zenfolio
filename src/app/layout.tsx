@@ -1,10 +1,13 @@
 import AppLayout from "@/components/layout";
 import { ThemeProvider } from "@/components/utils/theme-provider";
-import { Inter } from "next/font/google";
+import { Ubuntu } from "next/font/google";
 import { ReactNode } from "react";
 import "../styles/globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const ubuntu = Ubuntu({
+  weight: ["300", "400", "500", "700"],
+  subsets: ["latin"],
+});
 
 export const metadata = {
   title: "Tonmoy Deb - Frontend Developer",
@@ -14,7 +17,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${inter.className}`}>
+      <body className={`${ubuntu.className}`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <AppLayout>{children}</AppLayout>
         </ThemeProvider>
