@@ -2,7 +2,7 @@ import SkillCard from "@/components/cards/SkillCard";
 
 const HomeSkills = () => {
   return (
-    <section>
+    <section className="py-10">
       <h2 className="block_heading mb-1">My Skills</h2>
       <p className="block_desc mb-10">
         Here I mentioned those technologies that I love to work with.
