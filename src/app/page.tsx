@@ -1,14 +1,22 @@
-import { Button } from "@/components/ui/button";
+import HomeHero from "@/components/pages/home/HomeHero";
 
 export default function Home() {
   return (
     <section className="wrapper">
-      <Button variant="default">default</Button>
-      <Button variant="secondary">secondary</Button>
-      <Button variant="destructive">destructive</Button>
-      <Button variant="ghost">ghost</Button>
-      <Button variant="link">link</Button>
-      <Button variant="outline">outline</Button>
+      <HomeHero
+        name="Tonmoy Deb"
+        profession="Front-end Developer"
+        bio="a self-taught programmer from Bangladesh, who loves to explore the binary world."
+        avatar="https://tonmoydeb.com/_next/image?url=https%3A%2F%2Fmedia.graphassets.com%2FlBCgPojdTjWqXB6V0UC6&w=256&q=75"
+        primaryCTA={{
+          text: "Download CV",
+          url: "#",
+        }}
+        secondaryCTA={{
+          text: "Github",
+          url: "#",
+        }}
+      />
     </section>
   );
 }
