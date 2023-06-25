@@ -1,3 +1,4 @@
+import HomeContacts from "@/components/pages/home/HomeContacts";
 import HomeHero from "@/components/pages/home/HomeHero";
 import HomeHobbies from "@/components/pages/home/HomeHobbies";
 import HomeProjects from "@/components/pages/home/HomeProjects";
@@ -25,6 +26,7 @@ export default function Home() {
       <HomeSkills />
       <HomeProjects />
       <HomeHobbies />
+      <HomeContacts />
     </section>
   );
 }
