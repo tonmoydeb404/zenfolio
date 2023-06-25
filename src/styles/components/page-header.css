@@ -1,0 +1,7 @@
+.page-header_title {
+  @apply text-3xl md:text-5xl font-bold mb-1;
+}
+
+.page-header_desc {
+  @apply leading-relaxed mt-5 opacity-80;
+}
