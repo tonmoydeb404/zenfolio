@@ -4,7 +4,7 @@ import { SiFacebook, SiGithub, SiInstagram } from "react-icons/si";
 
 const HomeSocials = () => {
   return (
-    <section className="flex items-center gap-5 py-10">
+    <section className="flex items-center gap-5 py-5">
       <Separator className="flex-1" />
       <ul className="icon-list">
         <Link href={"#"} className="icon-list_icon">

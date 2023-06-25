@@ -2,18 +2,13 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 type Props = {
   src: string;
-  fallback?: string;
 };
 
-const Logo = ({ src, fallback }: Props) => {
+const Logo = ({ src }: Props) => {
   return (
     <Avatar className="rounded-sm">
       <AvatarImage src={src} />
-      {fallback ? (
-        <AvatarFallback className="bg-primary text-primary-foreground rounded-sm font-bold">
-          {fallback}
-        </AvatarFallback>
-      ) : null}
+      <AvatarFallback className="rounded-sm"></AvatarFallback>
     </Avatar>
   );
 };

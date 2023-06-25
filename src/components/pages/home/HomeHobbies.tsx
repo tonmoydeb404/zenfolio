@@ -3,7 +3,7 @@ import { hobbyIcons } from "@/config/hobby-icons";
 
 const HomeHobbies = () => {
   return (
-    <section className="py-10">
+    <section className="py-16">
       <h2 className="block_heading mb-10">Hobbies</h2>
 
       <div className="grid sm:grid-cols-3 gap-3">

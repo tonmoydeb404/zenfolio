@@ -2,7 +2,7 @@ import ProjectCard from "@/components/cards/ProjectCard";
 
 const HomeProjects = () => {
   return (
-    <section className="py-10">
+    <section className="py-16">
       <h2 className="block_heading mb-1">Featured Projects</h2>
       <p className="block_desc mb-10">
         These are some examples of my projects and whenever I get some free-time

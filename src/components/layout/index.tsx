@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import Footer from "./Footer";
 import Navbar from "./Navbar";
 
 const AppLayout = ({ children }: { children: ReactNode }) => {
@@ -8,6 +9,7 @@ const AppLayout = ({ children }: { children: ReactNode }) => {
       <main className="container">
         <div className="wrapper">{children}</div>
       </main>
+      <Footer />
     </>
   );
 };

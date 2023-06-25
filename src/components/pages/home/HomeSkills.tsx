@@ -4,7 +4,7 @@ import { Separator } from "@/components/ui/separator";
 
 const HomeSkills = () => {
   return (
-    <section className="py-10">
+    <section className="py-16">
       <h2 className="block_heading mb-1">My Skills</h2>
       <p className="block_desc mb-10">
         Here I mentioned those technologies that I love to work with.
