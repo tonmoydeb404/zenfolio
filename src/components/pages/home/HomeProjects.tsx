@@ -3,9 +3,10 @@ import ProjectCard from "@/components/cards/ProjectCard";
 const HomeProjects = () => {
   return (
     <section className="py-10">
-      <h2 className="block_heading mb-1">My Skills</h2>
+      <h2 className="block_heading mb-1">Featured Projects</h2>
       <p className="block_desc mb-10">
-        Here I mentioned those technologies that I love to work with.
+        These are some examples of my projects and whenever I get some free-time
+        I’d like to think about my next project
       </p>
 
       <div className="grid sm:grid-cols-2 gap-3">
