@@ -1,0 +1,35 @@
+.project-card {
+  @apply rounded overflow-hidden shadow border;
+}
+
+.project-card_media {
+  @apply relative aspect-video;
+}
+
+.project-card_body {
+  @apply p-4 bg-white dark:bg-muted;
+}
+
+.project-card_title {
+  @apply text-xl font-medium mb-1.5;
+}
+
+.project-card_desc {
+  @apply leading-normal opacity-90 line-clamp-3 text-sm mb-5;
+}
+
+.project-card_links {
+  @apply flex items-center gap-2 mb-3 text-2xl;
+}
+
+.project-card_links > a {
+  @apply hover:text-primary;
+}
+
+.project-card_techs {
+  @apply flex items-center gap-1.5 text-[11px] opacity-50 line-clamp-1;
+}
+
+.project-card_techs > * {
+  @apply whitespace-nowrap;
+}

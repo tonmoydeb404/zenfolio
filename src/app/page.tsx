@@ -1,4 +1,5 @@
 import HomeHero from "@/components/pages/home/HomeHero";
+import HomeProjects from "@/components/pages/home/HomeProjects";
 import HomeSkills from "@/components/pages/home/HomeSkills";
 import HomeSocials from "@/components/pages/home/HomeSocials";
 
@@ -21,6 +22,7 @@ export default function Home() {
       />
       <HomeSocials />
       <HomeSkills />
+      <HomeProjects />
     </section>
   );
 }
