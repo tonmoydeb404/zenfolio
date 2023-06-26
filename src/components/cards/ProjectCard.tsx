@@ -1,6 +1,6 @@
+import projectIcons from "@/config/project-icons";
 import Image from "next/image";
 import Link from "next/link";
-import { BiBookOpen, BiGitBranch, BiLinkExternal } from "react-icons/bi";
 
 type Props = {
   title: string;
@@ -44,17 +44,17 @@ const ProjectCard = ({
         <div className="project-card_links">
           {detailsLink ? (
             <Link href={detailsLink} title="Learn More">
-              <BiBookOpen />
+              <projectIcons.VIEW_MORE />
             </Link>
           ) : null}
           {previewLink ? (
             <Link href={previewLink} className="ml-auto" title="Preview">
-              <BiLinkExternal />
+              <projectIcons.VIEW_MORE />
             </Link>
           ) : null}
           {sourceLink ? (
             <Link href={sourceLink} title="Source Code">
-              <BiGitBranch />
+              <projectIcons.SOURCE />
             </Link>
           ) : null}
         </div>

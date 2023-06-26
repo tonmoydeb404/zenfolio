@@ -9,9 +9,9 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import appIcons from "@/config/app-icons";
 import Link from "next/link";
 import { useState } from "react";
-import { MdMenu } from "react-icons/md";
 
 type Props = {
   className?: string;
@@ -26,7 +26,7 @@ const MobileLinks = ({ className }: Props) => {
         <SheetTrigger
           className={buttonVariants({ variant: "secondary", size: "icon" })}
         >
-          <MdMenu className="text-lg" />
+          <appIcons.MENU className="text-lg" />
         </SheetTrigger>
         <SheetContent
           className="w-full flex items-center justify-center flex-col"

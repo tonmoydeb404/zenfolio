@@ -1,12 +1,15 @@
-import { IconType } from "react-icons";
-import { BiBookReader, BiCodeAlt } from "react-icons/bi";
-import { MdOutlineDesignServices, MdTravelExplore } from "react-icons/md";
+import type { IconType } from "react-icons";
+import { LuBookOpen, LuCode2, LuPenTool, LuPlane } from "react-icons/lu";
+
+export type HobbyIconType = IconType;
 
 export type HobbyIcon = "READING_BOOKS" | "DESIGN" | "CODE" | "TRAVEL";
 
-export const hobbyIcons: Record<HobbyIcon, IconType> = {
-  CODE: BiCodeAlt,
-  DESIGN: MdOutlineDesignServices,
-  READING_BOOKS: BiBookReader,
-  TRAVEL: MdTravelExplore,
+const hobbyIcons: Record<HobbyIcon, HobbyIconType> = {
+  CODE: LuCode2,
+  DESIGN: LuPenTool,
+  READING_BOOKS: LuBookOpen,
+  TRAVEL: LuPlane,
 };
+
+export default hobbyIcons;

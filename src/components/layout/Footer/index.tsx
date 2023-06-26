@@ -1,7 +1,7 @@
 import { Separator } from "@/components/ui/separator";
+import appIcons from "@/config/app-icons";
+import socialIcons from "@/config/social-icons";
 import Link from "next/link";
-import { BiCopyright } from "react-icons/bi";
-import { SiFacebook, SiGithub, SiInstagram } from "react-icons/si";
 
 const Footer = () => {
   return (
@@ -12,17 +12,17 @@ const Footer = () => {
         <div className="flex flex-col sm:flex-row-reverse flex-wrap gap-5 items-center justify-center sm:justify-between px-3 py-4">
           <ul className="icon-list gap-0">
             <Link href={"#"} className="icon-list_icon text-2xl">
-              <SiFacebook />
+              <socialIcons.FACEBOOK />
             </Link>
             <Link href={"#"} className="icon-list_icon text-2xl">
-              <SiInstagram />
+              <socialIcons.INSTAGRAM />
             </Link>
             <Link href={"#"} className="icon-list_icon text-2xl">
-              <SiGithub />
+              <socialIcons.GITHUB />
             </Link>
           </ul>
           <div className="flex items-center gap-1">
-            <BiCopyright className="text-lg text-primary" />
+            <appIcons.COPYRIGHT className="text-lg text-primary" />
             <p>all rights are reserved</p>
           </div>
         </div>

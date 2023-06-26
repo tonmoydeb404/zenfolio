@@ -1,8 +1,8 @@
+import { ContactIconType } from "@/config/contact-icons";
 import Link from "next/link";
-import { IconType } from "react-icons";
 
 type Props = {
-  icon: IconType;
+  icon: ContactIconType;
   title: string;
   link: string;
   text: string;

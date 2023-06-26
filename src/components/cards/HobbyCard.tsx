@@ -1,8 +1,8 @@
-import { IconType } from "react-icons";
+import { HobbyIconType } from "@/config/hobby-icons";
 
 type Props = {
   title: string;
-  icon: IconType;
+  icon: HobbyIconType;
 };
 
 const HobbyCard = ({ title, icon: Icon }: Props) => {

@@ -1,6 +1,6 @@
 import { Separator } from "@/components/ui/separator";
+import socialIcons from "@/config/social-icons";
 import Link from "next/link";
-import { SiFacebook, SiGithub, SiInstagram } from "react-icons/si";
 
 const HomeSocials = () => {
   return (
@@ -8,13 +8,13 @@ const HomeSocials = () => {
       <Separator className="flex-1" />
       <ul className="icon-list">
         <Link href={"#"} className="icon-list_icon">
-          <SiFacebook />
+          <socialIcons.FACEBOOK />
         </Link>
         <Link href={"#"} className="icon-list_icon">
-          <SiInstagram />
+          <socialIcons.INSTAGRAM />
         </Link>
         <Link href={"#"} className="icon-list_icon">
-          <SiGithub />
+          <socialIcons.GITHUB />
         </Link>
       </ul>
       <Separator className="flex-1 hidden" />

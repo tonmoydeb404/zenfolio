@@ -1,5 +1,5 @@
 import HobbyCard from "@/components/cards/HobbyCard";
-import { hobbyIcons } from "@/config/hobby-icons";
+import hobbyIcons from "@/config/hobby-icons";
 
 const HomeHobbies = () => {
   return (

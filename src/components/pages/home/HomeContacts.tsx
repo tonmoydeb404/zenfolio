@@ -1,5 +1,5 @@
 import ContactCard from "@/components/cards/ContactCard";
-import { contactIcons } from "@/config/contact-icon";
+import contactIcons from "@/config/contact-icons";
 
 const HomeContacts = () => {
   return (
