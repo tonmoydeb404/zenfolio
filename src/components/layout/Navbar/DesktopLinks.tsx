@@ -32,9 +32,9 @@ const DesktopLinks = ({ className = "" }: Props) => {
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href="/portfolio" legacyBehavior passHref>
+          <Link href="/projects" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Portfolio
+              Projects
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>

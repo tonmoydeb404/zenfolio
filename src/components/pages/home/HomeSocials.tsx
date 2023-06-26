@@ -1,5 +1,5 @@
 import { Separator } from "@/components/ui/separator";
-import socialIcons from "@/config/social-icons";
+import socialIcons from "@/config/icons/social-icons";
 import Link from "next/link";
 
 const HomeSocials = () => {

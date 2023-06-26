@@ -1,4 +1,4 @@
-import projectIcons from "@/config/project-icons";
+import projectIcons from "@/config/icons/project-icons";
 import Image from "next/image";
 import Link from "next/link";
 

@@ -1,4 +1,4 @@
-import { HobbyIconType } from "@/config/hobby-icons";
+import { HobbyIconType } from "@/config/icons/hobby-icons";
 
 type Props = {
   title: string;

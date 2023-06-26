@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import appIcons from "@/config/app-icons";
+import appIcons from "@/config/icons/app-icons";
 import { useTheme } from "next-themes";
 
 type Props = {

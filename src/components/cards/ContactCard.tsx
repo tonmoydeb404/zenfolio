@@ -1,4 +1,4 @@
-import { ContactIconType } from "@/config/contact-icons";
+import { ContactIconType } from "@/config/icons/contact-icons";
 import Link from "next/link";
 
 type Props = {

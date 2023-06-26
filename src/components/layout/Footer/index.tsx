@@ -1,12 +1,12 @@
 import { Separator } from "@/components/ui/separator";
-import appIcons from "@/config/app-icons";
-import socialIcons from "@/config/social-icons";
+import appIcons from "@/config/icons/app-icons";
+import socialIcons from "@/config/icons/social-icons";
 import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="container">
-      <div className="wrapper pt-5">
+    <footer className="container mt-32">
+      <div className="wrapper">
         <Separator />
 
         <div className="flex flex-col sm:flex-row-reverse flex-wrap gap-5 items-center justify-center sm:justify-between px-3 py-4">

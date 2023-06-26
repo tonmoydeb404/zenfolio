@@ -2,7 +2,7 @@ import PageHeader from "@/components/pages/common/PageHeader";
 
 const Page = () => {
   return (
-    <section className="wrapper">
+    <>
       <PageHeader
         title="About Me"
         desc="Hey, I'm Tonmoy Deb a self-taught frontend developer from Bangladesh. I love to solve problems and build web applications. I’m passionate about front-end development. Nowadays I spend most of my time creating frontend projects."
@@ -155,7 +155,7 @@ const Page = () => {
           <br />
         </p>
       </div>
-    </section>
+    </>
   );
 };
 

@@ -1,9 +1,9 @@
 import ContactCard from "@/components/cards/ContactCard";
-import contactIcons from "@/config/contact-icons";
+import contactIcons from "@/config/icons/contact-icons";
 
 const HomeContacts = () => {
   return (
-    <section className="py-16">
+    <section className="pt-16">
       <h2 className="block_heading mb-1">Contact Me</h2>
       <p className="block_desc mb-10">
         I’m really interested to work or collaborate with any company that

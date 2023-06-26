@@ -1,0 +1,11 @@
+.status-card {
+  @apply flex items-center gap-2 p-4 rounded-sm;
+}
+
+.status-card[data-status="SUCCESS"] {
+  @apply bg-primary text-primary-foreground;
+}
+
+.status-card[data-status="ERROR"] {
+  @apply bg-destructive text-destructive-foreground;
+}

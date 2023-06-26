@@ -7,7 +7,7 @@ import HomeSocials from "@/components/pages/home/HomeSocials";
 
 export default function Home() {
   return (
-    <section className="wrapper">
+    <>
       <HomeHero
         name="Tonmoy Deb"
         profession="Front-end Developer"
@@ -27,6 +27,6 @@ export default function Home() {
       <HomeProjects />
       <HomeHobbies />
       <HomeContacts />
-    </section>
+    </>
   );
 }

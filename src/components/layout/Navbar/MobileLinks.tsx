@@ -9,7 +9,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import appIcons from "@/config/app-icons";
+import appIcons from "@/config/icons/app-icons";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -55,11 +55,11 @@ const MobileLinks = ({ className }: Props) => {
                 </Link>
               </NavigationMenuItem>
               <NavigationMenuItem onClick={() => setIsOpen(false)}>
-                <Link href="/portfolio" legacyBehavior passHref>
+                <Link href="/projects" legacyBehavior passHref>
                   <NavigationMenuLink
                     className={navigationMenuTriggerStyle({ class: "text-xl" })}
                   >
-                    Portfolio
+                    Projects
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
