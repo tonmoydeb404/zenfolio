@@ -7,7 +7,7 @@ const Navbar = () => {
   return (
     <nav className="container">
       <div className="wrapper flex items-center py-3">
-        <Logo src="/icons/TD.png" fallback="TD" />
+        <Logo src="/icons/TD.png" />
         <DesktopLinks className="hidden sm:flex ml-auto" />
         <div className="ml-auto inline-flex items-center gap-2">
           <ThemeButton />
