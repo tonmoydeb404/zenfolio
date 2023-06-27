@@ -10,14 +10,16 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import appIcons from "@/config/icons/app-icons";
+import { Link as NavLink } from "@/types/hygraph.type";
 import Link from "next/link";
 import { useState } from "react";
 
 type Props = {
   className?: string;
+  navLinks: NavLink[];
 };
 
-const MobileLinks = ({ className }: Props) => {
+const MobileLinks = ({ className, navLinks = [] }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -36,42 +38,29 @@ const MobileLinks = ({ className }: Props) => {
             <NavigationMenuList
               className={"flex-col items-center w-full gap-4"}
             >
-              <NavigationMenuItem onClick={() => setIsOpen(false)}>
-                <Link href="/" legacyBehavior passHref>
-                  <NavigationMenuLink
-                    className={navigationMenuTriggerStyle({ class: "text-xl" })}
-                  >
-                    Home
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
-              <NavigationMenuItem onClick={() => setIsOpen(false)}>
-                <Link href="/about-me" legacyBehavior passHref>
-                  <NavigationMenuLink
-                    className={navigationMenuTriggerStyle({ class: "text-xl" })}
-                  >
-                    About
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
-              <NavigationMenuItem onClick={() => setIsOpen(false)}>
-                <Link href="/projects" legacyBehavior passHref>
-                  <NavigationMenuLink
-                    className={navigationMenuTriggerStyle({ class: "text-xl" })}
-                  >
-                    Projects
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
-              <NavigationMenuItem onClick={() => setIsOpen(false)}>
-                <Link href="/contact" legacyBehavior passHref>
-                  <NavigationMenuLink
-                    className={navigationMenuTriggerStyle({ class: "text-xl" })}
-                  >
-                    Contact
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
+              {navLinks
+                ? navLinks.map((link) => (
+                    <NavigationMenuItem
+                      onClick={() => setIsOpen(false)}
+                      key={link.id}
+                    >
+                      <Link
+                        href={link.path}
+                        target={link.newTab ? "_blank" : undefined}
+                        legacyBehavior
+                        passHref
+                      >
+                        <NavigationMenuLink
+                          className={navigationMenuTriggerStyle({
+                            class: "text-xl",
+                          })}
+                        >
+                          {link.title}
+                        </NavigationMenuLink>
+                      </Link>
+                    </NavigationMenuItem>
+                  ))
+                : null}
             </NavigationMenuList>
           </NavigationMenu>
         </SheetContent>

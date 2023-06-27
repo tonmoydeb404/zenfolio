@@ -7,44 +7,34 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import { Link as NavLink } from "@/types/hygraph.type";
 import Link from "next/link";
 
 type Props = {
   className?: string;
+  navLinks: NavLink[];
 };
 
-const DesktopLinks = ({ className = "" }: Props) => {
+const DesktopLinks = ({ className = "", navLinks = [] }: Props) => {
   return (
     <NavigationMenu className={className}>
       <NavigationMenuList>
-        <NavigationMenuItem>
-          <Link href="/" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Home
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <Link href="/about-me" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              About
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <Link href="/projects" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Projects
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <Link href="/contact" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Contact
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
+        {navLinks
+          ? navLinks.map((link) => (
+              <NavigationMenuItem key={link.id}>
+                <Link
+                  href={link.path}
+                  target={link.newTab ? "_blank" : undefined}
+                  legacyBehavior
+                  passHref
+                >
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    {link.title}
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+            ))
+          : null}
       </NavigationMenuList>
     </NavigationMenu>
   );
