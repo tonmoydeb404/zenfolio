@@ -17,7 +17,6 @@ export const metadata = {
 };
 
 const getWebsite = async () => {
-  "use server";
   const CMS_ENDPOINT = process.env.CMS_ENDPOINT;
   const WEBSITE_ID = process.env.WEBSITE_ID;
   if (!CMS_ENDPOINT || !WEBSITE_ID) return {};
