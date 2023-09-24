@@ -1,30 +1,162 @@
-export const websiteQuery = (id: string) => {
+const imageProps = `
+url
+width
+height
+`;
+const linkProps = `
+id
+title
+icon
+newTab
+path
+text
+`;
+const skillProps = `
+title
+level
+`;
+const commonProjectProps = `
+title
+slug
+description
+projectType
+previewLink
+sourceLink
+stacks
+thumbnail {
+  ${imageProps}
+}
+`;
+const hobbyProps = `
+title
+icon
+`;
+const metaProps = `
+title
+description
+url
+keywords
+thumbnail {
+  ${imageProps}
+}
+indexPage
+followPage
+`;
+const contentProps = `
+html
+`;
+
+export const queryWrapper = (...queries: string[]) => {
   return `{
+    ${queries.join("\n")}
+  }`;
+};
+
+export const websiteQuery = (id: string) => {
+  return `
   website(where: {id: "${id}"}, stage: PUBLISHED) {
     id
     title
     logo {
-      url
-      width
-      height
+      ${imageProps}
     }
     defaultTheme
     copyrightText
     contactLinks {
-      id
-      title
-      text
-      path
-      icon
+      ${linkProps}
     }
     navigationLinks {
-      icon
-      newTab
-      path
-      text
-      title
-      id
+      ${linkProps}
     }
   }
-}`;
+  `;
+};
+
+export const profileQuery = (id: string) => {
+  return `
+    profile(stage: PUBLISHED, where: {id: "${id}"}) {
+      id
+      name
+      profession
+      bio
+      avatar {
+        ${imageProps}
+      }
+      ctaLinks {
+        ${linkProps}
+      }
+      skillSectionTitle
+      skillSectionDescription
+      techSkills {
+        ${skillProps}
+      }
+      otherSkills {
+        ${skillProps}
+      }
+      featuredProjectsSectionTitle
+      featuredProjectsSectionDescription
+      featuredProjects {
+        ${commonProjectProps}
+      }
+      hobbySectionTitle
+      hobbySectionDescription
+      hobbies {
+        ${hobbyProps}
+      }
+      contactSectionTitle
+      contactSectionDescription
+      contacts {
+        ${linkProps}
+      }
+      meta {
+        ${metaProps}
+      }
+    }
+  `;
+};
+
+export const pagesQuery = () => {
+  return `
+  pages {
+    id
+    title
+    slug
+  }
+  `;
+};
+export const pageQuery = (slug: string) => {
+  return `
+  page(where: {slug: "${slug}"}, stage: PUBLISHED) {
+    title
+    description
+    slug
+    content {
+      ${contentProps}
+    }
+    meta {
+      ${metaProps}
+    }
+  }
+  `;
+};
+
+export const projectsQuery = () => {
+  return `
+  projects(stage: PUBLISHED) {
+    ${commonProjectProps}
+  }
+  `;
+};
+export const projectQuery = (slug: string) => {
+  return `
+  project(where: {slug: "${slug}"}, stage: PUBLISHED) {
+    ${commonProjectProps}
+    content {
+      ${contentProps}
+    }
+    meta {
+      ${metaProps}
+    }
+  }
+  `;
 };

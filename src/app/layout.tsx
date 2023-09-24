@@ -1,6 +1,6 @@
 import AppLayout from "@/components/layout";
 import { ThemeProvider } from "@/components/utils/theme-provider";
-import { websiteQuery } from "@/lib/hygraph-queries";
+import { queryWrapper, websiteQuery } from "@/lib/hygraph-queries";
 import { Website } from "@/types/hygraph.type";
 import { Ubuntu } from "next/font/google";
 import { ReactNode } from "react";
@@ -24,7 +24,7 @@ const getWebsite = async () => {
   const response = await fetch(CMS_ENDPOINT, {
     method: "POST",
     body: JSON.stringify({
-      query: websiteQuery(WEBSITE_ID),
+      query: queryWrapper(websiteQuery(WEBSITE_ID)),
     }),
   });
 
