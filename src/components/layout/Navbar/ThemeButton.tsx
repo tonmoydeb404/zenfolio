@@ -1,8 +1,8 @@
 "use client";
-
 import { Button } from "@/components/ui/button";
 import appIcons from "@/config/icons/app-icons";
 import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 type Props = {
   className?: string;
@@ -10,10 +10,18 @@ type Props = {
 
 const ThemeButton = ({ className = "" }: Props) => {
   const { setTheme, theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  // rehydration problem fixed
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const toggleTheme = () => {
     setTheme(theme === "dark" ? "light" : "dark");
   };
+
+  if (!mounted) return <></>;
 
   return (
     <Button
@@ -22,11 +30,8 @@ const ThemeButton = ({ className = "" }: Props) => {
       onClick={toggleTheme}
       className={className}
     >
-      {theme === "dark" ? (
-        <appIcons.LIGHT_MODE className="text-lg" />
-      ) : (
-        <appIcons.DARK_MODE className="text-lg" />
-      )}
+      {theme === "dark" ? <appIcons.LIGHT_MODE className="text-lg" /> : <></>}
+      {theme === "light" ? <appIcons.DARK_MODE className="text-lg" /> : <></>}
     </Button>
   );
 };
