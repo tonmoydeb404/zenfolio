@@ -24,7 +24,7 @@ const getWebsite = async () => {
   const response = await fetch(CMS_ENDPOINT, {
     method: "POST",
     body: JSON.stringify({
-      query: queryWrapper(websiteQuery(WEBSITE_ID)),
+      query: queryWrapper("getWebsite", [websiteQuery(WEBSITE_ID)]),
     }),
   });
 

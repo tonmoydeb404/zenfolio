@@ -1,27 +1,23 @@
 import ContactCard from "@/components/cards/ContactCard";
-import contactIcons from "@/config/icons/contact-icons";
+import contactIcons, { ContactIcon } from "@/config/icons/contact-icons";
+import { Link } from "@/types/hygraph.type";
 
-const ContactCards = () => {
+type Props = {
+  contacts: Link<ContactIcon>[];
+};
+
+const ContactCards = ({ contacts }: Props) => {
   return (
     <section className="flex flex-col gap-3 pt-16">
-      <ContactCard
-        title="Email"
-        icon={contactIcons.EMAIL}
-        link="#"
-        text="tonmoydeb404@gmail.com"
-      />
-      <ContactCard
-        title="Address"
-        icon={contactIcons.ADDRESS}
-        link="#"
-        text="Moulvibazar, Sylhet, Bangladesh"
-      />
-      <ContactCard
-        title="Phone"
-        icon={contactIcons.PHONE}
-        link="#"
-        text="+8801571362609"
-      />
+      {contacts?.map((contact) => (
+        <ContactCard
+          key={contact.id}
+          title={contact.title}
+          icon={contactIcons[contact.icon]}
+          link={contact.path}
+          text={contact.text || ""}
+        />
+      ))}
     </section>
   );
 };

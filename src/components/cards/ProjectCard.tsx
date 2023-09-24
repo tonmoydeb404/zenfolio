@@ -6,7 +6,7 @@ type Props = {
   title: string;
   desc: string;
   thumbnail?: string;
-  detailsLink?: string;
+  path?: string;
   previewLink?: string;
   sourceLink?: string;
   techs?: string[];
@@ -16,7 +16,7 @@ const ProjectCard = ({
   title,
   desc,
   thumbnail,
-  detailsLink,
+  path,
   previewLink,
   sourceLink,
   techs,
@@ -31,8 +31,8 @@ const ProjectCard = ({
 
       <div className="project-card_body">
         <h2 className="project-card_title">
-          {detailsLink ? (
-            <Link href={detailsLink} className="hover:text-primary">
+          {path ? (
+            <Link href={`/portfolio/${path}`} className="hover:text-primary">
               {title}
             </Link>
           ) : (
@@ -42,14 +42,14 @@ const ProjectCard = ({
 
         <p className="project-card_desc">{desc}</p>
         <div className="project-card_links">
-          {detailsLink ? (
-            <Link href={detailsLink} title="Learn More">
+          {path ? (
+            <Link href={`/portfolio/${path}`} title="Learn More">
               <projectIcons.VIEW_MORE />
             </Link>
           ) : null}
           {previewLink ? (
             <Link href={previewLink} className="ml-auto" title="Preview">
-              <projectIcons.VIEW_MORE />
+              <projectIcons.PREVIEW />
             </Link>
           ) : null}
           {sourceLink ? (

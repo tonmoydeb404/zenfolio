@@ -1,32 +1,37 @@
 import { Icon } from "@/config/icons";
+import { ContactIcon } from "@/config/icons/contact-icons";
+import { HobbyIcon } from "@/config/icons/hobby-icons";
+import { SocialIcon } from "@/config/icons/social-icons";
 
-export type Link = {
+export type Link<IconType = Icon | null> = {
   id: string;
   title: string;
-  icon: Icon | null;
+  icon: IconType;
   newTab: boolean;
   path: string;
   text: string | null;
 };
 
-type Image = {
+export type Image = {
   url: string;
   width: number;
   height: number;
 };
 
-type SkillLevel = "JUNIOR" | "INTERMEDIATE" | "SENIOR" | "EXPERT";
-type Skill = {
+export type SkillLevel = "JUNIOR" | "INTERMEDIATE" | "SENIOR" | "EXPERT";
+export type Skill = {
+  id: string;
   title: string;
   level: SkillLevel;
 };
 
-type Hobby = {
+export type Hobby = {
+  id: string;
   title: string;
-  icon: string;
+  icon: HobbyIcon;
 };
 
-type Meta = {
+export type Meta = {
   title: string;
   description: string;
   url: string;
@@ -36,11 +41,11 @@ type Meta = {
   followPage: boolean;
 };
 
-type Content = {
+export type Content = {
   html: string;
 };
 
-type ProjectType = "FRONTEND" | "BACKEND" | "FULLSTACK";
+export type ProjectType = "FRONTEND" | "BACKEND" | "FULLSTACK";
 
 export type Website = {
   id: string;
@@ -60,7 +65,7 @@ export type Project = {
   previewLink: string;
   sourceLink: string;
   stacks: string[];
-  thumbnail: Image;
+  thumbnail: Image | null;
   content: Content;
   meta: Meta;
 };
@@ -70,8 +75,9 @@ export type Profile = {
   profession: string;
   bio: string;
   avatar: Image;
-  ctaLinks: Link[];
-  socialLinks: Link[];
+  primaryCta: Link | null;
+  secondaryCta: Link | null;
+  socialLinks: Link<SocialIcon>[];
   skillSectionTitle: string;
   skillSectionDescription: string;
   techSkills: Skill[];
@@ -82,7 +88,9 @@ export type Profile = {
   hobbySectionTitle: string;
   hobbySectionDescription: string;
   hobbies: Hobby[];
-  contacts: Link[];
+  contactSectionTitle: string;
+  contactSectionDescription: string;
+  contacts: Link<ContactIcon>[];
   meta: Meta;
 };
 

@@ -12,6 +12,7 @@ path
 text
 `;
 const skillProps = `
+id
 title
 level
 `;
@@ -28,6 +29,7 @@ thumbnail {
 }
 `;
 const hobbyProps = `
+id
 title
 icon
 `;
@@ -46,8 +48,8 @@ const contentProps = `
 html
 `;
 
-export const queryWrapper = (...queries: string[]) => {
-  return `{
+export const queryWrapper = (name: string, queries: string[]) => {
+  return `query ${name}{
     ${queries.join("\n")}
   }`;
 };
@@ -82,7 +84,13 @@ export const profileQuery = (id: string) => {
       avatar {
         ${imageProps}
       }
-      ctaLinks {
+      primaryCta {
+        ${linkProps}
+      }
+      secondaryCta {
+        ${linkProps}
+      }
+      socialLinks {
         ${linkProps}
       }
       skillSectionTitle
@@ -124,6 +132,13 @@ export const pagesQuery = () => {
   }
   `;
 };
+export const pagesSlugQuery = () => {
+  return `
+  pages(stage: PUBLISHED) {
+    slug
+  }
+  `;
+};
 export const pageQuery = (slug: string) => {
   return `
   page(where: {slug: "${slug}"}, stage: PUBLISHED) {
@@ -144,6 +159,13 @@ export const projectsQuery = () => {
   return `
   projects(stage: PUBLISHED) {
     ${commonProjectProps}
+  }
+  `;
+};
+export const projectsSlugQuery = () => {
+  return `
+  projects(stage: PUBLISHED) {
+    slug
   }
   `;
 };

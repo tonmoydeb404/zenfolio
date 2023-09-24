@@ -1,16 +1,15 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
+import { Link as LinkType } from "@/types/hygraph.type";
 import Link from "next/link";
-
-type CTA = { url: string; text: string };
 
 type Props = {
   name: string;
   profession: string;
   bio: string;
   avatar: string;
-  primaryCTA?: CTA;
-  secondaryCTA?: CTA;
+  primaryCTA: LinkType | null;
+  secondaryCTA: LinkType | null;
 };
 
 const HomeHero = ({
@@ -31,8 +30,8 @@ const HomeHero = ({
         <div className="home-hero_cta">
           {primaryCTA ? (
             <Button size={"lg"} className="uppercase font-semibold" asChild>
-              <Link href={primaryCTA.url} target="_blank">
-                {primaryCTA.text}
+              <Link href={primaryCTA.path} target="_blank">
+                {primaryCTA.title}
               </Link>
             </Button>
           ) : null}
@@ -43,8 +42,8 @@ const HomeHero = ({
               asChild
               variant={"secondary"}
             >
-              <Link href={secondaryCTA.url} target="_blank">
-                {secondaryCTA.text}
+              <Link href={secondaryCTA.path} target="_blank">
+                {secondaryCTA.title}
               </Link>
             </Button>
           ) : null}
