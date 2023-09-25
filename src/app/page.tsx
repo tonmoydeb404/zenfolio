@@ -17,7 +17,7 @@ const getData = async () => {
       query: queryWrapper("getProfile", [profileQuery(PROFILE_ID)]),
     }),
     next: {
-      tags: [PROFILE_ID],
+      tags: ["profile"],
     },
   });
 
