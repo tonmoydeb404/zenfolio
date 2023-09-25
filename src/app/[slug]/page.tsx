@@ -13,9 +13,13 @@ export async function generateStaticParams() {
 
   const { data } = await response.json();
 
-  return data.pages.map((page: Page) => ({
-    slug: page.slug,
-  }));
+  return data.pages
+    .filter(
+      (page: Page) => page.slug !== "contact" && page.slug !== "portfolio"
+    )
+    .map((page: Page) => ({
+      slug: page.slug,
+    }));
 }
 
 const getData = async (slug: string) => {
