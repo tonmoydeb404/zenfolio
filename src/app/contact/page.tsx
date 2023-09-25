@@ -14,6 +14,9 @@ const getProfile = async () => {
     body: JSON.stringify({
       query: queryWrapper("getProfile", [profileQuery(PROFILE_ID)]),
     }),
+    next: {
+      tags: [PROFILE_ID],
+    },
   });
 
   const { data } = await response.json();

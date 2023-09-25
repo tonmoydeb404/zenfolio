@@ -26,6 +26,9 @@ const getWebsite = async () => {
     body: JSON.stringify({
       query: queryWrapper("getWebsite", [websiteQuery(WEBSITE_ID)]),
     }),
+    next: {
+      tags: ["website"],
+    },
   });
 
   const { data } = await response.json();
