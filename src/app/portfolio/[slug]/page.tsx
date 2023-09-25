@@ -51,7 +51,9 @@ const ProjectDetails = async ({ params }: { params: { slug: string } }) => {
       <ProjectDetailsHeader
         title={data.project.title}
         desc={data.project.description}
-        thumbnail={data.project.thumbnail?.url}
+        thumbnail={
+          data.project.meta?.thumbnail?.url || data.project.thumbnail?.url
+        }
         previewLink={data.project.previewLink}
         sourceLink={data.project.sourceLink}
         className="mb-16"
