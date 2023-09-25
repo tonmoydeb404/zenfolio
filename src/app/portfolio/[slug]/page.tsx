@@ -7,6 +7,7 @@ import {
   projectsSlugQuery,
   queryWrapper,
 } from "@/lib/hygraph-queries";
+import { projectSchema } from "@/lib/schema-markup";
 import { Project } from "@/types/hygraph.type";
 
 export async function generateStaticParams() {
@@ -47,6 +48,13 @@ const ProjectDetails = async ({ params }: { params: { slug: string } }) => {
 
   return (
     <>
+      <script
+        key="schema-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(projectSchema(data.project)),
+        }}
+      />
       <BreadCrumbs links={projectBreadCrumbs} />
       <ProjectDetailsHeader
         title={data.project.title}

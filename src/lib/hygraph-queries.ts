@@ -16,6 +16,16 @@ id
 title
 level
 `;
+const projectMetaProps = `
+name
+type
+category
+operatingSystem
+price
+priceCurrency
+rating
+ratingCount
+`;
 const commonProjectProps = `
 title
 slug
@@ -178,6 +188,9 @@ export const projectQuery = (slug: string) => {
     }
     meta {
       ${metaProps}
+    }
+    projectMeta {
+      ${projectMetaProps}
     }
   }
   `;

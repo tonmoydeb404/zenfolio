@@ -47,6 +47,43 @@ export type Content = {
 
 export type ProjectType = "FRONTEND" | "BACKEND" | "FULLSTACK";
 
+export type ProjectCategory =
+  | "GameApplication"
+  | "SocialNetworkingApplication"
+  | "TravelApplication"
+  | "ShoppingApplication"
+  | "SportsApplication"
+  | "LifestyleApplication"
+  | "BusinessApplication"
+  | "DesignApplication"
+  | "DeveloperApplication"
+  | "DriverApplication"
+  | "EducationalApplication"
+  | "HealthApplication"
+  | "FinanceApplication"
+  | "SecurityApplication"
+  | "BrowserApplication"
+  | "CommunicationApplication"
+  | "DesktopEnhancementApplication"
+  | "EntertainmentApplication"
+  | "MultimediaApplication"
+  | "HomeApplication"
+  | "UtilitiesApplication"
+  | "ReferenceApplication";
+
+export type ProjectCurrency = "USD" | "BDT";
+
+export type ProjectMeta = {
+  name: string;
+  type: ProjectType;
+  category: ProjectCategory;
+  operatingSystem: string;
+  price: number;
+  priceCurrency: ProjectCurrency;
+  rating: number;
+  ratingCount: number;
+};
+
 export type Website = {
   id: string;
   title: string;
@@ -68,6 +105,7 @@ export type Project = {
   thumbnail: Image | null;
   content: Content;
   meta: Meta;
+  projectMeta: ProjectMeta;
 };
 
 export type Profile = {
