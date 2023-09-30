@@ -1,5 +1,6 @@
 import {
   pageQuery,
+  pagesQuery,
   pagesSlugQuery,
   profileQuery,
   projectsQuery,
@@ -20,7 +21,23 @@ export const getPagesSlug = async () => {
 
   const { data } = await response.json();
 
-  return data.pages;
+  return data.pages as Page[];
+};
+
+export const getPages = async (revalidate: undefined | number = undefined) => {
+  const response = await fetch(CMS_ENDPOINT, {
+    method: "POST",
+    body: JSON.stringify({
+      query: queryWrapper("getPages", [pagesQuery()]),
+    }),
+    next: {
+      revalidate,
+    },
+  });
+
+  const { data } = await response.json();
+
+  return data.pages as Page[];
 };
 
 export const getPage = async (slug: string) => {
@@ -52,7 +69,9 @@ export const getProfile = async () => {
   return data.profile as Profile;
 };
 
-export const getProjects = async () => {
+export const getProjects = async (
+  revalidate: undefined | number = undefined
+) => {
   const response = await fetch(CMS_ENDPOINT, {
     method: "POST",
     body: JSON.stringify({
@@ -60,6 +79,7 @@ export const getProjects = async () => {
     }),
     next: {
       tags: ["projects"],
+      revalidate,
     },
   });
 
