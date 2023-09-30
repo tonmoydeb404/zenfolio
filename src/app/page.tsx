@@ -5,6 +5,7 @@ import HomeProjects from "@/components/pages/home/HomeProjects";
 import HomeSkills from "@/components/pages/home/HomeSkills";
 import HomeSocials from "@/components/pages/home/HomeSocials";
 import { profileQuery, queryWrapper } from "@/lib/hygraph-queries";
+import { profileSchema } from "@/lib/schema-markup";
 import { Profile } from "@/types/hygraph.type";
 
 const getData = async () => {
@@ -31,6 +32,15 @@ export default async function Home() {
 
   return (
     <>
+      {profileSchema(profile).map((schema, index) => (
+        <script
+          key={`schema-jsonld-${index}`}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(schema),
+          }}
+        />
+      ))}
       <HomeHero
         name={profile.name}
         profession={profile.profession}

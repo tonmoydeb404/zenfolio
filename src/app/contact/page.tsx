@@ -2,36 +2,25 @@ import PageHeader from "@/components/pages/common/PageHeader";
 import ContactCards from "@/components/pages/contact/ContactCards";
 import ContactForm from "@/components/pages/contact/ContactForm";
 import HomeSocials from "@/components/pages/home/HomeSocials";
-import { profileQuery, queryWrapper } from "@/lib/hygraph-queries";
-import { Profile } from "@/types/hygraph.type";
-
-const getProfile = async () => {
-  const CMS_ENDPOINT = process.env.CMS_ENDPOINT as string;
-  const PROFILE_ID = process.env.PROFILE_ID as string;
-
-  const response = await fetch(CMS_ENDPOINT, {
-    method: "POST",
-    body: JSON.stringify({
-      query: queryWrapper("getProfile", [profileQuery(PROFILE_ID)]),
-    }),
-    next: {
-      tags: ["profile"],
-    },
-  });
-
-  const { data } = await response.json();
-
-  return data.profile as Profile;
-};
+import { contactSchema } from "@/lib/schema-markup";
+import { getPage, getPagesSlug, getProfile } from "@/utils/app-request";
 
 const Contact = async () => {
+  const contact = await getPage("contact");
   const profile = await getProfile();
+  const pagesSlug = await getPagesSlug();
   return (
     <>
-      <PageHeader
-        title="Contact Me"
-        desc="You can send me an email through this form or you can directly contact me through those links. I’m less active on social media so try to send me an email."
-      />
+      {contactSchema(contact, profile, pagesSlug).map((schema, index) => (
+        <script
+          key={`schema-jsonld-${index}`}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(schema),
+          }}
+        />
+      ))}
+      <PageHeader title={contact.title} desc={contact.description} />
       <HomeSocials links={profile.socialLinks} />
       <ContactForm className="py-16" />
       <ContactCards contacts={profile.contacts} />

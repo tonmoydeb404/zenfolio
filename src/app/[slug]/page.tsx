@@ -15,7 +15,7 @@ export async function generateStaticParams() {
 
   return data.pages
     .filter(
-      (page: Page) => page.slug !== "contact" && page.slug !== "portfolio"
+      (page: Page) => !["about", "contact", "portfolio"].includes(page.slug)
     )
     .map((page: Page) => ({
       slug: page.slug,
@@ -39,7 +39,7 @@ const getData = async (slug: string) => {
   };
 };
 
-const Page = async ({ params }: { params: { slug: string } }) => {
+const PageDetails = async ({ params }: { params: { slug: string } }) => {
   const data = await getData(params.slug);
 
   return (
@@ -53,4 +53,4 @@ const Page = async ({ params }: { params: { slug: string } }) => {
   );
 };
 
-export default Page;
+export default PageDetails;

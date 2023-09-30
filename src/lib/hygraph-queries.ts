@@ -37,6 +37,8 @@ stacks
 thumbnail {
   ${imageProps}
 }
+createdAt
+updatedAt
 `;
 const hobbyProps = `
 id
@@ -80,6 +82,8 @@ export const websiteQuery = (id: string) => {
     navigationLinks {
       ${linkProps}
     }
+    createdAt
+    updatedAt
   }
   `;
 };
@@ -129,6 +133,8 @@ export const profileQuery = (id: string) => {
       meta {
         ${metaProps}
       }
+      createdAt
+      updatedAt
     }
   `;
 };
@@ -139,6 +145,8 @@ export const pagesQuery = () => {
     id
     title
     slug
+    createdAt
+    updatedAt
   }
   `;
 };
@@ -161,6 +169,8 @@ export const pageQuery = (slug: string) => {
     meta {
       ${metaProps}
     }
+    createdAt
+    updatedAt
   }
   `;
 };

@@ -48,13 +48,15 @@ const ProjectDetails = async ({ params }: { params: { slug: string } }) => {
 
   return (
     <>
-      <script
-        key="schema-jsonld"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(projectSchema(data.project)),
-        }}
-      />
+      {projectSchema(data.project).map((schema, index) => (
+        <script
+          key={`schema-jsonld-${index}`}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(schema),
+          }}
+        />
+      ))}
       <BreadCrumbs links={projectBreadCrumbs} />
       <ProjectDetailsHeader
         title={data.project.title}

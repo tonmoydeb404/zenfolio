@@ -92,6 +92,8 @@ export type Website = {
   copyrightText: string;
   contactLinks: Link[];
   navigationLinks: Link[];
+  createdAt: string;
+  updatedAt: string;
 };
 
 export type Project = {
@@ -106,6 +108,8 @@ export type Project = {
   content: Content;
   meta: Meta;
   projectMeta: ProjectMeta;
+  createdAt: string;
+  updatedAt: string;
 };
 
 export type Profile = {
@@ -130,6 +134,8 @@ export type Profile = {
   contactSectionDescription: string;
   contacts: Link<ContactIcon>[];
   meta: Meta;
+  createdAt: string;
+  updatedAt: string;
 };
 
 export type Page = {
@@ -137,5 +143,7 @@ export type Page = {
   description: string;
   slug: string;
   content?: Content;
-  meta?: string;
+  meta?: Meta;
+  createdAt: string;
+  updatedAt: string;
 };
