@@ -4,31 +4,38 @@ import HomeHobbies from "@/components/pages/home/HomeHobbies";
 import HomeProjects from "@/components/pages/home/HomeProjects";
 import HomeSkills from "@/components/pages/home/HomeSkills";
 import HomeSocials from "@/components/pages/home/HomeSocials";
-import { profileQuery, queryWrapper } from "@/lib/hygraph-queries";
 import { profileSchema } from "@/lib/schema-markup";
-import { Profile } from "@/types/hygraph.type";
+import { getProfile } from "@/utils/app-request";
+import { Metadata } from "next";
 
-const getData = async () => {
-  const CMS_ENDPOINT = process.env.CMS_ENDPOINT as string;
-  const PROFILE_ID = process.env.PROFILE_ID as string;
+export async function generateMetadata(): Promise<Metadata> {
+  const profile = await getProfile();
 
-  const response = await fetch(CMS_ENDPOINT, {
-    method: "POST",
-    body: JSON.stringify({
-      query: queryWrapper("getProfile", [profileQuery(PROFILE_ID)]),
-    }),
-    next: {
-      tags: ["profile"],
+  return {
+    title: {
+      absolute: profile.meta.title,
     },
-  });
-
-  const { data } = await response.json();
-
-  return data.profile as Profile;
-};
+    description: profile.meta.description,
+    keywords: profile.meta.keywords,
+    alternates: {
+      canonical: profile.meta.url,
+    },
+    openGraph: {
+      images: profile.meta.thumbnail?.url,
+      title: profile.meta.title,
+      description: profile.meta.description,
+      url: profile.meta.url,
+      type: "profile",
+    },
+    robots: {
+      index: profile.meta.indexPage,
+      follow: profile.meta.followPage,
+    },
+  };
+}
 
 export default async function Home() {
-  const profile = await getData();
+  const profile = await getProfile();
 
   return (
     <>

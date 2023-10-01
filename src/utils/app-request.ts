@@ -5,11 +5,13 @@ import {
   profileQuery,
   projectsQuery,
   queryWrapper,
+  websiteQuery,
 } from "@/lib/hygraph-queries";
-import { Page, Profile, Project } from "@/types/hygraph.type";
+import { Page, Profile, Project, Website } from "@/types/hygraph.type";
 
 const CMS_ENDPOINT = process.env.CMS_ENDPOINT as string;
 const PROFILE_ID = process.env.PROFILE_ID as string;
+const WEBSITE_ID = process.env.WEBSITE_ID as string;
 
 export const getPagesSlug = async () => {
   const response = await fetch(CMS_ENDPOINT, {
@@ -86,4 +88,20 @@ export const getProjects = async (
   const { data } = await response.json();
 
   return data.projects as Project[];
+};
+
+export const getWebsite = async () => {
+  const response = await fetch(CMS_ENDPOINT, {
+    method: "POST",
+    body: JSON.stringify({
+      query: queryWrapper("getWebsite", [websiteQuery(WEBSITE_ID)]),
+    }),
+    next: {
+      tags: ["website"],
+    },
+  });
+
+  const { data } = await response.json();
+
+  return data.website as Website;
 };
