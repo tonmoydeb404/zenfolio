@@ -4,5 +4,5 @@
 }
 
 .block_desc {
-  @apply text-base leading-relaxed;
+  @apply text-sm leading-normal md:text-base md:leading-relaxed opacity-90;
 }
