@@ -1,6 +1,31 @@
 import PageHeader from "@/components/pages/common/PageHeader";
 import { aboutSchema } from "@/lib/schema-markup";
 import { getPage, getPagesSlug, getProfile } from "@/utils/app-request";
+import { Metadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const page = await getPage("about");
+
+  return {
+    title: page.title,
+    description: page.meta?.description || page.description,
+    keywords: page.meta?.keywords,
+    alternates: {
+      canonical: page.meta?.url,
+    },
+    openGraph: {
+      images: page.meta?.thumbnail?.url,
+      title: page.meta?.title,
+      description: page.meta?.description,
+      url: page.meta?.url,
+      type: "website",
+    },
+    robots: {
+      index: page.meta?.indexPage,
+      follow: page.meta?.followPage,
+    },
+  };
+}
 
 const AboutPage = async () => {
   const about = await getPage("about");

@@ -3,9 +3,39 @@ import ProjectDetailsHeader from "@/components/pages/project-details/ProjectDeta
 import ProjectStacks from "@/components/pages/project-details/ProjectStacks";
 import projectBreadCrumbs from "@/config/breadcrumbs/project-breadcrumb";
 import { projectSchema } from "@/lib/schema-markup";
+import { MetadataProps } from "@/types/common.type";
 import { Project } from "@/types/hygraph.type";
 import { getProject, getProjectsSlug } from "@/utils/app-request";
+import { Metadata } from "next";
 import { notFound } from "next/navigation";
+
+export async function generateMetadata({
+  params,
+}: MetadataProps): Promise<Metadata> {
+  const project = await getProject(params.slug);
+
+  if (!project) return {};
+
+  return {
+    title: project.title,
+    description: project.meta?.description || project.description,
+    keywords: project.meta?.keywords,
+    alternates: {
+      canonical: project.meta?.url,
+    },
+    openGraph: {
+      images: project.meta?.thumbnail?.url,
+      title: project.meta?.title,
+      description: project.meta?.description,
+      url: project.meta?.url,
+      type: "website",
+    },
+    robots: {
+      index: project.meta?.indexPage,
+      follow: project.meta?.followPage,
+    },
+  };
+}
 
 export async function generateStaticParams() {
   const projects = await getProjectsSlug();

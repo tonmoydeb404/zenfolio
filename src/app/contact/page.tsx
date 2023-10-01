@@ -4,6 +4,31 @@ import ContactForm from "@/components/pages/contact/ContactForm";
 import HomeSocials from "@/components/pages/home/HomeSocials";
 import { contactSchema } from "@/lib/schema-markup";
 import { getPage, getPagesSlug, getProfile } from "@/utils/app-request";
+import { Metadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const page = await getPage("contact");
+
+  return {
+    title: page.title,
+    description: page.meta?.description || page.description,
+    keywords: page.meta?.keywords,
+    alternates: {
+      canonical: page.meta?.url,
+    },
+    openGraph: {
+      images: page.meta?.thumbnail?.url,
+      title: page.meta?.title,
+      description: page.meta?.description,
+      url: page.meta?.url,
+      type: "website",
+    },
+    robots: {
+      index: page.meta?.indexPage,
+      follow: page.meta?.followPage,
+    },
+  };
+}
 
 const Contact = async () => {
   const contact = await getPage("contact");
