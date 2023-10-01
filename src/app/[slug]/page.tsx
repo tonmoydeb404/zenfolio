@@ -1,19 +1,12 @@
 import PageHeader from "@/components/pages/common/PageHeader";
-import { pageQuery, pagesSlugQuery, queryWrapper } from "@/lib/hygraph-queries";
 import { Page } from "@/types/hygraph.type";
+import { getPage, getPagesSlug } from "@/utils/app-request";
+import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
-  const CMS_ENDPOINT = process.env.CMS_ENDPOINT as string;
-  const response = await fetch(CMS_ENDPOINT, {
-    method: "POST",
-    body: JSON.stringify({
-      query: queryWrapper("getPagesSlug", [pagesSlugQuery()]),
-    }),
-  });
+  const pages = await getPagesSlug();
 
-  const { data } = await response.json();
-
-  return data.pages
+  return pages
     .filter(
       (page: Page) => !["about", "contact", "portfolio"].includes(page.slug)
     )
@@ -22,33 +15,19 @@ export async function generateStaticParams() {
     }));
 }
 
-const getData = async (slug: string) => {
-  const CMS_ENDPOINT = process.env.CMS_ENDPOINT as string;
-
-  const response = await fetch(CMS_ENDPOINT, {
-    method: "POST",
-    body: JSON.stringify({
-      query: queryWrapper("getPage", [pageQuery(slug)]),
-    }),
-  });
-
-  const { data } = await response.json();
-
-  return {
-    page: data.page as Page,
-  };
-};
-
 const PageDetails = async ({ params }: { params: { slug: string } }) => {
-  const data = await getData(params.slug);
+  const page = await getPage(params.slug);
+
+  // throw not found error if page not found
+  if (!page) notFound();
 
   return (
     <>
-      <PageHeader title={data.page?.title} desc={data.page?.description} />
+      <PageHeader title={page?.title} desc={page?.description} />
       <article
         className="prose dark:prose-invert"
-        dangerouslySetInnerHTML={{ __html: data.page?.content?.html || "" }}
-      ></article>
+        dangerouslySetInnerHTML={{ __html: page?.content?.html || "" }}
+      />
     </>
   );
 };

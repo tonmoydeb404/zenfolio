@@ -17,9 +17,8 @@ const ProjectList = ({ projects }: Props) => {
       <ProjectFilter
         projectTypes={[
           { title: "ALL", value: "ALL" },
-          { title: "FRONTEND", value: "FRONTEND" },
-          { title: "BACKEND", value: "BACKEND" },
-          { title: "FULLSTACK", value: "FULLSTACK" },
+          { title: "WEB", value: "WEB" },
+          { title: "APP", value: "APP" },
         ]}
         value={projectType}
         onChange={setProjectType}

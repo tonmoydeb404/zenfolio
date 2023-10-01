@@ -2,53 +2,27 @@ import BreadCrumbs from "@/components/pages/common/BreadCrumbs";
 import ProjectDetailsHeader from "@/components/pages/project-details/ProjectDetailsHeader";
 import ProjectStacks from "@/components/pages/project-details/ProjectStacks";
 import projectBreadCrumbs from "@/config/breadcrumbs/project-breadcrumb";
-import {
-  projectQuery,
-  projectsSlugQuery,
-  queryWrapper,
-} from "@/lib/hygraph-queries";
 import { projectSchema } from "@/lib/schema-markup";
 import { Project } from "@/types/hygraph.type";
+import { getProject, getProjectsSlug } from "@/utils/app-request";
+import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
-  const CMS_ENDPOINT = process.env.CMS_ENDPOINT as string;
-  const response = await fetch(CMS_ENDPOINT, {
-    method: "POST",
-    body: JSON.stringify({
-      query: queryWrapper("getProjectsSlug", [projectsSlugQuery()]),
-    }),
-  });
+  const projects = await getProjectsSlug();
 
-  const { data } = await response.json();
-
-  return data.projects.map((project: Project) => ({
+  return projects.map((project: Project) => ({
     slug: project.slug,
   }));
 }
 
-const getData = async (slug: string) => {
-  const CMS_ENDPOINT = process.env.CMS_ENDPOINT as string;
-
-  const response = await fetch(CMS_ENDPOINT, {
-    method: "POST",
-    body: JSON.stringify({
-      query: queryWrapper("getProject", [projectQuery(slug)]),
-    }),
-  });
-
-  const { data } = await response.json();
-
-  return {
-    project: data.project as Project,
-  };
-};
-
 const ProjectDetails = async ({ params }: { params: { slug: string } }) => {
-  const data = await getData(params.slug);
+  const project = await getProject(params.slug);
+
+  if (!project) notFound();
 
   return (
     <>
-      {projectSchema(data.project).map((schema, index) => (
+      {projectSchema(project).map((schema, index) => (
         <script
           key={`schema-jsonld-${index}`}
           type="application/ld+json"
@@ -59,21 +33,19 @@ const ProjectDetails = async ({ params }: { params: { slug: string } }) => {
       ))}
       <BreadCrumbs links={projectBreadCrumbs} />
       <ProjectDetailsHeader
-        title={data.project.title}
-        desc={data.project.description}
-        thumbnail={
-          data.project.meta?.thumbnail?.url || data.project.thumbnail?.url
-        }
-        previewLink={data.project.previewLink}
-        sourceLink={data.project.sourceLink}
+        title={project.title}
+        desc={project.description}
+        thumbnail={project.meta?.thumbnail?.url || project.thumbnail?.url}
+        previewLink={project.previewLink}
+        sourceLink={project.sourceLink}
         className="mb-16"
       />
       <article
         className="prose dark:prose-invert"
-        dangerouslySetInnerHTML={{ __html: data.project.content.html }}
+        dangerouslySetInnerHTML={{ __html: project.content.html }}
       ></article>
 
-      <ProjectStacks stacks={data.project.stacks} className="mt-16" />
+      <ProjectStacks stacks={project.stacks} className="mt-16" />
     </>
   );
 };

@@ -45,7 +45,7 @@ export type Content = {
   html: string;
 };
 
-export type ProjectType = "FRONTEND" | "BACKEND" | "FULLSTACK";
+export type ProjectType = "WEB" | "APP";
 
 export type ProjectCategory =
   | "GameApplication"

@@ -1,9 +1,9 @@
 "use client";
 
-type ProjectType = { title: string; value: string };
+import { ProjectType } from "@/types/hygraph.type";
 
 type Props = {
-  projectTypes?: ProjectType[];
+  projectTypes?: { title: string; value: ProjectType | "ALL" }[];
   value: string;
   onChange?: (value: string) => any;
 };

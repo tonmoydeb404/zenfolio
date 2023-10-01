@@ -18,8 +18,8 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase: new URL(SITE_URL),
     title: {
-      default: NAME,
-      template: ` - ${NAME}`,
+      default: `Not Found - ${NAME}`,
+      template: `%s - ${NAME}`,
       absolute: ``,
     },
     icons: {

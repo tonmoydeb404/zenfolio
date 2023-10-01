@@ -3,7 +3,9 @@ import {
   pagesQuery,
   pagesSlugQuery,
   profileQuery,
+  projectQuery,
   projectsQuery,
+  projectsSlugQuery,
   queryWrapper,
   websiteQuery,
 } from "@/lib/hygraph-queries";
@@ -83,6 +85,32 @@ export const getProjects = async (
       tags: ["projects"],
       revalidate,
     },
+  });
+
+  const { data } = await response.json();
+
+  return data.projects as Project[];
+};
+
+export const getProject = async (slug: string) => {
+  const response = await fetch(CMS_ENDPOINT, {
+    method: "POST",
+    body: JSON.stringify({
+      query: queryWrapper("getProject", [projectQuery(slug)]),
+    }),
+  });
+
+  const { data } = await response.json();
+
+  return data.project as Project;
+};
+
+export const getProjectsSlug = async () => {
+  const response = await fetch(CMS_ENDPOINT, {
+    method: "POST",
+    body: JSON.stringify({
+      query: queryWrapper("getProjectsSlug", [projectsSlugQuery()]),
+    }),
   });
 
   const { data } = await response.json();

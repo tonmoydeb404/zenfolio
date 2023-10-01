@@ -1,7 +1,12 @@
 import type { IconType } from "react-icons";
 import {
   LuAlertCircle,
+  LuArrowDown,
+  LuArrowLeft,
+  LuArrowRight,
+  LuArrowUp,
   LuCopyright,
+  LuFrown,
   LuLoader2,
   LuMenu,
   LuMoon,
@@ -22,7 +27,12 @@ export type AppIcon =
   | "SUCCESS"
   | "ERROR"
   | "CLOSE"
-  | "LOADER";
+  | "LOADER"
+  | "SAD"
+  | "RIGHT"
+  | "UP"
+  | "BOTTOM"
+  | "LEFT";
 
 const appIcons: Record<AppIcon, AppIconType> = {
   MENU: LuMenu,
@@ -34,6 +44,11 @@ const appIcons: Record<AppIcon, AppIconType> = {
   ERROR: LuAlertCircle,
   CLOSE: LuX,
   LOADER: LuLoader2,
+  SAD: LuFrown,
+  BOTTOM: LuArrowDown,
+  LEFT: LuArrowLeft,
+  RIGHT: LuArrowRight,
+  UP: LuArrowUp,
 };
 
 export default appIcons;
