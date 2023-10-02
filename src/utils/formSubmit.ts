@@ -7,7 +7,6 @@ type FormSubmit = {
 const formSubmit = (data: FormSubmit) =>
   new Promise<boolean>(async (resolve, reject) => {
     const URI = process.env.NEXT_PUBLIC_FORM_SUBMIT_URL;
-    console.log(URI);
     try {
       if (!URI) throw new Error("FormSubmit URI is not provided");
       await fetch(URI, {
