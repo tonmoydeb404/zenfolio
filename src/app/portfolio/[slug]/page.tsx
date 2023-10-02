@@ -17,7 +17,7 @@ export async function generateMetadata({
   if (!project) return {};
 
   return {
-    title: project.title,
+    title: project.meta?.title || project.title,
     description: project.meta?.description || project.description,
     keywords: project.meta?.keywords,
     alternates: {

@@ -8,7 +8,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const page = await getPage("portfolio");
 
   return {
-    title: page.title,
+    title: page.meta?.title || page.title,
     description: page.meta?.description || page.description,
     keywords: page.meta?.keywords,
     alternates: {

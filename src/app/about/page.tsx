@@ -7,7 +7,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const page = await getPage("about");
 
   return {
-    title: page.title,
+    title: page.meta?.title || page.title,
     description: page.meta?.description || page.description,
     keywords: page.meta?.keywords,
     alternates: {
