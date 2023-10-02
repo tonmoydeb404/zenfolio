@@ -2,17 +2,21 @@
 
 import { ProjectType } from "@/types/hygraph.type";
 
+type FilterType = ProjectType | "ALL";
+
 type Props = {
-  projectTypes?: { title: string; value: ProjectType | "ALL" }[];
-  value: string;
-  onChange?: (value: string) => any;
+  value: FilterType;
+  onChange?: (value: FilterType) => any;
 };
 
-const ProjectFilter = ({
-  projectTypes = [],
-  value,
-  onChange = () => {},
-}: Props) => {
+const projectTypes: { title: string; value: FilterType }[] = [
+  { title: "ALL", value: "ALL" },
+  { title: "Web App", value: "WebApplication" },
+  { title: "Mobile App", value: "MobileApplication" },
+  { title: "Software", value: "SoftwareApplication" },
+];
+
+const ProjectFilter = ({ value, onChange = () => {} }: Props) => {
   return (
     <ul className="flex gap-0.5 flex-wrap">
       {projectTypes &&

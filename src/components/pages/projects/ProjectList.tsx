@@ -1,8 +1,10 @@
 "use client";
 
 import ProjectCard from "@/components/cards/ProjectCard";
-import { Project } from "@/types/hygraph.type";
-import { useState } from "react";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import icons from "@/config/icons";
+import { Project, ProjectType } from "@/types/hygraph.type";
+import { useMemo, useState } from "react";
 import ProjectFilter from "./ProjectFilter";
 
 type Props = {
@@ -10,24 +12,29 @@ type Props = {
 };
 
 const ProjectList = ({ projects }: Props) => {
-  const [projectType, setProjectType] = useState("ALL");
+  const [projectType, setProjectType] = useState<ProjectType | "ALL">("ALL");
+
+  const filterProjects = useMemo(
+    () =>
+      projects.filter(
+        (p) => projectType === "ALL" || p.projectMeta?.type === projectType
+      ),
+    [projectType, projects]
+  );
 
   return (
     <>
-      <ProjectFilter
-        projectTypes={[
-          { title: "ALL", value: "ALL" },
-          { title: "WEB", value: "WEB" },
-          { title: "APP", value: "APP" },
-        ]}
-        value={projectType}
-        onChange={setProjectType}
-      />
+      <ProjectFilter value={projectType} onChange={setProjectType} />
 
-      <div className="grid sm:grid-cols-2 gap-3 mt-10">
-        {projects
-          ?.filter((p) => projectType == "ALL" || p.projectType == projectType)
-          .map((project) => (
+      {!filterProjects.length ? (
+        <Alert className="mt-10">
+          <icons.ERROR className="text-xl text-destructive" />
+          <AlertTitle>Nothing is Here</AlertTitle>
+          <AlertDescription>Look for another opiton</AlertDescription>
+        </Alert>
+      ) : (
+        <div className="grid sm:grid-cols-2 gap-3 mt-10">
+          {filterProjects.map((project) => (
             <div key={project.slug}>
               <ProjectCard
                 title={project.title}
@@ -40,7 +47,8 @@ const ProjectList = ({ projects }: Props) => {
               />
             </div>
           ))}
-      </div>
+        </div>
+      )}
     </>
   );
 };

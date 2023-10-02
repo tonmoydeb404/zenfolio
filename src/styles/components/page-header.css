@@ -3,5 +3,5 @@
 }
 
 .page-header_desc {
-  @apply leading-relaxed mt-5 opacity-80;
+  @apply md:leading-relaxed text-[15px] md:text-base mt-2 md:mt-5 opacity-90;
 }

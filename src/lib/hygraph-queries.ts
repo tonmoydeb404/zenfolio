@@ -30,12 +30,14 @@ const commonProjectProps = `
 title
 slug
 description
-projectType
 previewLink
 sourceLink
 stacks
 thumbnail {
   ${imageProps}
+}
+projectMeta {
+  ${projectMetaProps}
 }
 createdAt
 updatedAt
@@ -198,9 +200,6 @@ export const projectQuery = (slug: string) => {
     }
     meta {
       ${metaProps}
-    }
-    projectMeta {
-      ${projectMetaProps}
     }
   }
   `;

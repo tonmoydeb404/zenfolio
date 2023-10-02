@@ -45,7 +45,10 @@ export type Content = {
   html: string;
 };
 
-export type ProjectType = "WEB" | "APP";
+export type ProjectType =
+  | "WebApplication"
+  | "SoftwareApplication"
+  | "MobileApplication";
 
 export type ProjectCategory =
   | "GameApplication"
@@ -100,7 +103,6 @@ export type Project = {
   title: string;
   slug: string;
   description: string;
-  projectType: ProjectType;
   previewLink: string;
   sourceLink: string;
   stacks: string[];
