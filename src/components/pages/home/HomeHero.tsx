@@ -52,7 +52,7 @@ const HomeHero = ({
 
       <div className="home-hero_media">
         <Avatar className="w-36 h-36 rounded">
-          <AvatarImage src={avatar} />
+          <AvatarImage src={avatar} alt={name} />
           <AvatarFallback className="rounded"></AvatarFallback>
         </Avatar>
       </div>

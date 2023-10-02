@@ -11,7 +11,11 @@ type Props = {
 const AppLayout = ({ children, website }: Props) => {
   return (
     <>
-      <Navbar logo={website.logo?.url} navLinks={website.navigationLinks} />
+      <Navbar
+        logo={website.logo?.url}
+        navLinks={website.navigationLinks}
+        title={website.title}
+      />
       <main className="container">
         <div className="wrapper">{children}</div>
       </main>
