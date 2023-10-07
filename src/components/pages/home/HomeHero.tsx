@@ -40,7 +40,7 @@ const HomeHero = ({
               size={"lg"}
               className="uppercase font-semibold"
               asChild
-              variant={"secondary"}
+              variant={"outline"}
             >
               <Link href={secondaryCTA.path} target="_blank">
                 {secondaryCTA.title}

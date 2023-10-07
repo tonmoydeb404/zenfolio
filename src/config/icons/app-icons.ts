@@ -5,8 +5,12 @@ import {
   LuArrowLeft,
   LuArrowRight,
   LuArrowUp,
+  LuBriefcase,
+  LuContact,
   LuCopyright,
   LuFrown,
+  LuHome,
+  LuInfo,
   LuLoader2,
   LuMenu,
   LuMoon,
@@ -32,7 +36,11 @@ export type AppIcon =
   | "RIGHT"
   | "UP"
   | "BOTTOM"
-  | "LEFT";
+  | "LEFT"
+  | "HOME"
+  | "ABOUT"
+  | "PORTFOLIO"
+  | "CONTACT";
 
 const appIcons: Record<AppIcon, AppIconType> = {
   MENU: LuMenu,
@@ -49,6 +57,10 @@ const appIcons: Record<AppIcon, AppIconType> = {
   LEFT: LuArrowLeft,
   RIGHT: LuArrowRight,
   UP: LuArrowUp,
+  HOME: LuHome,
+  ABOUT: LuInfo,
+  CONTACT: LuContact,
+  PORTFOLIO: LuBriefcase,
 };
 
 export default appIcons;

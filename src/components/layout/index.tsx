@@ -23,6 +23,7 @@ const AppLayout = ({ children, website }: Props) => {
         copyrightText={website.copyrightText}
         footerLinks={website.contactLinks}
       />
+      {/* <Appbar navLinks={website.navigationLinks} /> */}
     </>
   );
 };

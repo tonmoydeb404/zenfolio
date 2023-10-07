@@ -30,7 +30,7 @@ const HomeSocials = ({ links }: Props) => {
           })}
         </ul>
       ) : null}
-      <Separator className="flex-1 hidden" />
+      <Separator className="flex-1 sm:hidden" />
     </section>
   );
 };

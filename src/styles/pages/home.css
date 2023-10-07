@@ -1,11 +1,11 @@
 /* HOME HERO */
 
 .home-hero {
-  @apply flex gap-5 sm:gap-10 flex-col-reverse sm:flex-row items-start py-16;
+  @apply flex gap-5 sm:gap-10 flex-col-reverse items-center sm:flex-row sm:items-start py-16;
 }
 
 .home-hero_body {
-  @apply flex-1;
+  @apply flex-1 text-center sm:text-left;
 }
 
 .home-hero_name {
@@ -17,9 +17,9 @@
 }
 
 .home-hero_bio {
-  @apply leading-normal mt-5;
+  @apply text-[15px] leading-snug sm:leading-normal sm:text-base mt-5;
 }
 
 .home-hero_cta {
-  @apply mt-10 flex gap-2 flex-wrap;
+  @apply mt-10 flex gap-2 flex-wrap justify-center sm:justify-start;
 }
