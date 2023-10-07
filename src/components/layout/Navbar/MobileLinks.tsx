@@ -12,6 +12,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import appIcons from "@/config/icons/app-icons";
 import { Link as NavLink } from "@/types/common.type";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 type Props = {
@@ -21,6 +22,7 @@ type Props = {
 
 const MobileLinks = ({ className, navLinks = [] }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <div className={className}>
@@ -54,6 +56,7 @@ const MobileLinks = ({ className, navLinks = [] }: Props) => {
                           className={navigationMenuTriggerStyle({
                             class: "text-xl",
                           })}
+                          active={pathname === link.path}
                         >
                           {link.title}
                         </NavigationMenuLink>

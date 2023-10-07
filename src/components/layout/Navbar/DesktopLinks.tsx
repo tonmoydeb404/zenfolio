@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Link as NavLink } from "@/types/common.type";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 type Props = {
   className?: string;
@@ -16,6 +17,8 @@ type Props = {
 };
 
 const DesktopLinks = ({ className = "", navLinks = [] }: Props) => {
+  const pathname = usePathname();
+
   return (
     <NavigationMenu className={className}>
       <NavigationMenuList>
@@ -28,7 +31,10 @@ const DesktopLinks = ({ className = "", navLinks = [] }: Props) => {
                   legacyBehavior
                   passHref
                 >
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  <NavigationMenuLink
+                    className={navigationMenuTriggerStyle()}
+                    active={pathname === link.path}
+                  >
                     {link.title}
                   </NavigationMenuLink>
                 </Link>
