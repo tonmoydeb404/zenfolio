@@ -29,6 +29,7 @@ const ThemeButton = ({ className = "" }: Props) => {
       size={"icon"}
       onClick={toggleTheme}
       className={className}
+      aria-label="Toggle Theme"
     >
       {theme === "dark" ? <appIcons.LIGHT_MODE className="text-lg" /> : <></>}
       {theme === "light" ? <appIcons.DARK_MODE className="text-lg" /> : <></>}

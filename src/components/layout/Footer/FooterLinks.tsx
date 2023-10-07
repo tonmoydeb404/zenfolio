@@ -19,6 +19,7 @@ const FooterLinks = ({ links = [] }: Props) => {
               className="icon-list_icon text-2xl"
               title={link.title}
               target={link.newTab ? "_blank" : undefined}
+              aria-label={link.title}
             >
               <Icon />
             </Link>

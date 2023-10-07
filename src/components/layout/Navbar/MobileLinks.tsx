@@ -29,6 +29,7 @@ const MobileLinks = ({ className, navLinks = [] }: Props) => {
       <Sheet open={isOpen} onOpenChange={(open) => setIsOpen(open)}>
         <SheetTrigger
           className={buttonVariants({ variant: "outline", size: "icon" })}
+          aria-label="Toggle Menu"
         >
           <appIcons.MENU className="text-lg" />
         </SheetTrigger>
