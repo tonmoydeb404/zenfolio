@@ -1,8 +1,7 @@
 "use client";
 
 import ProjectCard from "@/components/cards/ProjectCard";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import icons from "@/config/icons";
+import StatusCard from "@/components/cards/StatusCard";
 import { Project, ProjectType } from "@/types/project.type";
 import { useMemo, useState } from "react";
 import ProjectFilter from "./ProjectFilter";
@@ -27,11 +26,7 @@ const ProjectList = ({ projects }: Props) => {
       <ProjectFilter value={projectType} onChange={setProjectType} />
 
       {!filterProjects.length ? (
-        <Alert className="mt-10">
-          <icons.ERROR className="text-xl text-destructive" />
-          <AlertTitle>Nothing is Here</AlertTitle>
-          <AlertDescription>Look for another opiton</AlertDescription>
-        </Alert>
+        <StatusCard status="ERROR" text="Nothing is Here" className="mt-10" />
       ) : (
         <div className="grid sm:grid-cols-2 gap-3 mt-10">
           {filterProjects.map((project) => (

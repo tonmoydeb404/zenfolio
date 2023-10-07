@@ -8,9 +8,15 @@ type Props = {
   text: string;
   status: Status;
   className?: string;
+  closeAble?: boolean;
 };
 
-const StatusCard = ({ status, text, className = "" }: Props) => {
+const StatusCard = ({
+  status,
+  text,
+  className = "",
+  closeAble = false,
+}: Props) => {
   const [show, setShow] = useState(true);
   const Icon = appIcons[status];
 
@@ -24,12 +30,14 @@ const StatusCard = ({ status, text, className = "" }: Props) => {
         <Icon />
       </span>
       <p>{text}</p>
-      <button
-        className="p-1.5 bg-black/30 hover:bg-black/40 text-white rounded-sm ml-auto duration-200"
-        onClick={() => setShow(false)}
-      >
-        <appIcons.CLOSE />
-      </button>
+      {closeAble ? (
+        <button
+          className="p-1.5 bg-black/30 hover:bg-black/40 text-white rounded-sm ml-auto duration-200"
+          onClick={() => setShow(false)}
+        >
+          <appIcons.CLOSE />
+        </button>
+      ) : null}
     </div>
   ) : null;
 };
