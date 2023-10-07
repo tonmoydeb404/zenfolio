@@ -45,7 +45,11 @@ const Contact = async () => {
           }}
         />
       ))}
-      <PageHeader title={contact.title} desc={contact.description} />
+      <PageHeader
+        title={contact.title}
+        desc={contact.description}
+        className="pt-10 pb-0"
+      />
       <HomeSocials links={profile.socialLinks} />
       <ContactForm className="py-16" />
       <ContactCards contacts={profile.contacts} />
