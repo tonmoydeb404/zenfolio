@@ -3,5 +3,5 @@
 }
 
 .icon-list_icon {
-  @apply p-2.5 rounded hover:bg-accent text-3xl;
+  @apply p-2.5 inline-block rounded hover:bg-accent text-3xl;
 }
