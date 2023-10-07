@@ -22,15 +22,16 @@ const Footer = ({ copyrightText, footerLinks }: Props) => {
                 if (!link.icon || !icons[link.icon]) return null;
                 const Icon = icons[link.icon];
                 return (
-                  <Link
-                    key={link.id}
-                    href={link.path}
-                    className="icon-list_icon text-2xl"
-                    title={link.title}
-                    target={link.newTab ? "_blank" : undefined}
-                  >
-                    <Icon />
-                  </Link>
+                  <li key={link.id}>
+                    <Link
+                      href={link.path}
+                      className="icon-list_icon text-2xl"
+                      title={link.title}
+                      target={link.newTab ? "_blank" : undefined}
+                    >
+                      <Icon />
+                    </Link>
+                  </li>
                 );
               })}
             </ul>
