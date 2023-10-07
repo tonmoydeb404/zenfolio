@@ -1,6 +1,6 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { Link as LinkType } from "@/types/hygraph.type";
+import { Link as LinkType } from "@/types/common.type";
 import Link from "next/link";
 
 type Props = {

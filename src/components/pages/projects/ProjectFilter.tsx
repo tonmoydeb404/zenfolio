@@ -1,6 +1,6 @@
 "use client";
 
-import { ProjectType } from "@/types/hygraph.type";
+import { ProjectType } from "@/types/project.type";
 
 type FilterType = ProjectType | "ALL";
 

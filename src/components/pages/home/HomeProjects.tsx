@@ -1,5 +1,5 @@
 import ProjectCard from "@/components/cards/ProjectCard";
-import { Project } from "@/types/hygraph.type";
+import { Project } from "@/types/project.type";
 
 type Props = {
   title: string;

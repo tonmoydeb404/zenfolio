@@ -1,5 +1,7 @@
 import { BreadCrumb } from "@/types/breadcrumb.type";
-import { Page, Profile, Project } from "@/types/hygraph.type";
+import { Page } from "@/types/page.type";
+import { Profile } from "@/types/profile.type";
+import { Project } from "@/types/project.type";
 
 const domain = process.env.NEXT_PUBLIC_DOMAIN as string;
 const url = process.env.NEXT_PUBLIC_URL as string;
@@ -29,7 +31,7 @@ export const breadCrumbSchema = (paths: BreadCrumb[]) => {
 export const webpageSchema = (
   page: Page,
   image: string,
-  relatedPages: Page[],
+  relatedPages: Pick<Page, "slug">[],
   itemListElement: any
 ) => {
   return {
@@ -172,7 +174,7 @@ export const profileSchema = (profile: Profile) => {
 export const aboutSchema = (
   page: Page,
   profile: Profile,
-  relatedPages: Page[]
+  relatedPages: Pick<Page, "slug">[]
 ) => {
   const breadCrumb = breadCrumbSchema([
     { title: page.title, path: `/${page.slug}` },
@@ -195,7 +197,7 @@ export const aboutSchema = (
 export const contactSchema = (
   page: Page,
   profile: Profile,
-  relatedPages: Page[]
+  relatedPages: Pick<Page, "slug">[]
 ) => {
   const breadCrumb = breadCrumbSchema([
     { title: page.title, path: `/${page.slug}` },
@@ -216,7 +218,7 @@ export const contactSchema = (
   return [breadCrumb, contactPageSchema];
 };
 
-export const pageSchema = (page: Page, relatedPages: Page[]) => {
+export const pageSchema = (page: Page, relatedPages: Pick<Page, "slug">[]) => {
   const breadCrumb = breadCrumbSchema([
     { title: page.title, path: `/${page.slug}` },
   ]);

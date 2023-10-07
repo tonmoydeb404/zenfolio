@@ -1,7 +1,6 @@
-import { Link } from "@/types/hygraph.type";
+import { Link } from "@/types/common.type";
 import DesktopLinks from "./DesktopLinks";
 import Logo from "./Logo";
-import MobileLinks from "./MobileLinks";
 import ThemeButton from "./ThemeButton";
 
 type Props = {
@@ -18,7 +17,7 @@ const Navbar = ({ logo, navLinks, title }: Props) => {
         <DesktopLinks className="hidden sm:flex ml-auto" navLinks={navLinks} />
         <div className="ml-auto inline-flex items-center gap-2">
           <ThemeButton />
-          <MobileLinks className="sm:hidden" navLinks={navLinks} />
+          {/* <MobileLinks className="sm:hidden" navLinks={navLinks} /> */}
         </div>
       </div>
     </nav>

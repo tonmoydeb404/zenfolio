@@ -1,4 +1,4 @@
-import { Website } from "@/types/hygraph.type";
+import { Website } from "@/types/website.type";
 import { ReactNode } from "react";
 import Footer from "./Footer";
 import Navbar from "./Navbar";

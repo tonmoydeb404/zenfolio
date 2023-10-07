@@ -1,6 +1,6 @@
 import { Separator } from "@/components/ui/separator";
 import socialIcons, { SocialIcon } from "@/config/icons/social-icons";
-import { Link as LinkType } from "@/types/hygraph.type";
+import { Link as LinkType } from "@/types/common.type";
 import Link from "next/link";
 
 type Props = {

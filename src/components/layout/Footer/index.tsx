@@ -1,7 +1,7 @@
 import { Separator } from "@/components/ui/separator";
 import icons from "@/config/icons";
 import appIcons from "@/config/icons/app-icons";
-import { Link as FooterLink } from "@/types/hygraph.type";
+import { Link as FooterLink } from "@/types/common.type";
 import Link from "next/link";
 
 type Props = {

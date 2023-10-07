@@ -4,7 +4,7 @@ import ProjectStacks from "@/components/pages/project-details/ProjectStacks";
 import projectBreadCrumbs from "@/config/breadcrumbs/project-breadcrumb";
 import { projectSchema } from "@/lib/schema-markup";
 import { MetadataProps } from "@/types/common.type";
-import { Project } from "@/types/hygraph.type";
+
 import { getProject, getProjectsSlug } from "@/utils/app-request";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -40,7 +40,7 @@ export async function generateMetadata({
 export async function generateStaticParams() {
   const projects = await getProjectsSlug();
 
-  return projects.map((project: Project) => ({
+  return projects.map((project) => ({
     slug: project.slug,
   }));
 }

@@ -1,7 +1,7 @@
 import SkillCard from "@/components/cards/SkillCard";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { Skill } from "@/types/hygraph.type";
+import { Skill } from "@/types/profile.type";
 
 type Props = {
   title: string;

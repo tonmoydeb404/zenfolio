@@ -2,14 +2,18 @@ import {
   pageQuery,
   pagesQuery,
   pagesSlugQuery,
-  profileQuery,
+} from "@/lib/queries/page.query";
+import { profileQuery } from "@/lib/queries/profile.query";
+import {
   projectQuery,
   projectsQuery,
   projectsSlugQuery,
-  queryWrapper,
-  websiteQuery,
-} from "@/lib/hygraph-queries";
-import { Page, Profile, Project, Website } from "@/types/hygraph.type";
+} from "@/lib/queries/project.query";
+import { websiteQuery } from "@/lib/queries/website.query";
+import { Page } from "@/types/page.type";
+import { Profile } from "@/types/profile.type";
+import { Project } from "@/types/project.type";
+import { Website } from "@/types/website.type";
 
 const CMS_ENDPOINT = process.env.CMS_ENDPOINT as string;
 const PROFILE_ID = process.env.PROFILE_ID as string;
@@ -19,20 +23,20 @@ export const getPagesSlug = async () => {
   const response = await fetch(CMS_ENDPOINT, {
     method: "POST",
     body: JSON.stringify({
-      query: queryWrapper("getPagesSlug", [pagesSlugQuery()]),
+      query: pagesSlugQuery(),
     }),
   });
 
   const { data } = await response.json();
 
-  return data.pages as Page[];
+  return data.pages as Pick<Page, "slug">[];
 };
 
 export const getPages = async (revalidate: undefined | number = undefined) => {
   const response = await fetch(CMS_ENDPOINT, {
     method: "POST",
     body: JSON.stringify({
-      query: queryWrapper("getPages", [pagesQuery()]),
+      query: pagesQuery(),
     }),
     next: {
       revalidate,
@@ -48,7 +52,7 @@ export const getPage = async (slug: string) => {
   const response = await fetch(CMS_ENDPOINT, {
     method: "POST",
     body: JSON.stringify({
-      query: queryWrapper("getPage", [pageQuery(slug)]),
+      query: pageQuery(slug),
     }),
   });
 
@@ -61,7 +65,7 @@ export const getProfile = async () => {
   const response = await fetch(CMS_ENDPOINT, {
     method: "POST",
     body: JSON.stringify({
-      query: queryWrapper("getProfile", [profileQuery(PROFILE_ID)]),
+      query: profileQuery(PROFILE_ID),
     }),
     next: {
       tags: ["profile"],
@@ -79,7 +83,7 @@ export const getProjects = async (
   const response = await fetch(CMS_ENDPOINT, {
     method: "POST",
     body: JSON.stringify({
-      query: queryWrapper("getProjects", [projectsQuery()]),
+      query: projectsQuery(),
     }),
     next: {
       tags: ["projects"],
@@ -96,7 +100,7 @@ export const getProject = async (slug: string) => {
   const response = await fetch(CMS_ENDPOINT, {
     method: "POST",
     body: JSON.stringify({
-      query: queryWrapper("getProject", [projectQuery(slug)]),
+      query: projectQuery(slug),
     }),
   });
 
@@ -109,20 +113,20 @@ export const getProjectsSlug = async () => {
   const response = await fetch(CMS_ENDPOINT, {
     method: "POST",
     body: JSON.stringify({
-      query: queryWrapper("getProjectsSlug", [projectsSlugQuery()]),
+      query: projectsSlugQuery(),
     }),
   });
 
   const { data } = await response.json();
 
-  return data.projects as Project[];
+  return data.projects as Pick<Project, "slug">[];
 };
 
 export const getWebsite = async () => {
   const response = await fetch(CMS_ENDPOINT, {
     method: "POST",
     body: JSON.stringify({
-      query: queryWrapper("getWebsite", [websiteQuery(WEBSITE_ID)]),
+      query: websiteQuery(WEBSITE_ID),
     }),
     next: {
       tags: ["website"],

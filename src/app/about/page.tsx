@@ -48,7 +48,7 @@ const AboutPage = async () => {
         id="#mainContent"
         className="prose dark:prose-invert"
         dangerouslySetInnerHTML={{ __html: about?.content?.html || "" }}
-      ></article>
+      />
     </>
   );
 };

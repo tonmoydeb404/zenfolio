@@ -1,6 +1,6 @@
 import ContactCard from "@/components/cards/ContactCard";
 import contactIcons, { ContactIcon } from "@/config/icons/contact-icons";
-import { Link } from "@/types/hygraph.type";
+import { Link } from "@/types/common.type";
 
 type Props = {
   contacts: Link<ContactIcon>[];

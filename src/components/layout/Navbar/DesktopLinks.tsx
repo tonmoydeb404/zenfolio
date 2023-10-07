@@ -7,7 +7,7 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { Link as NavLink } from "@/types/hygraph.type";
+import { Link as NavLink } from "@/types/common.type";
 import Link from "next/link";
 
 type Props = {

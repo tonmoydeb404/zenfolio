@@ -3,7 +3,7 @@
 import ProjectCard from "@/components/cards/ProjectCard";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import icons from "@/config/icons";
-import { Project, ProjectType } from "@/types/hygraph.type";
+import { Project, ProjectType } from "@/types/project.type";
 import { useMemo, useState } from "react";
 import ProjectFilter from "./ProjectFilter";
 

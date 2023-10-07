@@ -1,6 +1,6 @@
 import HobbyCard from "@/components/cards/HobbyCard";
 import hobbyIcons from "@/config/icons/hobby-icons";
-import { Hobby } from "@/types/hygraph.type";
+import { Hobby } from "@/types/profile.type";
 
 type Props = {
   title: string;
