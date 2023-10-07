@@ -1,4 +1,5 @@
 import AppLayout from "@/components/layout";
+import GoogleAnalytics from "@/components/utils/GoogleAnalytics";
 import { ThemeProvider } from "@/components/utils/theme-provider";
 import { getWebsite } from "@/utils/app-request";
 import { Metadata } from "next";
@@ -47,6 +48,7 @@ export default async function RootLayout({
         >
           <AppLayout website={website}>{children}</AppLayout>
         </ThemeProvider>
+        <GoogleAnalytics GA_TRACKING_ID={website.ga_tracking_id} />
       </body>
     </html>
   );

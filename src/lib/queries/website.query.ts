@@ -13,6 +13,7 @@ export const websiteQuery = (id: string) => {
       contactLinks {
         ${linkProps}
       }
+      ga_tracking_id
       navigationLinks {
         ${linkProps}
       }

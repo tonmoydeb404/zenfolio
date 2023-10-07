@@ -13,4 +13,5 @@ export type Website = {
   navigationLinks: Link<AppIcon>[];
   createdAt: string;
   updatedAt: string;
+  ga_tracking_id: string;
 };
