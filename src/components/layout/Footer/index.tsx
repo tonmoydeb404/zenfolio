@@ -1,12 +1,11 @@
 import { Separator } from "@/components/ui/separator";
-import icons from "@/config/icons";
 import appIcons from "@/config/icons/app-icons";
-import { Link as FooterLink } from "@/types/common.type";
-import Link from "next/link";
+import { Link as LinkType } from "@/types/common.type";
+import FooterLinks from "./FooterLinks";
 
 type Props = {
   copyrightText: string;
-  footerLinks: FooterLink[];
+  footerLinks: LinkType[];
 };
 
 const Footer = ({ copyrightText, footerLinks }: Props) => {
@@ -16,26 +15,7 @@ const Footer = ({ copyrightText, footerLinks }: Props) => {
         <Separator />
 
         <div className="flex flex-col sm:flex-row-reverse flex-wrap gap-5 items-center justify-center sm:justify-between px-3 py-4">
-          {footerLinks ? (
-            <ul className="icon-list gap-0">
-              {footerLinks.map((link) => {
-                if (!link.icon || !icons[link.icon]) return null;
-                const Icon = icons[link.icon];
-                return (
-                  <li key={link.id}>
-                    <Link
-                      href={link.path}
-                      className="icon-list_icon text-2xl"
-                      title={link.title}
-                      target={link.newTab ? "_blank" : undefined}
-                    >
-                      <Icon />
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-          ) : null}
+          {footerLinks ? <FooterLinks links={footerLinks} /> : null}
           <div className="flex items-center gap-1">
             <appIcons.COPYRIGHT className="text-lg text-primary" />
             <p>{copyrightText}</p>
