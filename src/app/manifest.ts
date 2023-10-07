@@ -11,9 +11,8 @@ export default async function manifest(): Promise<MetadataRoute.Manifest> {
     description: profile.bio,
     start_url: "/",
     display: "standalone",
-    // TODO: work on color
-    background_color: "#fff",
-    theme_color: "#fff",
+    background_color: "#111A2C",
+    theme_color: "#16A249",
     icons: [
       {
         src: "/icons/android-chrome-192x192.png",
