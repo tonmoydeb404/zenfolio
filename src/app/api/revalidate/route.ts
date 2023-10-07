@@ -42,6 +42,7 @@ export async function POST(request: NextRequest) {
           if (!body.data?.slug) throw new Error("Project slug not provided");
           // revalidate page slug
           revalidatePath(`/portfolio/${body.data.slug}`);
+          revalidateTag("projects");
           break;
         }
         case "page": {
