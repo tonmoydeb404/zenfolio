@@ -32,23 +32,24 @@ const ProjectDetailsHeader = ({
         <h1 className="project-details-header_title text-3xl font-semibold mb-2">
           {title}
         </h1>
-        <p className="project-details-header_desc leading-relaxed opacity-90">
+        <p className="project-details-header_desc leading-relaxed text-[15px] sm:text-base opacity-90">
           {desc}
         </p>
       </section>
 
       <div className="flex items-center justify-end gap-1">
         {previewLink ? (
-          <Link href={previewLink} className={buttonVariants()}>
-            PREVIEW <projectIcons.PREVIEW />{" "}
+          <Link href={previewLink} className={buttonVariants()} target="_blank">
+            PREVIEW <projectIcons.PREVIEW />
           </Link>
         ) : null}
         {sourceLink ? (
           <Link
             href={sourceLink}
             className={buttonVariants({ variant: "secondary" })}
+            target="_blank"
           >
-            SOURCE <projectIcons.PREVIEW />{" "}
+            SOURCE <projectIcons.PREVIEW />
           </Link>
         ) : null}
       </div>
