@@ -17,15 +17,16 @@ const HomeSocials = ({ links }: Props) => {
             const Icon = socialIcons[link.icon];
             if (!Icon) return null;
             return (
-              <Link
-                href={link.path}
-                key={link.id}
-                className="icon-list_icon"
-                target="_blank"
-                title={link.title}
-              >
-                <Icon />
-              </Link>
+              <li key={link.id}>
+                <Link
+                  href={link.path}
+                  className="icon-list_icon"
+                  target="_blank"
+                  title={link.title}
+                >
+                  <Icon />
+                </Link>
+              </li>
             );
           })}
         </ul>
