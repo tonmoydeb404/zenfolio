@@ -30,17 +30,16 @@ const ProjectList = ({ projects }: Props) => {
       ) : (
         <div className="grid sm:grid-cols-2 gap-3 mt-10">
           {filterProjects.map((project) => (
-            <div key={project.slug}>
-              <ProjectCard
-                title={project.title}
-                desc={project.description}
-                techs={project.stacks}
-                path={project.slug}
-                previewLink={project.previewLink}
-                sourceLink={project.sourceLink}
-                thumbnail={project.thumbnail?.url}
-              />
-            </div>
+            <ProjectCard
+              key={project.slug}
+              title={project.title}
+              desc={project.description}
+              techs={project.stacks}
+              path={project.slug}
+              previewLink={project.previewLink}
+              sourceLink={project.sourceLink}
+              thumbnail={project.thumbnail?.url}
+            />
           ))}
         </div>
       )}
