@@ -71,7 +71,7 @@ const ProjectDetails = async ({ params }: { params: { slug: string } }) => {
         className="mb-16"
       />
       <article
-        className="prose dark:prose-invert"
+        className="prose dark:prose-invert w-full overflow-x-hidden"
         dangerouslySetInnerHTML={{ __html: project.content.html }}
       ></article>
 
