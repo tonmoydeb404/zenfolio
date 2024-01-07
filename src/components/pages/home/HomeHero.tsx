@@ -12,14 +12,9 @@ type Props = {
   secondaryCTA: LinkType | null;
 };
 
-const HomeHero = ({
-  name,
-  profession,
-  bio,
-  avatar,
-  primaryCTA,
-  secondaryCTA,
-}: Props) => {
+const HomeHero = (props: Props) => {
+  const { name, profession, bio, avatar, primaryCTA, secondaryCTA } = props;
+
   return (
     <header className={`home-hero`}>
       <div className="home-hero_body">
